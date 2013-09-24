@@ -17,19 +17,19 @@ public class Competition extends Evenement{
     private List<Licencie> inscrits;
     private String lienProgramme;
 
-    public Competition(String nom, GregorianCalendar date){
-        super(nom,date);
+    public Competition(String nom, GregorianCalendar date, Adresse lieu){
+        super(nom,date, lieu);
         inscrits = new ArrayList<Licencie>();
     }
 
-    public Competition(String nom, GregorianCalendar date, String lienProgramme){
-        super(nom,date);
+    public Competition(String nom, GregorianCalendar date, String lienProgramme, Adresse lieu){
+        super(nom,date,lieu);
         this.lienProgramme = lienProgramme;
         inscrits = new ArrayList<Licencie>();
     }
 
-    public Competition(String nom, GregorianCalendar date, List<Licencie> inscrits, String lienProgramme) {
-        super(nom, date);
+    public Competition(String nom, GregorianCalendar date, List<Licencie> inscrits, String lienProgramme, Adresse lieu) {
+        super(nom, date, lieu);
         this.inscrits = inscrits;
         this.lienProgramme = lienProgramme;
     }
