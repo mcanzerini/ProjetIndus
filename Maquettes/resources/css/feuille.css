@@ -1,0 +1,75 @@
+body {
+	background-image: url("../img/bg.jpg");
+	padding-top: 60px;
+	
+}
+
+/*body{
+		padding-top: 60px;
+
+background: #d6efff;
+background-image: url("../img/zenbg-1.png"), url("../img/zenbg-2.png");
+background-repeat: repeat-x, repeat;
+}*/
+body > .container{
+	background-color:#E1E1E1;
+}
+
+#Desc{
+	padding:28px;
+	background: none;
+}
+
+.dropdown-menu > li > a {
+display: block;
+padding: 3px 20px;
+clear: both;
+font-weight: normal;
+line-height: 20px;
+color: #333333;
+white-space: nowrap;
+}
+
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+color: #999999;
+cursor:default;
+}
+
+.navbar-inner .container {
+	width:1170px;
+}
+
+.modal.fade.in {
+left: 50%;
+}
+
+.navbar {
+font-size: 13px;
+}
+
+#fenetreConnexion{
+	width : 500px;
+}
+
+#formulaire {
+	background-color:#CCC;
+	padding: 10px;
+}
+.carousel-inner {
+    border-radius: 5px 5px 5px 5px;
+    border: 5px solid white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    margin : auto;
+}
+
+#messageAccueil{
+	padding:30px;
+}
+
+.underline{
+	text-decoration:underline;
+}
+
+.italic{
+	font-style:italic;
+}
