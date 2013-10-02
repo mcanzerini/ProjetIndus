@@ -5,7 +5,7 @@
     <title>Bootstrap 101 Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-
+	<meta charset="UTF-8">
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
             <link href="resources/css/feuille.css" rel="stylesheet" media="screen">
             <link rel="stylesheet" href="calendar/css/calendar.css">
@@ -49,7 +49,11 @@
         
         </ul>
         <form class="navbar-search pull-right" action="">
+        <a href="recherche.html" rel="tooltip" data-placement="bottom" data-original-title="Recherche avancée" title="Recherche avancée">
+                <i class="icon-search icon-white"></i>
+                </a>
           <input class="search-query" type="text" data-provide="typeahead" data-source='["Calendrier","Vosges 2012","Barbecue", "Championnat Lorraine", "Coupe de France"]' placeholder="Recherche rapide">
+       
         </form>
       </div>
     </div>
@@ -139,6 +143,10 @@
 </div>  	 	
   	 <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-  	
+  	<script type="text/javascript">
+		$(function (){
+   $('a').tooltip();
+});
+	</script>
 </body>
 </html>  	
