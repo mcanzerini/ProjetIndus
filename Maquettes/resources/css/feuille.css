@@ -1,7 +1,6 @@
 body {
-	background-image: url("../img/bg.jpg");
+	background-image: url("../img/bgGris.jpg");
 	padding-top: 60px;
-	
 }
 
 /*body{
@@ -13,6 +12,27 @@ background-repeat: repeat-x, repeat;
 }*/
 body > .container{
 	background-color:#E1E1E1;
+}
+
+#adresse{
+	margin-left:40%;
+}
+
+#map{
+	margin-left: 25%;
+}
+
+#first{
+	margin-bottom:0px;
+	padding-bottom:-40px;
+}
+
+.description{
+	padding-top:50px;
+}
+
+.comite{
+	margin-bottom:0px;
 }
 
 #Desc{
