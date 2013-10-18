@@ -7,20 +7,61 @@
     <!-- Bootstrap -->
 	<meta charset="UTF-8">
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+                        <link href="bootstrap/css/docs.css" rel="stylesheet" media="screen">
+                                    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+
             <link href="resources/css/feuille.css" rel="stylesheet" media="screen">
-            <link rel="stylesheet" href="calendar/css/calendar.css">
             </head>
   
-<body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<body id="bodyPresentation">
+    <div class="hidden-desktop navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div  id="barreTablette" class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="index.html">K C Crusnes</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="">
+                <a href="index.html">Accueil</a>
+              </li>
+              <li class="active">
+                <a href="presentation.html">Le Club</a>
+              </li>
+              <li class="">
+                <a href="calendrier.html">Calendrier</a>
+              </li>
+              <li class="">
+                <a href="resultat.html">R&eacute;sultats</a> </li>       
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
+          		<li class="divider"></li>
+          		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>
+          	</ul>
+<li> <a href="#">Contact</a> </li>
+          <li> <a href="#">R&eacute;f&eacute;rences</a> </li>   
+          <li> <a href="recherche.html">Recherche</a> </li>                 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav class="visible-desktop navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
-        <ul class="nav">
-          <li> <a href="index.html">Accueil</a> </li>
-          <li> <a href="presentation.html">Le Club</a> </li>
+      <div id="barrePC" class="container">
+      <div class="nav-collapse collapse" style="height: 0px;">
+                    <ul class="nav">
+          <li > <a href="index.html">Accueil</a> </li>
+          <li class="active"> <a href="presentation.html">Le Club</a> </li>
           <li> <a href="calendrier.html">Calendrier</a> </li>
           <li> <a href="resultat.html">R&eacute;sultats</a> </li>
-          <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacute;dia <b class="caret"></b></a> 
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
           		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
@@ -31,6 +72,7 @@
           <li class="divider-vertical"></li>
           <li> <a href="#">Contact</a> </li>
           <li> <a href="#">R&eacute;f&eacute;rences</a> </li>
+          
           <!-- Button to trigger modal -->
 
  
@@ -38,7 +80,14 @@
         </ul>
         
         <ul class="nav pull-right">
-        <li class = "dropdown active"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Mon Compte <b class="caret"></b></a>
+         <li><form class="navbar-search pull-right" action="">
+        <a href="recherche.html" rel="tooltip" data-placement="bottom" data-original-title="Recherche avancée" title="Recherche avancée">
+                <i class="icon-search icon-white"></i>
+                </a>
+          <input class="search-query" type="text" data-provide="typeahead" data-source='["Calendrier","Vosges 2012","Barbecue", "Championnat Lorraine", "Coupe de France"]' placeholder="Recherche rapide">
+       
+        </form></li>
+        <li class = "dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Mon Compte <b class="caret"></b></a>
 <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
   <li><a tabindex="-1" href="#fenetreConnexion" data-toggle="modal">Connexion</a></li>
     <li><a tabindex="-1" href="inscription.html">Inscription</a></li>
@@ -46,20 +95,15 @@
   <li class="disabled"><a tabindex="-1" href="#">Deconnexion</a></li>
 </ul>
 
+
 </li>
         
         </ul>
-        <form class="navbar-search pull-right" action="#">
-        <a href="recherche.html" rel="tooltip" data-placement="bottom" data-original-title="Recherche avancée" title="Recherche avancée">
-                <i class="icon-search icon-white"></i>
-                </a>
-          <input class="search-query" type="text" data-provide="typeahead" data-source='["Calendrier","Vosges 2012","Barbecue", "Championnat Lorraine", "Coupe de France"]' placeholder="Recherche rapide">
        
-        </form>
+</div>
       </div>
     </div>
-  </nav>
-  
+  </nav>  
   <div class="row-fluid">
   <!-- Modal -->
 <div id="fenetreConnexion" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -95,6 +139,8 @@
     <button class="btn btn-primary">Connexion</button>
   </div>
 </div>
+
+<div class="span11"></div>
 <div class="span2"></div>	<div class="span8">
 	<div id="first" class="page-header">
 	
@@ -102,9 +148,9 @@
   </div>
   </div>
 
-  	<div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-tabs nav-stacked bs-docs-sidenav affix">
-          <li><a href="#histoire"><i class="icon-chevron-right"></i> Histoire du Club &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+  	<div  class="span2 ">
+        <ul id="navbar" data-spy="affix" data-offset-top="0" class=" visible-desktop nav nav-tabs nav-stacked">
+          <li><a href="#histoire"><i class="icon-chevron-right"></i> Histoire du Club</a></li>
           <li><a href="#comite"><i class="icon-chevron-right"></i> Comit&eacute;</a></li>
           <li><a href="#entraineurs"><i class="icon-chevron-right"></i> Entraineurs</a></li>
           <li><a href="#horaire"><i class="icon-chevron-right"></i> Horaires</a></li>
@@ -112,9 +158,7 @@
         </ul>
       </div>
 
-
-
-      <div class="span6">
+      <div id="contenuPresentation" class="span7">
       
       <section id="histoire">
           <div class="page-header">
@@ -468,17 +512,18 @@
 54680 Crusnes Cit&eacute;s<br>
 </address>
 </div>
-<div id="map" class="row-fluid">
-<iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fr/maps?q=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;ie=UTF8&amp;hq=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;hnear=&amp;radius=15000&amp;ll=49.43042,5.933227&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"></iframe><br /><div></div>
+<div id="map" class="hidden-phone row-fluid">
+<iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fr/maps?q=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;ie=UTF8&amp;hq=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;hnear=&amp;radius=15000&amp;ll=49.43042,5.933227&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"></iframe><br /><div></div>
 </section>          
 <div class="span12"></div>                 
-                 </div> </div> 	
+                 </div> </div> 	</div>
   	 	
   	 <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   	<script type="text/javascript">
 		$(function (){
    $('a').tooltip();
+   $('#navbar').affix();
 });
 	</script>
 </body>

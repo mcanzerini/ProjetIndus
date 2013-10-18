@@ -1,8 +1,58 @@
 body {
 	background-image: url("../img/bgGris.jpg");
-	padding-top: 60px;
 }
 
+#barreTablette, #barrePC{
+	width:auto;
+}
+
+#navbar{
+	position:fixed;
+}
+
+@media (max-width: 399px) { 
+	
+	#bodyPresentation {
+width:99%}
+
+ }
+
+
+
+nav a{
+color: #999999;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+
+nav a:hover{
+text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+
+}
+
+
+
+body > .navbar .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+body > .navbar .brand:hover {
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
+
+	
 /*body{
 		padding-top: 60px;
 
@@ -14,13 +64,25 @@ body > .container{
 	background-color:#E1E1E1;
 }
 
-#adresse{
-	margin-left:40%;
+@media (min-width: 768px){
+	#contenuPresentation{
+		margin-left:3.5%;
+	}
 }
 
-#map{
-	margin-left: 25%;
-}
+/* Large desktop */
+@media (min-width: 1200px) { ... }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { ... }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { ... }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { ... }
+
+
 
 #first{
 	margin-bottom:0px;
@@ -28,7 +90,7 @@ body > .container{
 }
 
 .description{
-	padding-top:50px;
+	padding-top:10px;
 }
 
 .comite{
