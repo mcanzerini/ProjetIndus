@@ -13,7 +13,7 @@
             </head>
   
 <body>
-    <div class="hidden-desktop navbar navbar-inverse navbar-fixed-top">
+    <div id="menuPetit" class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div  id="barreTablette" class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <nav class="visible-desktop navbar navbar-inverse navbar-fixed-top">
+    <nav id="menuPC" class="visible-desktop navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div id="barrePC" class="container">
       <div class="nav-collapse collapse" style="height: 0px;">
@@ -137,17 +137,20 @@
     <button class="btn btn-primary">Connexion</button>
   </div>
 </div>
-<div class="span11"></div>
-<div class="span11"></div>
-<div class="span11"></div>
-<div class="span2"><img src="resources/img/logo.png"></img></div><div class="page-header">
+<div class="visible-desktop span11"></div>
+<div class="visible-desktop span11"></div>
+
+<div class="span2"></div>
+<img id="logo" src="resources/img/logo_petit.png"></img>
+<div class="span8">
+
+<div class="page-header">
   <h1>R&eacute;sultats : Championnat de Lorraine 12/13</h1>
   </div>
   		<div class="span11"></div>
 
 <div class="span2"></div>
 
-<div class="span8">
 
 <table class="table table-hover table-bordered table-striped">
 
@@ -183,7 +186,21 @@
   </tbody>
 </table>
 </div>
-<div class="span2"></div>  	 	
+</div>  	
+<footer class="footer">
+      <div class="container">
+      <p>Copyright © Karate Club de Crusnes </p>
+        <p>Designed and built with all the love in the world by <a href="http://twitter.com/mcanzerini" target="_blank">@mcanzerini</a> .</p>
+        <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+          <li class="muted">·</li>
+          <li><a href="https://github.com/twbs/bootstrap/issues?state=open">Issues</a></li>
+          <li class="muted">·</li>
+          <li><a href="https://github.com/twbs/bootstrap/releases">Changelog</a></li>
+        </ul>
+      </div>
+    </footer>   	
   	 <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
   	<script type="text/javascript">

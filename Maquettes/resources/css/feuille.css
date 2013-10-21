@@ -2,6 +2,58 @@ body {
 	background-image: url("../img/bgGris.jpg");
 }
 
+
+.footer {
+text-align: center;
+padding: 30px 0;
+margin-top: 70px;
+border-top: 1px solid #e5e5e5;
+
+}
+
+.footer p {
+margin-bottom: 0;
+color: #777;
+}
+
+.footer-links {
+margin: 10px 0;
+}
+
+.footer-links li:first-child {
+padding-left: 0;
+}
+
+.footer-links li {
+display: inline;
+padding: 0 2px;
+}
+
+@media (max-width: 1002px) {
+	#menuPC{
+		visibility: hidden;
+	}
+	
+	#logo{		
+		visibility:hidden; 
+		position:absolute;
+	}
+}
+
+@media (min-width: 1002px) {
+	#menuPetit{
+		visibility: hidden;
+	}
+	
+	#logo{
+		position:absolute;
+		left:3.5%;
+		top:8%;
+		width:14%;
+	}
+}
+
+
 #barreTablette, #barrePC{
 	width:auto;
 }
@@ -84,9 +136,9 @@ body > .container{
 
 
 
-#first{
-	margin-bottom:0px;
-	padding-bottom:-40px;
+.first{
+	margin: 20px 0 0;
+	padding-top:0;
 }
 
 .description{

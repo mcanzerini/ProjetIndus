@@ -14,7 +14,7 @@
             </head>
   
 <body id="bodyPresentation">
-    <div class="hidden-desktop navbar navbar-inverse navbar-fixed-top">
+    <div id="menuPetit" class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div  id="barreTablette" class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <nav class="visible-desktop navbar navbar-inverse navbar-fixed-top">
+    <nav id="menuPC" class="visible-desktop navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div id="barrePC" class="container">
       <div class="nav-collapse collapse" style="height: 0px;">
@@ -140,16 +140,28 @@
   </div>
 </div>
 
-<div class="span11"></div>
+<div class="visible-desktop span11"></div>
+<div class="visible-desktop span11"></div>
 <div class="span2"></div>	<div class="span8">
-	<div id="first" class="page-header">
+	<div class="page-header first">
 	
   <h1>Le Club</h1>
   </div>
   </div>
+  
+  <div  class="span10 hidden-desktop">
+        <ul class="nav nav-tabs nav-stacked">
+          <li><a href="#histoire"><i class="icon-chevron-right"></i> Histoire du Club</a></li>
+          <li><a href="#comite"><i class="icon-chevron-right"></i> Comit&eacute;</a></li>
+          <li><a href="#entraineurs"><i class="icon-chevron-right"></i> Entraineurs</a></li>
+          <li><a href="#horaire"><i class="icon-chevron-right"></i> Horaires</a></li>
+          <li><a href="#dojo"><i class="icon-chevron-right"></i> Dojo</a></li>
+        </ul>
+      </div>
 
-  	<div  class="span2 ">
-        <ul id="navbar" data-spy="affix" data-offset-top="0" class=" visible-desktop nav nav-tabs nav-stacked">
+
+  	<div  class="span2 visible-desktop ">
+        <ul id="navbar" data-spy="affix" data-offset-top="0" class="nav nav-tabs nav-stacked">
           <li><a href="#histoire"><i class="icon-chevron-right"></i> Histoire du Club</a></li>
           <li><a href="#comite"><i class="icon-chevron-right"></i> Comit&eacute;</a></li>
           <li><a href="#entraineurs"><i class="icon-chevron-right"></i> Entraineurs</a></li>
@@ -516,7 +528,22 @@
 <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fr/maps?q=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;ie=UTF8&amp;hq=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;hnear=&amp;radius=15000&amp;ll=49.43042,5.933227&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"></iframe><br /><div></div>
 </section>          
 <div class="span12"></div>                 
-                 </div> </div> 	</div>
+                 </div> </div> 	
+                 
+                 <footer class="footer">
+      <div class="container">
+      <p>Copyright © Karate Club de Crusnes </p>
+        <p>Designed and built with all the love in the world by <a href="http://twitter.com/mcanzerini" target="_blank">@mcanzerini</a> .</p>
+        <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+        <ul class="footer-links">
+          <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+          <li class="muted">·</li>
+          <li><a href="https://github.com/twbs/bootstrap/issues?state=open">Issues</a></li>
+          <li class="muted">·</li>
+          <li><a href="https://github.com/twbs/bootstrap/releases">Changelog</a></li>
+        </ul>
+      </div>
+    </footer>  
   	 	
   	 <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
