@@ -2,6 +2,30 @@ body {
 	background-image: url("../img/bgGris.jpg");
 }
 
+#minimum{
+	min-height:540px;
+}
+
+.navbar .nav > li {
+	font-size:14px;
+}
+#barrePC .nav{
+	padding-left: 5%;
+}
+@media (min-width: 1200px){
+	#containeurPhotos{ 
+	width: 940px;
+	}
+	
+	#containeurResultats{ 
+	width: 940px;
+	}
+}
+	
+#accordion2 .accordion-heading {
+	padding:10px;
+}
+
 
 .footer {
 text-align: center;
@@ -116,12 +140,12 @@ body > .container{
 	background-color:#E1E1E1;
 }
 
-@media (min-width: 768px){
+/*@media (min-width: 768px){
 	#contenuPresentation{
 		margin-left:3.5%;
 	}
 }
-
+*/
 /* Large desktop */
 @media (min-width: 1200px) { ... }
  

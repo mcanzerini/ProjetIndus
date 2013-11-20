@@ -8,8 +8,9 @@
 	<meta charset="UTF-8">
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
             <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+                                <link href="bootstrap/css/datepicker.css" rel="stylesheet" media="screen">
+
             <link href="resources/css/feuille.css" rel="stylesheet" media="screen">
-            <link rel="stylesheet" href="calendar/css/calendar.css">
             </head>
   
 <body>
@@ -27,24 +28,26 @@
               <li class="">
                 <a href="index.html">Accueil</a>
               </li>
-              <li class="">
-                <a href="presentation.html">Le Club</a>
-              </li>
-              <li class="">
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>              <li class="">
                 <a href="calendrier.html">Calendrier</a>
               </li>
               <li class="active">
                 <a href="resultat.html">R&eacute;sultats</a> </li>       
               <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="photos.html"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
-          		<li class="divider"></li>
-          		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>
           	</ul>
 <li> <a href="#">Contact</a> </li>
           <li> <a href="#">R&eacute;f&eacute;rences</a> </li>   
-          <li> <a href="recherche.html">Recherche</a> </li>                 
               </li>
             </ul>
           </div>
@@ -57,15 +60,21 @@
       <div class="nav-collapse collapse" style="height: 0px;">
                     <ul class="nav">
           <li> <a href="index.html">Accueil</a> </li>
-          <li> <a href="presentation.html">Le Club</a> </li>
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>
           <li> <a href="calendrier.html">Calendrier</a> </li>
           <li class="active"> <a href="resultat.html">R&eacute;sultats</a> </li>
           <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="photos.html"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
-          		<li class="divider"></li>
-          		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>
           	</ul>
           </li>
           <li class="divider-vertical"></li>
@@ -77,66 +86,12 @@
 
         </ul>
         
-        <ul class="nav pull-right">
-         <li><form class="navbar-search pull-right" action="">
-        <a href="recherche.html" rel="tooltip" data-placement="bottom" data-original-title="Recherche avancée" title="Recherche avancée">
-                <i class="icon-search icon-white"></i>
-                </a>
-          <input class="search-query" type="text" data-provide="typeahead" data-source='["Calendrier","Vosges 2012","Barbecue", "Championnat Lorraine", "Coupe de France"]' placeholder="Recherche rapide">
-       
-        </form></li>
-        <li class = "dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Mon Compte <b class="caret"></b></a>
-<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-  <li><a tabindex="-1" href="#fenetreConnexion" data-toggle="modal">Connexion</a></li>
-    <li><a tabindex="-1" href="inscription.html">Inscription</a></li>
-          <li class="divider"></li>    
-  <li class="disabled"><a tabindex="-1" href="#">Deconnexion</a></li>
-</ul>
-
-
-</li>
-        
-        </ul>
-       
+             
 </div>
       </div>
     </div>
   </nav>  
   <div class="row-fluid">
-  <!-- Modal -->
-<div id="fenetreConnexion" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3 id="myModalLabel">Connexion</h3>
-  </div>
-  <div class="modal-body">
-    <form class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Email</label>
-    <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Email">
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label" for="inputPassword">Mot de passe</label>
-    <div class="controls">
-      <input type="password" id="inputPassword" placeholder="Password">
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox"> Se souvenir de moi
-      </label>
-    </div>
-  </div>
-</form>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-    <button class="btn btn-primary">Connexion</button>
-  </div>
-</div>
 
 <div class="visible-desktop span11"></div>
 <div class="visible-desktop span11"></div>
@@ -148,79 +103,206 @@
 <div class="span8">
 <div class="page-header">
   <h1>R&eacute;sultats</h1>
+
+  <h2>Moteur de Recherche</h2>
   </div>
 
-<blockquote class="">
-  <p>La diff&eacute;rence fondamentale entre l'homme ordinaire et le guerrier, c'est que le guerrier consid&egrave;re toute chose comme un d&eacute;fi, 
-  tandis que l'homme ordinaire voit en toute chose soit une b&eacute;n&eacute;diction, soit une mal&eacute;diction.</p>
-  <small>Jean-Baptiste Poquelin <cite title="Source Title">dit Moli&egrave;re</cite></small>
-</blockquote>
-<div class="span12"></div>
+<div class="accordion" id="accordion2">
+<div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="" data-parent="" href="derniersResultats.html">
+<big>Consulter les derniers r&eacute;sultats</big>
+      </a>
+    </div>
+     </div>
 
-<ul class="thumbnails">
-  <li class="span4">
-    <a href="resultatCompetition.html" class="thumbnail">
-      <img src="resources/img/emma.jpg" data-src="holder.js/300x200" alt="">
-    </a>
-    <div class="caption">
-                    <h3>Lorraine 12/13</h3>
-                    <p>Pluie de medailles a ces chamipnnats de lorraine</p>
-                    <p><a href="#" class="btn btn-primary">Voir</a>
-                  </div>
-  </li>
-    <li class="span4">
-    <a href="#" class="thumbnail">
-      <img src="resources/img/myl.jpg" data-src="holder.js/300x200" alt="">
-    </a>
-    <div class="caption">
-                    <h3>France Corpo 12/13</h3>
-                    <p>Des combats epiques</p>
-                    <p><a href="#" class="btn btn-primary">Voir</a>
-                  </div>
-
-  </li>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        <big>Rechercher les r&eacute;sultats d'un comp&eacute;titeur</big>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <form id="formCompetiteur" class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputNom">Nom</label>
+    <div class="controls">
+      <input type="text" id="inputNom" placeholder="Dona">
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="inputPrenom">Pr&eacutenom</label>
+    <div class="controls">
+      <input type="text" id="inputPrenom" placeholder="Davy">
+    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+<select form="formCompetiteur">
+  <option>Les m&eacute;dailles d'or</option>
+  <option>Les finales</option>
+  <option>Les podiums</option>
+</select>    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">Lancer la recherche</button>
+    </div>
+  </div>
+</form>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+        <big>Rechercher les r&eacute;sultats d'une comp&eacute;tition</big>
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <form id="formCompet" class="form-horizontal">
+  <div class="control-group">
+    <label class="control-label" for="inputLieu">Lieu</label>
+    <div class="controls">
+      <input type="text" id="inputLieu" placeholder="Pont-à-Mousson">
+    </div>
+  </div>
   
-  <li class="span4">
-    <a href="#" class="thumbnail">
-      <img src="resources/img/jo.jpg" data-src="holder.js/300x200" alt="">
-    </a>
-    <div class="caption">
-                    <h3>Premier League Frankfurt</h3>
-                    <p>Le beau parcours de Jonathan</p>
-                    <p><a href="#" class="btn btn-primary">Voir</a> 
-                  </div>
-  </li>
-</ul>
+  <div class="control-group">
+    <label class="control-label" for="inputDate">Date</label>
+        <div class="controls">
 
-<ul class="thumbnails">
-  <li class="span4">
-    <a href="#" class="thumbnail">
-      <img src="resources/img/2.jpg" data-src="holder.js/300x200" alt="">
-    </a>
-    <div class="caption">
-                    <h3>Lorraine 11/12</h3>
-                    <p>Pluie de medailles a ces chamipnnats de lorraine</p>
-                    <p><a href="#" class="btn btn-primary">Voir</a>
-                  </div>
-  </li>
-    <li class="span4">
-    <a href="#" class="thumbnail">
-      <img src="resources/img/3.jpg" data-src="holder.js/300x200" alt="">
-    </a>
-    <div class="caption">
-                    <h3>D&eacute;partementales 11/12</h3>
-                    <p>40 podiums !</p>
-                    <p><a href="#" class="btn btn-primary">Voir</a>
-                  </div>
+    <div class="input-append date" id="dp3" data-date="01/01/2013" data-date-format="dd/mm/yyyy">
+				<input class="span9" size="10" type="text" value="01/01/2013" readonly="">
+				<span class="add-on"><i class="icon-calendar"></i></span>
+			  </div>  </div></div>
+			  <div class="control-group">
+			  <label class="control-label" for="inputType">Type</label>
+    <div class="controls">
+<select form="formCompet">
+  <option>Championnat D&eacute;partemental</option>
+  <option>Championnat Lorraine</option>
+  <option>Championnat de France</option>
+    <option>Coupe de France</option>
+</select>    </div>
+  </div>
 
-  </li>
-  <li class="span3"></li>
+  <div class="control-group">
+    <div class="controls">
+<select form="formCompet">
+  <option>Les m&eacute;dailles d'or</option>
+  <option>Les finales</option>
+  <option>Les podiums</option>
+</select>    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">Lancer la recherche</button>
+    </div>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </div>
+ 
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+        <big>Rechercher les r&eacute;sultats annuels du club</big>
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <form id="formAnnuel" class="form-horizontal">
+    <div class="control-group">
+    <label class="control-label" for="inputDate">Saison</label>
+        <div class="controls">
+
+    <input class="search-query" type="text" data-provide="typeahead" data-source="[&quot;2012/2013&quot;,&quot;2011/2012&quot;,&quot;2010/2011&quot]" placeholder="2012/2013">  </div></div>
+  <div class="control-group">
+    <div class="controls">
+<select form="formAnnuel">
+  <option>Les m&eacute;dailles d'or</option>
+  <option>Les finales</option>
+  <option>Les podiums</option>
+</select>    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">Lancer la recherche</button>
+    </div>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </div>
   
-</ul>
-</div>
+<div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+       <big> Rechercher les grades      </big></a>
+    </div>
+    <div id="collapseFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <form id="formGrade" class="form-horizontal">
+    <div class="control-group">
+    <label class="control-label" for="inputNom">Nom</label>
+        <div class="controls">
 
+    <input class="search-query" type="text" placeholder="Perfetto">  
+    </div>
+    </div>
+    <div class="control-group">
+    <label class="control-label" for="inputPrenom">Pr&eacute;nom</label>
+        <div class="controls">
+
+    <input class="search-query" type="text" placeholder="Raphael">  
+    </div>
+    </div>
+  <div class="control-group">
+      <label class="control-label" for="inputGrade">Ceinture</label>
+    <div class="controls">
+<select form="formGrade">
+
+  <option>Blanche</option>
+  <option>Blanche - Jaune</option>
+  <option>Jaune</option>
+  <option>Jaune - Orange</option>
+  <option>Orange</option>
+  <option>Orange - Verte</option>
+  <option>Verte</option>
+  <option>Verte - Bleue</option>
+  <option>Bleue</option>
+    <option>Bleue - Marron</option>
+  <option>Marron</option>
+  <option>Blanche - Noire</option>
+    <option>Noire Technique</option>
+        <option>Noire 1er Dan</option>
+            <option>Noire 2e Dan Technique</option>
+        <option>Noire 2e Dan</option>
+            <option>Noire 3e Dan Technique</option>
+        <option>Noire 3e Dan</option>
+</select>    </div>
+  </div>
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">Lancer la recherche</button>
+    </div>
+  </div>
+</form>
+
+      </div>
+    </div>
+  </div>
 
 </div>
+</div>
+</div>  	 
+
 <footer class="footer">
       <div class="container">
       <p>Copyright © Karate Club de Crusnes </p>
@@ -237,10 +319,13 @@
     </footer>  
   	 <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+            <script src="bootstrap/js/bootstrap-datepicker.js"></script>
   	<script type="text/javascript">
 		$(function (){
    $('a').tooltip();
 });
+$('#dp3').datepicker();
+
 	</script>
 </body>
 </html>  	

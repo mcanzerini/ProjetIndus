@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Adresse" table="Adresse">
+        <id name="id" column="id_adresse">
+            <generator class="increment"/>
+        </id>
+        <property name="numVoie" column="num_voie"/>
+        <property name="nomVoie" column="nom_voie"/>
+        <property name="codePostal" column="code_postal"/>
+        <property name="ville" column="ville"/>
+        <property name="pays" column="pays"/>
+    </class>
+</hibernate-mapping>

@@ -9,7 +9,6 @@
     <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
             <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
             <link href="resources/css/feuille.css" rel="stylesheet" media="screen">
-            <link rel="stylesheet" href="calendar/css/calendar.css">
                     <link href="bootstrap/css/datepicker.css" rel="stylesheet" media="screen">
 
             </head>
@@ -29,9 +28,15 @@
               <li class="">
                 <a href="index.html">Accueil</a>
               </li>
-              <li class="">
-                <a href="presentation.html">Le Club</a>
-              </li>
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>
               <li class="">
                 <a href="calendrier.html">Calendrier</a>
               </li>
@@ -59,12 +64,20 @@
       <div class="nav-collapse collapse" style="height: 0px;">
                     <ul class="nav">
           <li> <a href="index.html">Accueil</a> </li>
-          <li> <a href="presentation.html">Le Club</a> </li>
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>
           <li> <a href="calendrier.html">Calendrier</a> </li>
           <li> <a href="resultat.html">R&eacute;sultats</a> </li>
           <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="photos.html"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
           		<li class="divider"></li>
           		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>

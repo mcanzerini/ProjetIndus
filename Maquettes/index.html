@@ -28,9 +28,15 @@
               <li class="active">
                 <a href="index.html">Accueil</a>
               </li>
-              <li class="">
-                <a href="presentation.html">Le Club</a>
-              </li>
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>
               <li class="">
                 <a href="calendrier.html">Calendrier</a>
               </li>
@@ -38,14 +44,12 @@
                 <a href="resultat.html">R&eacute;sultats</a> </li>       
               <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="photos.html"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
-          		<li class="divider"></li>
-          		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>
+          		
           	</ul>
 <li> <a href="#">Contact</a> </li>
           <li> <a href="#">R&eacute;f&eacute;rences</a> </li>          
-          <li> <a href="recherche.html">Recherche</a> </li>          
               </li>
             </ul>
           </div>
@@ -58,16 +62,22 @@
       <div class="nav-collapse collapse" style="height: 0px;">
                     <ul class="nav">
           <li class="active"> <a href="index.html">Accueil</a> </li>
-          <li> <a href="presentation.html">Le Club</a> </li>
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>
           <li> <a href="calendrier.html">Calendrier</a> </li>
           <li> <a href="resultat.html">R&eacute;sultats</a> </li>
           <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="photos.html"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
-          		<li class="divider"></li>
-          		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>
-          	</ul>
+          		          	</ul>
           </li>
           <li class="divider-vertical"></li>
           <li> <a href="#">Contact</a> </li>
@@ -78,26 +88,7 @@
 
         </ul>
         
-        <ul class="nav pull-right">
-         <li><form class="navbar-search pull-right" action="">
-        <a href="recherche.html" rel="tooltip" data-placement="bottom" data-original-title="Recherche avancée" title="Recherche avancée">
-                <i class="icon-search icon-white"></i>
-                </a>
-          <input class="search-query" type="text" data-provide="typeahead" data-source='["Calendrier","Vosges 2012","Barbecue", "Championnat Lorraine", "Coupe de France"]' placeholder="Recherche rapide">
        
-        </form></li>
-        <li class = "dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Mon Compte <b class="caret"></b></a>
-<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-  <li><a tabindex="-1" href="#fenetreConnexion" data-toggle="modal">Connexion</a></li>
-    <li><a tabindex="-1" href="inscription.html">Inscription</a></li>
-          <li class="divider"></li>    
-  <li class="disabled"><a tabindex="-1" href="#">Deconnexion</a></li>
-</ul>
-
-
-</li>
-        
-        </ul>
        
 </div>
       </div>
@@ -105,39 +96,6 @@
   </nav>
  <div class="row-fluid">
  <!-- Modal -->
-<div id="fenetreConnexion" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3 id="myModalLabel">Connexion</h3>
-  </div>
-  <div class="modal-body">
-    <form class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Email</label>
-    <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Email">
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label" for="inputPassword">Mot de passe</label>
-    <div class="controls">
-      <input type="password" id="inputPassword" placeholder="Password">
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox"> Se souvenir de moi
-      </label>
-    </div>
-  </div>
-</form>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-    <button class="btn btn-primary">Connexion</button>
-  </div>
-</div>
 
 <div class="visible-desktop span11"></div>
 <div class="visible-desktop span11"></div>
@@ -189,7 +147,7 @@
 <div class="span11"></div>
 <div class="span2"></div>
 
-<!--<div class="span7">
+<div class="span7">
 <h3>Informations</h3>
 <div class="well">
 <span class="label label-important">Important</span> : N'oubliez pas votre certificat m&eacute;dical pour les comp&eacute;titions.
@@ -198,42 +156,8 @@
 <span class="label label-info">Attention</span> : Les cours du samedi se feront dor&eacute;navant le matin de 10h00 &agrave; 10h30
 </div>
 
-<h3>Informations</h3>
-<div class="alert alert-info">
-<span class="label label-important">Important</span> N'oubliez pas votre certificat m&eacute;dical pour les comp&eacute;titions.
-</div>
-<div class="alert alert-info">
-<span class="label label-info">Attention</span> Les cours du samedi se feront dor&eacute;navant le matin de 10h00 &agrave; 10h30
-</div>
 
-<h3>Informations</h3>
-<div class="alert alert-error alert-block">
-<h4>Important</h4> N'oubliez pas votre certificat m&eacute;dical pour les comp&eacute;titions.
 </div>
-<div class="alert alert-info alert-block">
-<h4>Attention</h4> Les cours du samedi se feront dor&eacute;navant le matin de 10h00 &agrave; 10h30
-</div>
-
-<div class="alert alert-success alert-block">
-<h4>F&eacute;licitations </h4> &agrave; Davy Dona pour sa premi&egrave;re place aux championnats de Lorraine
-</div>
-
-<h3>Informations</h3>
-<dl>
-<div class="well">
-  <dt><h4>Important</h4></dt>
-  <dd>N'oubliez pas votre certificat m&eacute;dical pour les comp&eacute;titions.</dd>
-</div>
-<div class="well">  
-  <dt><h4>Attention</h4></dt>
-  <dd>Les cours du samedi se feront dor&eacute;navant le matin de 10h00 &agrave; 11h30.</dd>
-</div>
-<div class="well">
-  <dt><h4>F&eacute;licitations </h4></dt>
-  <dd>&agrave; Davy Dona pour sa premi&egrave;re place aux championnats de Lorraine.</dd>
-</div>  
-</dl>
-</div>-->
 
 <div class="span11"></div>
 <div class="span2"></div>

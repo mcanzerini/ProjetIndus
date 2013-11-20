@@ -1,0 +1,237 @@
+.accordion-heading .accordion-toggle{
+    padding:0;
+}
+
+body {
+	background-image: url("../img/bgGris.jpg");
+}
+
+#minimum{
+	min-height:540px;
+}
+
+.navbar .nav > li {
+	font-size:14px;
+}
+#barrePC .nav{
+	padding-left: 5%;
+}
+@media (min-width: 1200px){
+	#containeurPhotos{ 
+	width: 940px;
+	}
+	
+	#containeurResultats{ 
+	width: 940px;
+	}
+}
+	
+#accordion2 .accordion-heading {
+	padding:10px;
+}
+
+
+.footer {
+text-align: center;
+padding: 30px 0;
+margin-top: 70px;
+border-top: 1px solid #e5e5e5;
+
+}
+
+.footer p {
+margin-bottom: 0;
+color: #777;
+}
+
+.footer-links {
+margin: 10px 0;
+}
+
+.footer-links li:first-child {
+padding-left: 0;
+}
+
+.footer-links li {
+display: inline;
+padding: 0 2px;
+}
+
+@media (max-width: 1002px) {
+	#menuPC{
+		visibility: hidden;
+	}
+	
+	#logo{		
+		visibility:hidden; 
+		position:absolute;
+	}
+}
+
+@media (min-width: 1002px) {
+	#menuPetit{
+		visibility: hidden;
+	}
+	
+	#logo{
+		position:absolute;
+		left:3.5%;
+		top:8%;
+		width:14%;
+	}
+}
+
+
+#barreTablette, #barrePC{
+	width:auto;
+}
+
+#navbar{
+	position:fixed;
+}
+
+@media (max-width: 399px) { 
+	
+	#bodyPresentation {
+width:99%}
+
+ }
+
+
+
+nav a{
+color: #999999;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+
+nav a:hover{
+text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+
+}
+
+
+
+body > .navbar .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+body > .navbar .brand:hover {
+  text-decoration: none;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
+
+	
+/*body{
+		padding-top: 60px;
+
+background: #d6efff;
+background-image: url("../img/zenbg-1.png"), url("../img/zenbg-2.png");
+background-repeat: repeat-x, repeat;
+}*/
+body > .container{
+	background-color:#E1E1E1;
+}
+
+/*@media (min-width: 768px){
+	#contenuPresentation{
+		margin-left:3.5%;
+	}
+}
+*/
+/* Large desktop */
+//@media (min-width: 1200px) { ... }
+ 
+/* Portrait tablet to landscape and desktop */
+//@media (min-width: 768px) and (max-width: 979px) { ... }
+ 
+/* Landscape phone to portrait tablet */
+//@media (max-width: 767px) { ... }
+ 
+/* Landscape phones and down */
+//@media (max-width: 480px) { ... }
+
+
+
+.first{
+	margin: 20px 0 0;
+	padding-top:0;
+}
+
+.description{
+	padding-top:10px;
+}
+
+.comite{
+	margin-bottom:0px;
+}
+
+#Desc{
+	padding:28px;
+	background: none;
+}
+
+.dropdown-menu > li > a {
+display: block;
+padding: 3px 20px;
+clear: both;
+font-weight: normal;
+line-height: 20px;
+color: #333333;
+white-space: nowrap;
+}
+
+.dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
+color: #999999;
+cursor:default;
+}
+
+.navbar-inner .container {
+	width:1170px;
+}
+
+.modal.fade.in {
+left: 50%;
+}
+
+.navbar {
+font-size: 13px;
+}
+
+#fenetreConnexion{
+	width : 500px;
+}
+
+#formulaire {
+	background-color:#CCC;
+	padding: 10px;
+}
+.carousel-inner {
+    border-radius: 5px 5px 5px 5px;
+    border: 5px solid white;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    margin : auto;
+}
+
+#messageAccueil{
+	padding:30px;
+}
+
+.underline{
+	text-decoration:underline;
+}
+
+.italic{
+	font-style:italic;
+}

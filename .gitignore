@@ -4,3 +4,6 @@
 *.jar
 *.war
 *.ear
+/KCCrusnes/nbproject/private/
+/KCCrusnes/build/
+/KCCrusnes/dist/

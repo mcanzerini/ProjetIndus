@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Entrainement" table="Entrainement">
+        <id name="id" column="id_entrainement">
+            <generator class="increment"/>
+        </id>
+        <property name="duree" column="duree_entrainement"/>
+        <list name="entraineurs" inverse="true" table="EntrainementEntraineur">
+            <key column="id_entrainement"/>
+            <list-index></list-index>
+            <many-to-many column="id_entraineur" class="model.Entraineur"/>
+        </list>
+        <property name="Discipline" type="model.DisciplineUserType" column="discipline"/>
+        <many-to-one name="horaire" class="model.Horaire" fetch="select">
+            <column name="id_horaire"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

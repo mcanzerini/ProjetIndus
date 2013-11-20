@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Personne" table="Personne">
+        <id name="id" column="id_personne">
+            <generator class="increment"/>
+        </id>
+        <property name="nom" column="nom_personne"/>
+        <property name="prenom" column="prenom_personne"/>
+        <property name="dateNaissance" type="calendar_date" column="date_naissance_personne"/>
+        <property name="villeNaissance" column="ville_naissance"/>
+        <property name="sexe" type="model.SexeUserType" column="sexe"/>
+        <property name="telephone" column="telephone"/>
+        <many-to-one name="adresse" class="model.Adresse" fetch="select">
+            <column name="id_adresse" not-null="true" />
+        </many-to-one>
+
+        <joined-subclass name="model.Membre" table="Membre">
+            <key column="id_personne"/>
+            <property name="dateDebutActivite" type="date" column="date_debut_activite"/>
+            <property name="dateFinActivite" type="date" column="date_fin_activite"/>
+            <property name="poste" type="model.PosteComiteUserType" column="poste"/>
+            <property name="profession" column="profession"/>
+            <many-to-one name="licencie" class="model.Licencie" fetch="select">
+                <column name="id_licencie" not-null="true" />
+            </many-to-one>
+            <joined-subclass name="model.Entraineur" table="Entraineur">
+                <key column="id_personne"/>
+                <property name="adultes" type="boolean" column="adultes"/>
+                <property name="enfants" type="boolean" column="enfants"/>
+                <list name="entrainements" table="EntrainementEntraineur">
+                    <key column="id_personne" not-null="true"/>
+                    <list-index></list-index>
+                    <many-to-many column="id_entrainement" class="model.Entrainement"/>
+                </list>
+            </joined-subclass>
+        </joined-subclass>
+        <joined-subclass name="model.Licencie" table="Licencie">
+            <key column="id_personne"/>
+            <property name="actif" type="short" column="actif"/>
+            <property name="numLicence" column="num_licencie"/>
+            <property name="poids" type="integer" column="poids"/>
+            <property name="categorieAge" type="model.CategorieAgeUserType" column="categorie_age"/>
+            <property name="categoriePoids" type="model.CategoriePoidsUserType" column="categorie_poids"/>
+            <property name="grade" type="model.GradeUserType" column="grade"/>
+            <property name="etudiant" type="short" column="etudiant"/>
+            <many-to-one name="photo" class="model.Photo" fetch="select">
+                <column name="id_photo"/>
+            </many-to-one>
+        </joined-subclass>
+    </class>
+</hibernate-mapping>

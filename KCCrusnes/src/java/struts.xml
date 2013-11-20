@@ -1,0 +1,30 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!-- Configuration for the default package. -->
+    <package name="default" namespace="/" extends="struts-default">
+        <default-action-ref name="index" />
+        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">GetIndex</param>
+                <param name="namespace">/view</param>
+            </result>
+        </action>
+    </package>
+    <package name="view" namespace="/view" extends="struts-default">
+        <action name="GetIndex" class="action.GetIndex">
+            <result name="success">/view/index.jsp</result>
+        </action>
+        <action name="GetHistoire" class="action.GetHistoire">
+            <result name="success">/view/histoire.jsp</result>
+        </action>
+        <action name="GetComite" class="action.GetComite">
+            <result name="success">/view/comite.jsp</result>
+        </action>
+        <action name="GetEntraineurs" class="action.GetEntraineurs">
+            <result name="success">/view/entraineurs.jsp</result>
+        </action>
+    </package>
+</struts>

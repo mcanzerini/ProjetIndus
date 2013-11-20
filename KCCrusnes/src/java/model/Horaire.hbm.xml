@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Horaire" table="Horaire">
+        <id name="id" column="id_horaire">
+            <generator class="increment"/>
+        </id>
+        <property name="Jour" type="model.JourUserType" column="jour"/>
+        <many-to-one name="Heure" class="model.Heure" fetch="select">
+            <column name="id_heure"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

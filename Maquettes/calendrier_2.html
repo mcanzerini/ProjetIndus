@@ -26,9 +26,15 @@
               <li class="">
                 <a href="index.html">Accueil</a>
               </li>
-              <li class="">
-                <a href="presentation.html">Le Club</a>
-              </li>
+              <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>
               <li class="active">
                 <a href="calendrier.html">Calendrier</a>
               </li>
@@ -36,14 +42,13 @@
                 <a href="resultat.html">R&eacute;sultats</a> </li>       
               <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="photos.html"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
           		<li class="divider"></li>
           		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>
           	</ul>
 <li> <a href="#">Contact</a> </li>
           <li> <a href="#">R&eacute;f&eacute;rences</a> </li>        
-          <li> <a href="recherche.html">Recherche</a> </li>            
               </li>
             </ul>
           </div>
@@ -56,12 +61,20 @@
       <div class="nav-collapse collapse" style="height: 0px;">
                     <ul class="nav">
           <li> <a href="index.html">Accueil</a> </li>
-          <li> <a href="presentation.html">Le Club</a> </li>
+          <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Le Club<b class="caret"></b></a> 
+          	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+          		<li><a href="histoire.html"><i class="icon-zoom-in"></i> L'Histoire du Club</a></li>
+          		<li><a href="comite.html"><i class="icon-briefcase"></i> Le Comit&eacute;</a></li>
+				<li><a href="entraineurs.html"><i class="icon-user"></i> Les Entraineurs</a></li>
+          		<li><a href="horaires.html"><i class="icon-time"></i> Les Horaires</a></li>
+          		<li><a href="dojo.html"><i class="icon-home"></i> Le Dojo</a></li>          		
+          	</ul>
+          </li>
           <li class="active"> <a href="calendrier.html">Calendrier</a> </li>
           <li> <a href="resultat.html">R&eacute;sultats</a> </li>
           <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacutedia <b class="caret"></b></a> 
           	<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-          		<li><a href="#"><i class="icon-camera"></i> Photos</a></li>
+          		<li><a href="photos.html"><i class="icon-camera"></i> Photos</a></li>
           		<li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
           		<li class="divider"></li>
           		<li><a href="#"><i class="icon-chevron-right"></i> Autres</a></li>
@@ -70,72 +83,14 @@
           <li class="divider-vertical"></li>
           <li> <a href="#">Contact</a> </li>
           <li> <a href="#">R&eacute;f&eacute;rences</a> </li>
-          <!-- Button to trigger modal -->
 
- 
-
-        </ul>
-        
-        <ul class="nav pull-right">
-         <li><form class="navbar-search pull-right" action="">
-        <a href="recherche.html" rel="tooltip" data-placement="bottom" data-original-title="Recherche avancée" title="Recherche avancée">
-                <i class="icon-search icon-white"></i>
-                </a>
-          <input class="search-query" type="text" data-provide="typeahead" data-source='["Calendrier","Vosges 2012","Barbecue", "Championnat Lorraine", "Coupe de France"]' placeholder="Recherche rapide">
-       
-        </form></li>
-        <li class = "dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Mon Compte <b class="caret"></b></a>
-<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-  <li><a tabindex="-1" href="#fenetreConnexion" data-toggle="modal">Connexion</a></li>
-    <li><a tabindex="-1" href="inscription.html">Inscription</a></li>
-          <li class="divider"></li>    
-  <li class="disabled"><a tabindex="-1" href="#">Deconnexion</a></li>
-</ul>
-
-
-</li>
-        
-        </ul>
        
 </div>
       </div>
     </div>
   </nav>
     <div class="row-fluid">
-  <!-- Modal -->
-<div id="fenetreConnexion" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3 id="myModalLabel">Connexion</h3>
-  </div>
-  <div class="modal-body">
-    <form class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="inputEmail">Email</label>
-    <div class="controls">
-      <input type="text" id="inputEmail" placeholder="Email">
-    </div>
-  </div>
-  <div class="control-group">
-    <label class="control-label" for="inputPassword">Mot de passe</label>
-    <div class="controls">
-      <input type="password" id="inputPassword" placeholder="Password">
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox"> Se souvenir de moi
-      </label>
-    </div>
-  </div>
-</form>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-    <button class="btn btn-primary">Connexion</button>
-  </div>
-</div>
+
 <div class="visible-desktop span11"></div>
 <div class="visible-desktop span11"></div>
 
