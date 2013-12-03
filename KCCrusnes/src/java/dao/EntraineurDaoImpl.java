@@ -33,7 +33,8 @@ public class EntraineurDaoImpl extends EntraineurDao {
 
     @Override
     public List<Entraineur> findAll() {
-        Query query = super.getSession().createQuery("from " + Entraineur.class.getName());
+        Query query = super.getSession().createQuery("from " + Entraineur.class.getName()
+                + " as e order by e.id");
         List<Entraineur> entraineurs = query.list();
         return entraineurs;
     }

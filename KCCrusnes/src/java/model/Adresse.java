@@ -11,7 +11,7 @@ package model;
 public class Adresse {
 
     private long id;
-    private int numVoie;
+    private Integer numVoie;
     private String nomVoie;
     private String codePostal;
     private String ville;
@@ -45,7 +45,7 @@ public class Adresse {
         return nomVoie;
     }
 
-    public int getNumVoie() {
+    public Integer getNumVoie() {
         return numVoie;
     }
 
@@ -65,7 +65,7 @@ public class Adresse {
         this.nomVoie = nomVoie;
     }
 
-    public void setNumVoie(int numVoie) {
+    public void setNumVoie(Integer numVoie) {
         this.numVoie = numVoie;
     }
 

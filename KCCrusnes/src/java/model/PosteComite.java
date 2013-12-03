@@ -21,6 +21,4 @@ public enum PosteComite {
     TRESORIER,
     TRESORIER_ADJOINT,
     SANS_POSTE;
-    public static Map<PosteComite, String> customizedNames;
-
 }

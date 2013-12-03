@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +15,7 @@
 
     <body>
         <jsp:include page="includes/petitMenu.jsp"/>
-        <jsp:include page="includes/grosMenu.jsp"/>  
+        <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
             <!-- Modal -->
             <jsp:include page="includes/logo.jsp"/>
@@ -22,7 +23,7 @@
             <div class="span8">
 
                 <div class="page-header">
-                    <h1>R&eacute;sultats : Championnat de Lorraine 12/13</h1>
+                    <h1>R&eacute;sultats : <s:property value="competition.nom"/></h1>
                 </div>
                 <div class="span11"></div>
 
@@ -34,37 +35,23 @@
                     <thead>
                         <tr>
                             <th>Nom</th>
-                            <th>Prenom</th>      
+                            <th>Prenom</th>
                             <th>R&eacute;sultat</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Dona</td>
-                            <td>Davy</td>
-                            <td>1er</td>      
-                        </tr>
-                        <tr>
-                            <td>Alexandra</td>
-                            <td>Recchia</td>
-                            <td>1er</td>      
-                        </tr>
-                        <tr>
-                            <td>Da Costa</td>
-                            <td>Logan</td>
-                            <td>2er</td>      
-                        </tr>
-                        <tr>
-                            <td>Gillet</td>
-                            <td>Anthony</td>
-                            <td>5e</td>      
-                        </tr>
-
+                        <s:iterator value="resultats">
+                            <tr>
+                                <td><s:property value="licencie.nom"/></td>
+                                <td><s:property value="licencie.prenom"/></td>
+                                <td><s:property value="place"/></td>
+                            </tr>
+                        </s:iterator>
                     </tbody>
                 </table>
             </div>
-        </div>  	
-        <jsp:include page="includes/footer.jsp"/>	
+        </div>
+        <jsp:include page="includes/footer.jsp"/>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script type="text/javascript">
@@ -74,4 +61,4 @@
             });
         </script>
     </body>
-</html>  	
+</html>

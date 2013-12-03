@@ -14,7 +14,7 @@ import model.Histoire;
  *
  * @author mathieu_canzerini
  */
-public class GetHistoire extends ActionSupport {
+public class HistoireClub extends ActionSupport {
 
     private Histoire histoire;
     public static final HistoireDao histoireDao = new HistoireDaoImpl();

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Album" table="Album">
+        <id name="id" type="long" column="id_album">
+            <generator class="increment"/>
+        </id>
+        <list name="photos" inverse="true">
+            <key column="id_album" not-null="true"/>
+            <list-index></list-index>
+            <one-to-many class="model.Photo"/>
+        </list>
+        <one-to-one class="model.Evenement" name="evenement"/>
+    </class>
+</hibernate-mapping>

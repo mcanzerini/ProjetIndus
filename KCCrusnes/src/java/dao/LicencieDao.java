@@ -30,4 +30,14 @@ public abstract class LicencieDao extends Dao<Licencie> {
     public abstract List<Licencie> findByCategoryPoids(CategoriePoids categoriePoids);
 
     public abstract List<Licencie> findByGrade(Grade grade);
+
+    public abstract List<Licencie> findByNomPrenom(String nomLicencie, String prenomLicencie);
+
+    public abstract String getAllNameTypeHead();
+
+    public abstract String getAllFirstNameTypeHead();
+
+    public abstract String getNameTypeHeadFromFirstName(String firstName);
+
+    public abstract String getFirstNameTypeHeadFromName(String name);
 }

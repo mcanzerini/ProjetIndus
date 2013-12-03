@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +16,7 @@
 
     <body id="bodyPresentation">
         <jsp:include page="includes/petitMenu.jsp"/>
-        <jsp:include page="includes/grosMenu.jsp"/>  
+        <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
 
             <jsp:include page="includes/logo.jsp"/>
@@ -38,54 +39,26 @@
                         <tr>
                             <th>Groupe</th>
                             <th>Jour</th>
-                            <th>Heure</th>      
+                            <th>Heure</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Enfants (4-5 ans)</td>
-                            <td>Mercredi</td>
-                            <td>16h00 - 17h00</td>
-                        </tr>
-                        <tr>
-                            <td>Enfants (4-5 ans)</td>
-                            <td>Vendredi</td>
-                            <td>17h15 - 18h15</td>
-                        </tr>
-                        <tr>
-                            <td>Enfants &agrave; partir de 6 ans</td>
-                            <td>Mercredi</td>
-                            <td>17h00 - 18h30</td>
-                        </tr>
-                        <tr>
-                            <td>Enfants &agrave; partir de 6 ans</td>
-                            <td>Vendredi</td>
-                            <td>18h15 - 19h30</td>
-                        </tr>
-                        <tr>
-                            <td>Adultes</td>
-                            <td>Mardi</td>
-                            <td>19h30 - 21h00</td>
-                        </tr>
-                        <tr>
-                            <td>Adultes</td>
-                            <td>Vendredi</td>
-                            <td>19h30 - 21h00</td>
-                        </tr>
-                        <tr>
-                            <td>Comp&eacute;titeurs Kata</td>
-                            <td>Samedi</td>
-                            <td>10h00 - 11h30</td>
-                        </tr>
-
-
+                        <s:iterator value="horaires">
+                            <s:set name="minuteDebut" value="heureDebut.minute"/>
+                            <s:set name="minuteFin" value="heureFin.minute"/>
+                            <tr>
+                                <td><s:property escape="false" value="groupe"/></td>
+                                <td><s:text name="message.comite.%{jour}"/></td>
+                                <td><s:property escape="false" value="heureDebut.heure"/>H<s:property escape="false" value="heureDebut.minute"/><s:if test="%{#minuteDebut==0}"><s:property escape="false" value="heureDebut.minute"/></s:if> - <s:property escape="false" value="heureFin.heure"/>H<s:property escape="false" value="heureFin.minute"/><s:if test="%{#minuteFin==0}"><s:property escape="false" value="heureFin.minute"/></s:if></td>
+                                </tr>
+                        </s:iterator>
                     </tbody>
                 </table>
 
-                <div class="span12"></div>                 
-            </div> </div> 	
+                <div class="span12"></div>
+            </div> </div>
 
-        <jsp:include page="includes/footer.jsp"/> 
+        <jsp:include page="includes/footer.jsp"/>
 
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -98,4 +71,4 @@
             });
         </script>
     </body>
-</html>  	
+</html>

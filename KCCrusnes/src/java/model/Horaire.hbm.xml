@@ -5,9 +5,13 @@
         <id name="id" column="id_horaire">
             <generator class="increment"/>
         </id>
-        <property name="Jour" type="model.JourUserType" column="jour"/>
-        <many-to-one name="Heure" class="model.Heure" fetch="select">
-            <column name="id_heure"/>
+        <property name="jour" type="model.JourUserType" column="jour"/>
+        <many-to-one name="heureDebut" class="model.Heure" fetch="select">
+            <column name="id_heure_debut"/>
         </many-to-one>
+        <many-to-one name="heureFin" class="model.Heure" fetch="select">
+            <column name="id_heure_fin"/>
+        </many-to-one>
+        <property name="groupe" column="groupe"/>
     </class>
 </hibernate-mapping>

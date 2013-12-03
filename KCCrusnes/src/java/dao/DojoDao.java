@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package dao;
 
-import util.EnumUserType;
+import model.Dojo;
+import model.Entraineur;
 
 /**
  *
  * @author mathieu_canzerini
  */
-public class DisciplineUserType extends EnumUserType<Discipline> {
+public abstract class DojoDao extends Dao<Dojo> {
 
-    public DisciplineUserType() {
-        super(Discipline.class);
-    }
+    public abstract void create(Dojo obj);
+
+    public abstract void update(Dojo obj);
 }

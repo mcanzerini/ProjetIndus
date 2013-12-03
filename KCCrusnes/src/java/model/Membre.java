@@ -10,9 +10,8 @@ import java.util.GregorianCalendar;
  *
  * @author mathieu_canzerini
  */
-public class Membre extends Personne {
+public class Membre extends Licencie {
 
-    private Licencie licencie;
     private GregorianCalendar dateDebutActivite;
     private GregorianCalendar dateFinActivite;
     private PosteComite poste;
@@ -51,14 +50,6 @@ public class Membre extends Personne {
 
     public void setDateFinActivite(GregorianCalendar dateFinActivite) {
         this.dateFinActivite = dateFinActivite;
-    }
-
-    public Licencie getLicencie() {
-        return licencie;
-    }
-
-    public void setLicencie(Licencie licence) {
-        this.licencie = licence;
     }
 
 }

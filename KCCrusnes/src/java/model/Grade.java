@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 /**
@@ -10,6 +9,7 @@ package model;
  * @author mathieu_canzerini
  */
 public enum Grade {
+
     CEINTURE_BLANCHE,
     CEINTURE_BLANCHE_JAUNE,
     CEINTURE_JAUNE,
@@ -31,7 +31,7 @@ public enum Grade {
     CEINTURE_NOIRE_QUATRIEME_DAN_TECHNIQUE,
     CEINTURE_NOIRE_QUATRIEME_DAN,
     CEINTURE_NOIRE_CINQUIEME_DAN_TECHNIQUE,
-    CEINTURE_NOIRE_CINQUIEME__DAN,
+    CEINTURE_NOIRE_CINQUIEME_DAN,
     CEINTURE_NOIRE_SIXIEME_DAN_TECHNIQUE,
     CEINTURE_NOIRE_SIXIEME_DAN,
     CEINTURE_NOIRE_SEPTIEME_DAN_TECHNIQUE,
@@ -41,5 +41,5 @@ public enum Grade {
     CEINTURE_NOIRE_NEUVIEME_DAN_TECHNIQUE,
     CEINTURE_NOIRE_NEUVIEME_DAN,
     CEINTURE_NOIRE_DIXIEME_DAN_TECHNIQUE,
-    CEINTURE_NOIRE_DIXIEME_DAN,
+    CEINTURE_NOIRE_DIXIEME_DAN;
 }

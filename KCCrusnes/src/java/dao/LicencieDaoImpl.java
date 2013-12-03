@@ -66,4 +66,32 @@ public class LicencieDaoImpl extends LicencieDao {
         List<Licencie> licencies = q.list();
         return licencies;
     }
+
+    @Override
+    public List<Licencie> findByNomPrenom(String nomLicencie, String prenomLicencie) {
+        StringBuilder q = new StringBuilder("from " + Licencie.class.getName() + " l ");
+        boolean first = true;
+        if (nomLicencie != null && !nomLicencie.equals("")) {
+            q.append(" where ");
+            first = false;
+            q.append(" l.nom = '");
+            q.append(nomLicencie);
+            q.append("'");
+        }
+        if (prenomLicencie != null && !prenomLicencie.equals("")) {
+            if (first) {
+                q.append(" where ");
+                first = false;
+            } else {
+                q.append(" and ");
+            }
+            q.append(" l.prenom = '");
+            q.append(prenomLicencie);
+            q.append("'");
+        }
+
+        Query query = super.getSession().createQuery(q.toString());
+        List<Licencie> licencies = query.list();
+        return licencies;
+    }
 }

@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -16,7 +17,7 @@
 
     <body id="bodyPresentation">
         <jsp:include page="includes/petitMenu.jsp"/>
-        <jsp:include page="includes/grosMenu.jsp"/>  
+        <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
             <!-- Modal -->
             <jsp:include page="includes/logo.jsp"/>
@@ -31,30 +32,28 @@
 
             <div id="contenuPresentation" class="span7">
 
-
-
                 <div class="span12">
                     <ul class="thumbnails">
                         <li class="span3">
-                            <a href="resources/img/DOJO1.jpg" class="fancybox thumbnail">
-                                <img src="resources/img/DOJO1.jpg" data-src="holder.js/300x200" alt="">
+                            <a href="<s:url value='resources/img/%{dojo.photo1}'/>" class="fancybox thumbnail">
+                                <img src="<s:url value='resources/img/%{dojo.photo1}'/>" data-src="holder.js/300x200" alt="">
                             </a>
 
                         </li>
                         <li class="span3">
-                            <a href="resources/img/DOJO2.jpg" class="fancybox thumbnail">
-                                <img src="resources/img/DOJO2.jpg" data-src="holder.js/300x200" alt="">
+                            <a href="<s:url value='resources/img/%{dojo.photo2}'/>" class="fancybox thumbnail">
+                                <img src="<s:url value='resources/img/%{dojo.photo2}'/>" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span3">
-                            <a href="resources/img/DOJO3.jpg" class="fancybox thumbnail">
-                                <img src="resources/img/DOJO3.jpg" data-src="holder.js/300x200" alt="">
+                            <a href="<s:url value='resources/img/%{dojo.photo3}'/>" class="fancybox thumbnail">
+                                <img src="<s:url value='resources/img/%{dojo.photo3}'/>" data-src="holder.js/300x200" alt="">
                             </a>
 
                         </li>
                         <li class="span3">
-                            <a href="resources/img/DOJO4.jpg" class="fancybox thumbnail">
-                                <img src="resources/img/DOJO4.jpg" data-src="holder.js/300x200" alt="">
+                            <a href="<s:url value='resources/img/%{dojo.photo4}'/>" class="fancybox thumbnail">
+                                <img src="<s:url value='resources/img/%{dojo.photo4}'/>" data-src="holder.js/300x200" alt="">
                             </a>
 
 
@@ -65,14 +64,14 @@
                     <div id="adresse" class="row-fluid">
                         <address>
                             <strong>Karate Club Crusnes</strong><br>
-                            6&egrave;me Avenue<br>
-                            54680 Crusnes Cit&eacute;s<br>
+                            <s:property escape="false" value="dojo.adresse.nomVoie"/><br>
+                            <s:property escape="false" value="dojo.adresse.codePostal"/> <s:property escape="false" value="dojo.adresse.ville"/><br>
                         </address>
                     </div>
                     <div id="map" class="hidden-phone row-fluid">
-                        <iframe height="350" src="https://maps.google.fr/maps?q=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;ie=UTF8&amp;hq=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;hnear=&amp;radius=15000&amp;ll=49.43042,5.933227&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"></iframe><br /><div></div>
-                        <div class="span12"></div>                 
-                    </div> </div></div></div> 	
+                        <iframe width="100%" height="350" src="https://maps.google.fr/maps?q=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;ie=UTF8&amp;hq=6%C3%A8me+avenue+-+54680+Crusnes+Cit%C3%A9s&amp;hnear=&amp;radius=15000&amp;ll=49.43042,5.933227&amp;spn=0.006295,0.006295&amp;t=m&amp;output=embed"></iframe><br /><div></div>
+                        <div class="span12"></div>
+                    </div> </div></div></div>
 
         <jsp:include page="includes/footer.jsp"/>
 
@@ -100,4 +99,4 @@
                     });
         </script>
     </body>
-</html>  	
+</html>

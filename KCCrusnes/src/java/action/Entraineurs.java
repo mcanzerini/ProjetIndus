@@ -9,7 +9,6 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.EntraineurDao;
 import dao.EntraineurDaoImpl;
-import java.util.ArrayList;
 import java.util.List;
 import model.Entraineur;
 
@@ -17,7 +16,7 @@ import model.Entraineur;
  *
  * @author mathieu_canzerini
  */
-public class GetEntraineurs extends ActionSupport {
+public class Entraineurs extends ActionSupport {
 
     private List<Entraineur> entraineurs;
     public static final EntraineurDao entraineurDao = new EntraineurDaoImpl();

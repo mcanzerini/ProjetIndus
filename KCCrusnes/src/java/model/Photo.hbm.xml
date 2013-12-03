@@ -2,9 +2,13 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
     <class name="model.Photo" table="Photo">
-        <id name="id" column="id_photo">
+        <id column="id_photo" type="long" name="id">
             <generator class="increment"/>
         </id>
-        <property name="lien" column="lien_photo"/>
+        <property column="lien_photo" name="lien"/>
+        <property column="libelle_photo" name="libelle"/>
+        <many-to-one class="model.Album" insert="false" update="false" fetch="select" name="album">
+            <column name="id_album" not-null="true"/>
+        </many-to-one>
     </class>
 </hibernate-mapping>

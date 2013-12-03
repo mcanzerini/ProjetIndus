@@ -4,7 +4,7 @@
  */
 package model;
 
-import java.util.GregorianCalendar;
+import java.util.List;
 
 /**
  *
@@ -19,16 +19,25 @@ public class Licencie extends Personne {
     private CategorieAge categorieAge;
     private CategoriePoids categoriePoids;
     private boolean etudiant;
-    private Photo photo;
+    private String photo;
+    private List<Competition> participations;
 
     public Licencie() {
     }
 
-    public Photo getPhoto() {
+    public List<Competition> getParticipations() {
+        return participations;
+    }
+
+    public void setParticipations(List<Competition> participations) {
+        this.participations = participations;
+    }
+
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Photo photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 

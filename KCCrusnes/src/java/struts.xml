@@ -8,23 +8,45 @@
         <default-action-ref name="index" />
         <action name="index">
             <result type="redirectAction">
-                <param name="actionName">GetIndex</param>
+                <param name="actionName">Index</param>
                 <param name="namespace">/view</param>
             </result>
         </action>
     </package>
     <package name="view" namespace="/view" extends="struts-default">
-        <action name="GetIndex" class="action.GetIndex">
+        <action name="Index" class="action.Index">
             <result name="success">/view/index.jsp</result>
         </action>
-        <action name="GetHistoire" class="action.GetHistoire">
+        <action name="HistoireClub" class="action.HistoireClub">
             <result name="success">/view/histoire.jsp</result>
         </action>
-        <action name="GetComite" class="action.GetComite">
+        <action name="Comite" class="action.Comite">
             <result name="success">/view/comite.jsp</result>
         </action>
-        <action name="GetEntraineurs" class="action.GetEntraineurs">
+        <action name="Entraineurs" class="action.Entraineurs">
             <result name="success">/view/entraineurs.jsp</result>
+        </action>
+        <action name="DojoClub" class="action.DojoClub">
+            <result name="success">/view/dojo.jsp</result>
+        </action>
+        <action name="Horaires" class="action.Horaires">
+            <result name="success">/view/horaires.jsp</result>
+        </action>
+        <action name="DerniersResultats" class="action.DerniersResultats">
+            <result name="success">/view/derniersResultats.jsp</result>
+        </action>
+        <action name="VoirCalendrier" class="action.VoirCalendrier">
+            <result name="success">/view/calendrier.jsp</result>
+        </action>
+        <action name="Photos" class="action.Photos">
+            <result name="success">/view/photos.jsp</result>
+        </action>
+        <action name="ResultatsCompetition" class="action.ResultatsCompetition">
+            <result name="success">/view/resultatCompetition.jsp</result>
+        </action>
+        <action name="ResultatsCompetiteur" class="action.ResultatsCompetiteur">
+            <result name="success">/view/resultatCompetiteur.jsp</result>
+            <result name="error">/view/choixCompetiteurs.jsp</result>
         </action>
     </package>
 </struts>

@@ -2,36 +2,30 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
-import java.util.ArrayList;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
  *
  * @author mathieu_canzerini
  */
-public class Competition extends Evenement{
+public class Competition extends Evenement {
+
     private List<Licencie> inscrits;
+    private String commentaires;
     private String lienProgramme;
 
-    public Competition(String nom, GregorianCalendar date, Adresse lieu){
-        super(nom,date, lieu);
-        inscrits = new ArrayList<Licencie>();
+    public String getCommentaires() {
+        return commentaires;
     }
 
-    public Competition(String nom, GregorianCalendar date, String lienProgramme, Adresse lieu){
-        super(nom,date,lieu);
-        this.lienProgramme = lienProgramme;
-        inscrits = new ArrayList<Licencie>();
+    public void setCommentaires(String commentaires) {
+        this.commentaires = commentaires;
     }
 
-    public Competition(String nom, GregorianCalendar date, List<Licencie> inscrits, String lienProgramme, Adresse lieu) {
-        super(nom, date, lieu);
-        this.inscrits = inscrits;
-        this.lienProgramme = lienProgramme;
+    public Competition() {
+
     }
 
     public List<Licencie> getInscrits() {
@@ -49,7 +43,5 @@ public class Competition extends Evenement{
     public void setLienProgramme(String lienProgramme) {
         this.lienProgramme = lienProgramme;
     }
-
-
 
 }

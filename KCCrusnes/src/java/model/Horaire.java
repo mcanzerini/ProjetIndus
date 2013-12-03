@@ -12,7 +12,33 @@ public class Horaire {
 
     private long id;
     private Jour jour;
-    private Heure heure;
+    private Heure heureDebut;
+    private Heure heureFin;
+    private String groupe;
+
+    public Heure getHeureDebut() {
+        return heureDebut;
+    }
+
+    public void setHeureDebut(Heure heureDebut) {
+        this.heureDebut = heureDebut;
+    }
+
+    public Heure getHeureFin() {
+        return heureFin;
+    }
+
+    public void setHeureFin(Heure heureFin) {
+        this.heureFin = heureFin;
+    }
+
+    public String getGroupe() {
+        return groupe;
+    }
+
+    public void setGroupe(String groupe) {
+        this.groupe = groupe;
+    }
 
     public Horaire() {
     }
@@ -37,7 +63,7 @@ public class Horaire {
         if (this.jour != other.jour) {
             return false;
         }
-        if (this.heure != other.heure && (this.heure == null || !this.heure.equals(other.heure))) {
+        if (this.heureDebut != other.heureDebut && (this.heureDebut == null || !this.heureDebut.equals(other.heureDebut))) {
             return false;
         }
         return true;
@@ -47,16 +73,16 @@ public class Horaire {
     public int hashCode() {
         int hash = 7;
         hash = 29 * hash + this.jour.hashCode();
-        hash = 29 * hash + (this.heure != null ? this.heure.hashCode() : 0);
+        hash = 29 * hash + (this.heureDebut != null ? this.heureDebut.hashCode() : 0);
         return hash;
     }
 
     public Heure getHeure() {
-        return heure;
+        return heureDebut;
     }
 
     public void setHeure(Heure heure) {
-        this.heure = heure;
+        this.heureDebut = heure;
     }
 
     public Jour getJour() {

@@ -45,23 +45,25 @@
                             </s:if>
                             <li class="span3">
                                 <a href="#" class="thumbnail">
-                                    <img src="resources/img/seb.jpg" data-src="holder.js/300x200" alt="">
+                                    <img src="<s:url value='resources/img/%{photo}'/>" data-src="holder.js/300x200" alt="">
                                 </a>
                                 <div class="caption">
-                                    <h3>TURCHINI Sebastien</h3>
-                                    <h4>Entraineurs Kata</h4>
+                                    <h3><s:property value="nom"/> <s:property value="prenom"/></h3>
+                                    <h4>Entraineurs <s:iterator value="disciplines">
+                                            <s:property value="nom"/>
+                                        </s:iterator></h4>
                                     <dl>
                                         <dt>N&eacute; le</dt>
-                                        <dd>15-01-86</dd>
-                                        <dt>Ceinture Noire 3 DAN</dt>
-                                        <dt>Titulaire du DIF</dt>
+                                        <dd><s:date format="dd/MM/yyyy" name="dateNaissance"/></dd>
+                                        <dt><s:text name="message.grade.%{grade}"/></dt>
+                                        <dt>Titulaire du <s:property value="diplome"/></dt>
                                         <dd>&nbsp;</dd>
                                     </dl>
                                     <p><a href="#" class="btn btn-primary">Consulter ses R&eacute;sultats</a>
                                 </div>
                             </li>
 
-                            <s:if test="#comiteStatus.count % 3 == 0">
+                            <s:if test="#entraineursStatus.count % 3 == 0">
                             </ul>
                         </div>
                     </s:if>

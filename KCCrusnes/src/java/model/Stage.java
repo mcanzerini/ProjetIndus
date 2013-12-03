@@ -2,25 +2,19 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
-
-import java.util.GregorianCalendar;
 
 /**
  *
  * @author mathieu_canzerini
  */
-public class Stage extends Evenement{
+public class Stage extends Evenement {
+
     private int prixLicencie;
     private int prixParent;
     private int prixExterieur;
 
-    public Stage(String nom, GregorianCalendar date, Adresse lieu, int prixLicencie, int prixParent, int prixExterieur) {
-        super(nom, date, lieu);
-        this.prixLicencie = prixLicencie;
-        this.prixParent = prixParent;
-        this.prixExterieur = prixExterieur;
+    public Stage() {
     }
 
     public int getPrixExterieur() {
@@ -46,7 +40,5 @@ public class Stage extends Evenement{
     public void setPrixParent(int prixParent) {
         this.prixParent = prixParent;
     }
-
-
 
 }

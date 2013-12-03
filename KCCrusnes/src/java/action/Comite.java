@@ -17,7 +17,7 @@ import model.PosteComite;
  *
  * @author mathieu_canzerini
  */
-public class GetComite extends ActionSupport {
+public class Comite extends ActionSupport {
 
     private List<Membre> comite;
     public static final MembreDao membreDao = new MembreDaoImpl();

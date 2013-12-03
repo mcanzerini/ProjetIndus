@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <html>
 
@@ -28,85 +30,44 @@
                 </div>
 
                 <blockquote class="span9">
-                    <p>Â« La diff&eacute;rence fondamentale entre l'homme ordinaire et le guerrier, c'est que le guerrier consid&egrave;re toute chose comme un d&eacute;fi, 
-                        tandis que l'homme ordinaire voit en toute chose soit une b&eacute;n&eacute;diction, soit une mal&eacute;diction. Â»</p>
+                    <p>« La diff&eacute;rence fondamentale entre l'homme ordinaire et le guerrier, c'est que le guerrier consid&egrave;re toute chose comme un d&eacute;fi,
+                        tandis que l'homme ordinaire voit en toute chose soit une b&eacute;n&eacute;diction, soit une mal&eacute;diction. »</p>
                     <small>Jean-Baptiste Poquelin <cite title="Source Title">dit Moli&egrave;re</cite></small>
                 </blockquote>
             </div>
             <div class="span11"></div>
             <div id="containeurResultats" class="container">
-                <ul class="thumbnails">
-                    <li class="span4">
-                        <a href="resultatCompetition.jsp" class="thumbnail">
-                            <img src="resources/img/emma.jpg" data-src="holder.js/300x200" alt="">
-                        </a>
-                        <div class="caption">
-                            <h3>Lorraine 12/13</h3>
-                            <p>Pluie de medailles a ces chamipnnats de lorraine</p>
-                            <p><a href="resultatCompetition.jsp" class="btn btn-primary">Les R&eacute;sultats</a>
-                        </div>
-                    </li>
-                    <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="resources/img/myl.jpg" data-src="holder.js/300x200" alt="">
-                        </a>
-                        <div class="caption">
-                            <h3>France Corpo 12/13</h3>
-                            <p>Des combats epiques</p>
-                            <p><a href="#" class="btn btn-primary">Les R&eacute;sultats</a>
-                        </div>
-
-                    </li>
-
-                    <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="resources/img/jo.jpg" data-src="holder.js/300x200" alt="">
-                        </a>
-                        <div class="caption">
-                            <h3>Premier League Frankfurt</h3>
-                            <p>Le beau parcours de Jonathan</p>
-                            <p><a href="#" class="btn btn-primary">Les R&eacute;sultats</a> 
-                        </div>
-                    </li>
-                </ul>
-
-                <ul class="thumbnails">
-                    <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="resources/img/2.jpg" data-src="holder.js/300x200" alt="">
-                        </a>
-                        <div class="caption">
-                            <h3>Lorraine 11/12</h3>
-                            <p>Pluie de medailles a ces chamipnnats de lorraine</p>
-                            <p><a href="#" class="btn btn-primary">Les R&eacute;sultats</a>
-                        </div>
-                    </li>
-                    <li class="span4">
-                        <a href="#" class="thumbnail">
-                            <img src="resources/img/3.jpg" data-src="holder.js/300x200" alt="">
-                        </a>
-                        <div class="caption">
-                            <h3>D&eacute;partementales 11/12</h3>
-                            <p>40 podiums !</p>
-                            <p><a href="#" class="btn btn-primary">Les R&eacute;sultats</a>
-                        </div>
-
-                    </li>
-                    <li class="span3"></li>
-
-                </ul>
+                <s:iterator value="competitions" status="resultatsStatus">
+                    <s:if test="#resultatsStatus.index % 3 == 0">
+                        <ul class="thumbnails">
+                        </s:if>
+                        <li class="span4">
+                            <a href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='id'/></s:param></s:url>" class="thumbnail">
+                                <img src="<s:url value='resources/img/%{photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
+                            </a>
+                            <div class="caption">
+                                <span class="badge badge-inverse"><s:date name="date" format="dd/MM/yyyy" /></span>
+                                <h3><s:property value="nom"/> </h3>
+                                <p><s:property value="commentaires"/></p>
+                                <p><a href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='id'/></s:param></s:url>" class="btn btn-primary">Les R&eacute;sultats</a>
+                                    </div>
+                                </li>
+                        <s:if test="#resultatsStatus.count % 3 == 0">
+                        </ul>
+                    </s:if>
+                </s:iterator>
             </div>
         </div>
 
 
-    <jsp:include page="includes/footer.jsp"/>  
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(".res").addClass("active");
-        $(function() {
-            $('a').tooltip();
-        });
-    </script>
-</body>
-</html>  	
+        <jsp:include page="includes/footer.jsp"/>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(".res").addClass("active");
+            $(function() {
+                $('a').tooltip();
+            });
+        </script>
+    </body>
+</html>

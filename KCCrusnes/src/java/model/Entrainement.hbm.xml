@@ -11,9 +11,11 @@
             <list-index></list-index>
             <many-to-many column="id_entraineur" class="model.Entraineur"/>
         </list>
-        <property name="Discipline" type="model.DisciplineUserType" column="discipline"/>
         <many-to-one name="horaire" class="model.Horaire" fetch="select">
             <column name="id_horaire"/>
+        </many-to-one>
+        <many-to-one name="discipline" class="model.Discipline" fetch="select">
+            <column name="id_discipline"/>
         </many-to-one>
     </class>
 </hibernate-mapping>

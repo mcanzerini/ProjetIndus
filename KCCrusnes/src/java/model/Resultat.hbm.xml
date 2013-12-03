@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Resultat" table="Resultat">
+        <id name="id" type="long" column="id_resultat">
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="model.Competition" fetch="select" name="competition">
+            <column name="id_competition" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="model.Licencie" fetch="select" name="licencie">
+            <column name="id_licencie" not-null="true"/>
+        </many-to-one>
+        <property column="place_resultat" name="place"/>
+        <property column="categorie_age" name="categorieAge" type="model.CategorieAgeUserType"/>
+        <property column="categorie_poids" name="categoriePoids" type="model.CategoriePoidsUserType"/>
+        <property column="individuel" type="boolean" name = "individuel" />
+    </class>
+</hibernate-mapping>

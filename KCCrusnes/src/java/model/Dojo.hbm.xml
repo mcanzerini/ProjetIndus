@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Dojo" table="Dojo">
+        <id name="id" type="long" column="id_dojo">
+            <generator class="increment"/>
+        </id>
+        <many-to-one class="model.Adresse" fetch="select" name="adresse">
+            <column name="id_adresse" not-null="true"/>
+        </many-to-one>
+        <property column="photo1" name="photo1"/>
+        <property column="photo2" name="photo2"/>
+        <property column="photo3" name="photo3"/>
+        <property column="photo4" name="photo4"/>
+    </class>
+</hibernate-mapping>

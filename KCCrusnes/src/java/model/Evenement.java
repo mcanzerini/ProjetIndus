@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model;
 
 import java.util.GregorianCalendar;
@@ -11,15 +10,40 @@ import java.util.GregorianCalendar;
  *
  * @author mathieu_canzerini
  */
-public abstract class Evenement {
+public class Evenement {
+
+    private long id;
     private String nom;
     private GregorianCalendar date;
     private Adresse lieu;
+    private Album album;
+    private String photoPrincipale;
 
-    public Evenement(String nom, GregorianCalendar date, Adresse lieu) {
-        this.nom = nom;
-        this.date = date;
-        this.lieu = lieu;
+    public String getPhotoPrincipale() {
+        return photoPrincipale;
+    }
+
+    public void setPhotoPrincipale(String photoPrincipale) {
+        this.photoPrincipale = photoPrincipale;
+    }
+
+    public Album getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(Album album) {
+        this.album = album;
+    }
+
+    public Evenement() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public GregorianCalendar getDate() {

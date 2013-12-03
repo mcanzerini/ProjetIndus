@@ -16,7 +16,7 @@
 
     <body>
         <jsp:include page="includes/petitMenu.jsp"/>
-        <jsp:include page="includes/grosMenu.jsp"/>  
+        <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
 
             <jsp:include page="includes/logo.jsp"/>
@@ -33,7 +33,7 @@
                 <div class="accordion" id="accordion2">
                     <div class="accordion-group">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="" data-parent="" href="derniersResultats.html">
+                            <a class="accordion-toggle" data-toggle="" data-parent="" href="DerniersResultats">
                                 <h4>Consulter les derniers r&eacute;sultats</h4>
                             </a>
                         </div>
@@ -47,25 +47,25 @@
                         </div>
                         <div id="collapseOne" class="accordion-body collapse">
                             <div class="accordion-inner">
-                                <form id="formCompetiteur" class="form-horizontal">
+                                <form id="formCompetiteur" method="post" action="ResultatsCompetiteur" class="form-horizontal">
                                     <div class="control-group">
                                         <label class="control-label" for="inputNom">Nom</label>
                                         <div class="controls">
-                                            <input type="text" id="inputNom" placeholder="Dona">
+                                            <input type="text" id="inputNom" name="nom" placeholder="Dona">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="inputPrenom">Pr&eacutenom</label>
                                         <div class="controls">
-                                            <input type="text" id="inputPrenom" placeholder="Davy">
+                                            <input type="text" id="inputPrenom" name="prenom" placeholder="Davy">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <select form="formCompetiteur">
-                                                <option>Les m&eacute;dailles d'or</option>
-                                                <option>Les finales</option>
-                                                <option>Les podiums</option>
+                                            <select name="resultat" form="formCompetiteur">
+                                                <option value="1">Les m&eacute;dailles d'or</option>
+                                                <option value="2">Les finales</option>
+                                                <option value="3">Les podiums</option>
                                             </select>    </div>
                                     </div>
                                     <div class="control-group">
@@ -176,14 +176,14 @@
                                         <label class="control-label" for="inputNom">Nom</label>
                                         <div class="controls">
 
-                                            <input class="search-query" type="text" placeholder="Perfetto">  
+                                            <input class="search-query" type="text" placeholder="Perfetto">
                                         </div>
                                     </div>
                                     <div class="control-group">
                                         <label class="control-label" for="inputPrenom">Pr&eacute;nom</label>
                                         <div class="controls">
 
-                                            <input class="search-query" type="text" placeholder="Raphael">  
+                                            <input class="search-query" type="text" placeholder="Raphael">
                                         </div>
                                     </div>
                                     <div class="control-group">
@@ -224,7 +224,7 @@
 
                 </div>
             </div>
-        </div>  	 
+        </div>
 
         <jsp:include page="includes/footer.jsp"/>
         <script src="http://code.jquery.com/jquery.js"></script>
@@ -239,4 +239,4 @@
 
         </script>
     </body>
-</html>  	
+</html>

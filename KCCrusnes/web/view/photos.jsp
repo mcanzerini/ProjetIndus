@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +15,7 @@
 
     <body>
         <jsp:include page="includes/petitMenu.jsp"/>
-        <jsp:include page="includes/grosMenu.jsp"/>  
+        <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
 
             <jsp:include page="includes/logo.jsp"/>
@@ -41,42 +42,28 @@
             </div>
             <div class="span11"></div>
             <div id="containeurPhotos" class="container">
-                <div class="row">
-                    <ul class="thumbnails">
-                        <li class="span4">
-                            <a href="albumPhoto.jsp" class="thumbnail">
-                                <img src="resources/img/emma.jpg" data-src="holder.js/300x200" alt="">
-                            </a>
-                            <div class="caption">
-                                <h3>Lorraine 12/13</h3>
+                <s:iterator value="albums" status="albumsStatus">
+                    <s:if test="#albumsStatus.index % 3 == 0">
+                        <div class="row">
+                            <ul class="thumbnails">
+                            </s:if>
+                            <li class="span4">
+                                <a href="albumPhoto.jsp" class="thumbnail">
+                                    <img src="<s:url value='resources/img/%{evenement.photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
+                                </a>
+                                <div class="caption">
+                                    <h3><s:property value="evenement.nom"/></h3>
 
-                                <a href="albumPhoto.jsp" class="btn btn-primary">Voir l'Album</a>
-                            </div>
-                        </li>
-                        <li class="span4">
-                            <a href="#" class="thumbnail">
-                                <img src="resources/img/myl.jpg" data-src="holder.js/300x200" alt="">
-                            </a>
-                            <div class="caption">
-                                <h3>France Corpo 12/13</h3>
+                                    <a href="albumPhoto.jsp" class="btn btn-primary">Voir l'Album</a>
+                                </div>
+                            </li>
+                            <s:if test="#albumsStatus.count % 3 == 0">
+                            </ul>
+                        </div>
+                    </s:if>
 
-                                <a href="albumPhoto.jsp" class="btn btn-primary">Voir l'Album</a>
-                            </div>
+                </s:iterator>
 
-                        </li>
-
-                        <li class="span4">
-                            <a href="#" class="thumbnail">
-                                <img src="resources/img/jo.jpg" data-src="holder.js/300x200" alt="">
-                            </a>
-                            <div class="caption">
-                                <h3>Premier League Frankfurt</h3>
-
-                                <a href="albumPhoto.jsp" class="btn btn-primary">Voir l'Album</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
                 <div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
@@ -127,4 +114,4 @@
             });
         </script>
     </body>
-</html>  	
+</html>

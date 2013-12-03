@@ -12,21 +12,30 @@ import java.util.List;
  */
 public class Entraineur extends Membre {
 
-    private List<Discipline> discipline;
+    private List<Discipline> disciplines;
     private List<Entrainement> entrainements;
     private boolean enfants;
     private boolean adultes;
+    private String diplome;
 
     public Entraineur() {
 
     }
 
-    public List<Discipline> getDiscipline() {
-        return discipline;
+    public String getDiplome() {
+        return diplome;
     }
 
-    public void setDiscipline(List<Discipline> discipline) {
-        this.discipline = discipline;
+    public void setDiplome(String diplome) {
+        this.diplome = diplome;
+    }
+
+    public List<Discipline> getDisciplines() {
+        return disciplines;
+    }
+
+    public void setDisciplines(List<Discipline> disciplines) {
+        this.disciplines = disciplines;
     }
 
     public boolean getEnfants() {
