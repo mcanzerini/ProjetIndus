@@ -15,6 +15,15 @@ import org.hibernate.Query;
  */
 public class EntraineurDaoImpl extends EntraineurDao {
 
+    public static EntraineurDao uniqueInstance;
+
+    public static EntraineurDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new EntraineurDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
     @Override
     public void create(Entraineur obj) {
         saveOrUpdate(obj);

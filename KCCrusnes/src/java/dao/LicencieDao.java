@@ -40,4 +40,22 @@ public abstract class LicencieDao extends Dao<Licencie> {
     public abstract String getNameTypeHeadFromFirstName(String firstName);
 
     public abstract String getFirstNameTypeHeadFromName(String name);
+
+    public abstract List<String> selectAllDistinctNames();
+
+    public abstract List<String> selectAllDistinctFirstNames();
+
+    public abstract List<String> selectDistinctFirstNamesFromName(String nom);
+
+    public abstract List<String> selectDistinctNamesFromFirstName(String prenom);
+
+    public abstract List<String> selectAllDistinctFirstNamesFromResultats();
+
+    public abstract List<String> selectAllDistinctNamesFromResultats();
+
+    public abstract List<String> selectDistinctNamesFromFirstNameAndResultats(String prenom);
+
+    public abstract List<String> selectDistinctFirstNamesFromNameAndResultats(String nom);
+
+    public abstract List<Grade> selectAllExistingGrades();
 }

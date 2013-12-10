@@ -21,8 +21,8 @@ import model.Competition;
 public class DerniersResultats extends ActionSupport {
 
     private List<Competition> competitions;
-    public static final CompetitionDao competitionDao = new CompetitionDaoImpl();
-    public static final ResultatDao resultatDao = new ResultatDaoImpl();
+    public static final CompetitionDao competitionDao = CompetitionDaoImpl.getInstance();
+    public static final ResultatDao resultatDao = ResultatDaoImpl.getInstance();
 
     public String execute() throws Exception {
         competitions = competitionDao.findLastCompetitions(6);

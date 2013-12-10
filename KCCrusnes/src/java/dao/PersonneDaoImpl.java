@@ -15,6 +15,15 @@ import org.hibernate.Query;
  */
 public class PersonneDaoImpl extends PersonneDao {
 
+    public static PersonneDao uniqueInstance;
+
+    public static PersonneDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new PersonneDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
     @Override
     public void create(Personne obj) {
         super.saveOrUpdate(obj);

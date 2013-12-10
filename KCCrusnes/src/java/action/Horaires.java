@@ -19,7 +19,7 @@ import model.Horaire;
 public class Horaires extends ActionSupport {
 
     private List<Horaire> horaires;
-    private static final HoraireDao horaireDao = new HoraireDaoImpl();
+    private static final HoraireDao horaireDao = HoraireDaoImpl.getInstance();
 
     public String execute() throws Exception {
         horaires = horaireDao.findAll();

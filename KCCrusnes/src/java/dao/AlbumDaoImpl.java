@@ -15,6 +15,15 @@ import org.hibernate.Query;
  */
 public class AlbumDaoImpl extends AlbumDao {
 
+    public static AlbumDao uniqueInstance;
+
+    public static AlbumDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new AlbumDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
     @Override
     public void create(Album obj) {
         saveOrUpdate(obj);

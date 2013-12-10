@@ -13,12 +13,12 @@ import java.util.List;
 public class Licencie extends Personne {
 
     private String numLicence;
-    private boolean actif;
-    private int poids;
+    private Boolean actif;
+    private Integer poids;
     private Grade grade;
     private CategorieAge categorieAge;
     private CategoriePoids categoriePoids;
-    private boolean etudiant;
+    private Boolean etudiant;
     private String photo;
     private List<Competition> participations;
 
@@ -41,11 +41,11 @@ public class Licencie extends Personne {
         this.photo = photo;
     }
 
-    public boolean isEtudiant() {
+    public Boolean getEtudiant() {
         return etudiant;
     }
 
-    public void setEtudiant(boolean etudiant) {
+    public void setEtudiant(Boolean etudiant) {
         this.etudiant = etudiant;
     }
 
@@ -65,11 +65,11 @@ public class Licencie extends Personne {
         this.categoriePoids = categoriePoids;
     }
 
-    public boolean isActif() {
+    public Boolean getActif() {
         return actif;
     }
 
-    public void setActif(boolean actif) {
+    public void setActif(Boolean actif) {
         this.actif = actif;
     }
 
@@ -89,11 +89,11 @@ public class Licencie extends Personne {
         this.numLicence = numLicence;
     }
 
-    public int getPoids() {
+    public Integer getPoids() {
         return poids;
     }
 
-    public void setPoids(int poids) {
+    public void setPoids(Integer poids) {
         this.poids = poids;
     }
 

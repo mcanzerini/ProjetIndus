@@ -18,7 +18,7 @@ import model.Information;
 public class Index extends ActionSupport {
 
     private List<Information> informations;
-    public static final InformationDao informationDao = new InformationDaoImpl();
+    public static final InformationDao informationDao = InformationDaoImpl.getInstance();
 
     /**
      *

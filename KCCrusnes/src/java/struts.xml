@@ -44,9 +44,49 @@
         <action name="ResultatsCompetition" class="action.ResultatsCompetition">
             <result name="success">/view/resultatCompetition.jsp</result>
         </action>
+        <action name="RechercheResultatsCompetition" class="action.ResultatsCompetition" method = "executeSearch">
+            <result name="success">/view/resultatCompetition.jsp</result>
+            <result name="error">/view/choixCompetitions.jsp</result>
+            <result name="noresult" type="redirectAction">
+                <param name="actionName">Resultat</param>
+                <param name="problem">noCompetition</param>
+                <param name="date">${dateString}</param>
+                <param name="lieu">${lieu}</param>
+                <param name="resultat">${resultatString}</param>
+                <param name="niveau">${niveau}</param>
+            </result>
+        </action>
         <action name="ResultatsCompetiteur" class="action.ResultatsCompetiteur">
             <result name="success">/view/resultatCompetiteur.jsp</result>
             <result name="error">/view/choixCompetiteurs.jsp</result>
+            <result name="noresult" type="redirectAction">
+                <param name="actionName">Resultat</param>
+                <param name="problem">noCompetiteur</param>
+                <param name="nom">${nomLicencie}</param>
+                <param name="prenom">${prenomLicencie}</param>
+                <param name="resultat">${resultatString}</param>
+            </result>
+        </action>
+        <action name="Resultat" class="action.Resultat">
+            <result name="success">/view/resultat.jsp</result>
+        </action>
+        <action name="Noms" class="action.Noms">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">stream</param>
+            </result>
+        </action>
+        <action name="Prenoms" class="action.Prenoms">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">stream</param>
+            </result>
+        </action>
+        <action name="ResultatsAnnee" class="action.ResultatsAnnee">
+            <result name="success">/view/resultatAnnee.jsp</result>
+        </action>
+        <action name="ResultatsGrade" class="action.ResultatsGrade">
+            <result name="success">/view/resultatGrade.jsp</result>
         </action>
     </package>
 </struts>

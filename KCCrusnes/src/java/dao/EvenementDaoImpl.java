@@ -17,6 +17,15 @@ import org.hibernate.Query;
  */
 public class EvenementDaoImpl extends EvenementDao {
 
+    public static EvenementDao uniqueInstance;
+
+    public static EvenementDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new EvenementDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
     @Override
     public void create(Evenement obj) {
         saveOrUpdate(obj);

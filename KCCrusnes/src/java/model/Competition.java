@@ -15,6 +15,15 @@ public class Competition extends Evenement {
     private List<Licencie> inscrits;
     private String commentaires;
     private String lienProgramme;
+    private NiveauCompetition niveau;
+
+    public NiveauCompetition getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(NiveauCompetition niveau) {
+        this.niveau = niveau;
+    }
 
     public String getCommentaires() {
         return commentaires;

@@ -15,6 +15,15 @@ import org.hibernate.Query;
  */
 public class HoraireDaoImpl extends HoraireDao {
 
+    public static HoraireDao uniqueInstance;
+
+    public static HoraireDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new HoraireDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
     @Override
     public void create(Horaire obj) {
         saveOrUpdate(obj);

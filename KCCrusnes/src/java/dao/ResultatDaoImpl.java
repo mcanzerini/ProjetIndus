@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.Calendar;
 import java.util.List;
 import model.Resultat;
 import org.hibernate.Query;
@@ -14,6 +15,15 @@ import org.hibernate.Query;
  * @author mathieu_canzerini
  */
 public class ResultatDaoImpl extends ResultatDao {
+
+    public static ResultatDao uniqueInstance;
+
+    public static ResultatDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new ResultatDaoImpl();
+        }
+        return uniqueInstance;
+    }
 
     @Override
     public void create(Resultat obj) {
@@ -89,6 +99,36 @@ public class ResultatDaoImpl extends ResultatDao {
         }
         q.append(" order by r.place asc, r.licencie.nom asc, r.licencie.prenom asc");
         Query query = super.getSession().createQuery(q.toString());
+        List<Resultat> resultats = query.list();
+        return resultats;
+    }
+
+    @Override
+    public List<Resultat> findByCompetResultat(long idCompetition, Long resultat) {
+        Query query = super.getSession().createQuery("from " + Resultat.class.getName() + " r "
+                + " where r.competition.id = " + idCompetition + " "
+                + " and r.place <= " + resultat + " order by r.place asc, r.licencie.nom asc, r.licencie.prenom asc");
+        List<Resultat> resultats = query.list();
+        return resultats;
+    }
+
+    @Override
+    public List<Resultat> findByAnnee(Integer annee) {
+        Calendar from = Calendar.getInstance();
+        from.set(Calendar.YEAR, annee - 1);
+        from.set(Calendar.MONTH, Calendar.SEPTEMBER);
+        from.set(Calendar.DAY_OF_MONTH, 1);
+        Calendar to = Calendar.getInstance();
+        to.set(Calendar.YEAR, annee);
+        to.set(Calendar.MONTH, Calendar.AUGUST);
+        to.set(Calendar.DAY_OF_MONTH, 31);
+        Query query = super.getSession().createQuery("from " + Resultat.class.getName() + " r "
+                + " where r.competition.date >= :dateFrom"
+                + " and r.competition.date < :dateTo"
+                //+ " group by r.licencie "
+                + " order by r.licencie.nom asc, r.licencie.prenom asc, r.competition.date asc");
+        query.setParameter("dateFrom", from);
+        query.setParameter("dateTo", to);
         List<Resultat> resultats = query.list();
         return resultats;
     }

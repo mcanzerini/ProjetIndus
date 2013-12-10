@@ -116,10 +116,15 @@ body {
     position:fixed;
 }
 
-@media (max-width: 399px) {
+@media (max-width: 449px) {
 
     #bodyPresentation {
-        width:99%}
+        /* width:99%*/
+    }
+
+    .reduire th, .reduire td{
+        padding:3px;
+    }
 
 }
 

@@ -25,7 +25,7 @@
                         <a href="VoirCalendrier">Calendrier</a>
                     </li>
                     <li class="res">
-                        <a href="resultat.jsp">R&eacute;sultats</a> </li>
+                        <a href="Resultat">R&eacute;sultats</a> </li>
                     <li class="mutli dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacute;dia <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="Photos"><i class="icon-camera"></i> Photos</a></li>

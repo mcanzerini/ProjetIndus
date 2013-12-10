@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:8081/karate</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="show_sql">true</property>
-        <mapping resource="model/Information.hbm.xml"/>
-        <mapping resource="model/Histoire.hbm.xml"/>
-        <mapping resource="model/Adresse.hbm.xml"/>
-        <mapping resource="model/Personne.hbm.xml"/>
-        <mapping resource="model/Entrainement.hbm.xml"/>
-        <mapping resource="model/Horaire.hbm.xml"/>
-        <mapping resource="model/Heure.hbm.xml"/>
-        <mapping resource="model/Photo.hbm.xml"/>
-        <mapping resource="model/Album.hbm.xml"/>
-        <mapping resource="model/Evenement.hbm.xml"/>
-        <mapping resource="model/Discipline.hbm.xml"/>
-        <mapping resource="model/Dojo.hbm.xml"/>
-        <mapping resource="model/Resultat.hbm.xml"/>
-    </session-factory>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:8081/karate</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="show_sql">true</property>
+    <mapping resource="model/Information.hbm.xml"/>
+    <mapping resource="model/Histoire.hbm.xml"/>
+    <mapping resource="model/Adresse.hbm.xml"/>
+    <mapping resource="model/Personne.hbm.xml"/>
+    <mapping resource="model/Entrainement.hbm.xml"/>
+    <mapping resource="model/Horaire.hbm.xml"/>
+    <mapping resource="model/Heure.hbm.xml"/>
+    <mapping resource="model/Photo.hbm.xml"/>
+    <mapping resource="model/Album.hbm.xml"/>
+    <mapping resource="model/Evenement.hbm.xml"/>
+    <mapping resource="model/Discipline.hbm.xml"/>
+    <mapping resource="model/Dojo.hbm.xml"/>
+    <mapping resource="model/Resultat.hbm.xml"/>
+  </session-factory>
 </hibernate-configuration>

@@ -15,6 +15,15 @@ import org.hibernate.Query;
  */
 public class DojoDaoImpl extends DojoDao {
 
+    public static DojoDao uniqueInstance;
+
+    public static DojoDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new DojoDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
     @Override
     public void create(Dojo obj) {
         saveOrUpdate(obj);

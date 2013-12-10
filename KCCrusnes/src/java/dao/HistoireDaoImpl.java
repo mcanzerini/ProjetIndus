@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package dao;
 
 import java.util.List;
@@ -14,7 +13,16 @@ import org.hibernate.Query;
  *
  * @author mathieu_canzerini
  */
-public class HistoireDaoImpl extends HistoireDao{
+public class HistoireDaoImpl extends HistoireDao {
+
+    public static HistoireDao uniqueInstance;
+
+    public static HistoireDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new HistoireDaoImpl();
+        }
+        return uniqueInstance;
+    }
 
     @Override
     public Histoire find(long id) {
@@ -38,5 +46,5 @@ public class HistoireDaoImpl extends HistoireDao{
     public void update(Histoire obj) {
         saveOrUpdate(obj);
     }
-    
+
 }

@@ -22,25 +22,56 @@ import org.apache.struts2.ServletActionContext;
  */
 public class ResultatsCompetiteur extends ActionSupport {
 
-    public static final ResultatDao resultatDao = new ResultatDaoImpl();
-    public static final LicencieDao licencieDao = new LicencieDaoImpl();
+    public static final ResultatDao resultatDao = ResultatDaoImpl.getInstance();
+    public static final LicencieDao licencieDao = LicencieDaoImpl.getInstance();
     private List<Resultat> resultats;
     private List<Licencie> licencies;
+    private String nomLicencie;
+    private String prenomLicencie;
+    private String resultatString;
 
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
-        String nomLicencie = request.getParameter("nom");
-        String prenomLicencie = request.getParameter("prenom");
+        nomLicencie = request.getParameter("nom");
+        prenomLicencie = request.getParameter("prenom");
         licencies = licencieDao.findByNomPrenom(nomLicencie, prenomLicencie);
-        if (licencies != null && licencies.size() != 1) {
+        if (licencies == null || licencies.size() > 1) {
             return ERROR;
         } else {
-            String resultatString = request.getParameter("resultat");
-            Long resultat = Long.valueOf(resultatString);
-            resultats = resultatDao.findByLicencie(nomLicencie, prenomLicencie, resultat);
-            return SUCCESS;
+            resultatString = request.getParameter("resultat");
+            if (licencies.isEmpty()) {
+                return ActionUtils.NO_RESULT;
+            } else {
+                Long resultat = Long.valueOf(resultatString);
+                resultats = resultatDao.findByLicencie(nomLicencie, prenomLicencie, resultat);
+                return SUCCESS;
+            }
         }
+    }
+
+    public String getResultatString() {
+        return resultatString;
+    }
+
+    public void setResultatString(String resultatString) {
+        this.resultatString = resultatString;
+    }
+
+    public String getNomLicencie() {
+        return nomLicencie;
+    }
+
+    public void setNomLicencie(String nomLicencie) {
+        this.nomLicencie = nomLicencie;
+    }
+
+    public String getPrenomLicencie() {
+        return prenomLicencie;
+    }
+
+    public void setPrenomLicencie(String prenomLicencie) {
+        this.prenomLicencie = prenomLicencie;
     }
 
     public List<Resultat> getResultats() {

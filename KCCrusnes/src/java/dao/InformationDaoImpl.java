@@ -15,10 +15,19 @@ import org.hibernate.Query;
  */
 public class InformationDaoImpl extends InformationDao {
 
-    public InformationDaoImpl(){
+    public static InformationDao uniqueInstance;
+
+    public static InformationDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new InformationDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
+    public InformationDaoImpl() {
         super();
     }
-    
+
     @Override
     public Information find(long id) {
         Information information = (Information) super.getSession().get(Information.class, id);

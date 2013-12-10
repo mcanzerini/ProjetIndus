@@ -30,7 +30,7 @@ public class VoirCalendrier extends ActionSupport {
     private List<Evenement> evenementsJuin;
     private List<Evenement> evenementsJuillet;
     private List<Evenement> evenementsAout;
-    public static EvenementDao evenementDao = new EvenementDaoImpl();
+    public static EvenementDao evenementDao = EvenementDaoImpl.getInstance();
 
     @Override
     public String execute() throws Exception {

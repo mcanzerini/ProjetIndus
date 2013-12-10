@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.Calendar;
 import java.util.List;
 import model.Competition;
 
@@ -19,4 +20,10 @@ public abstract class CompetitionDao extends Dao<Competition> {
     public abstract void update(Competition obj);
 
     public abstract List<Competition> findLastCompetitions(Integer nbCompets);
+
+    public abstract List<String> selectAllDistinctPlaces();
+
+    public abstract String getAllPlaceTypeHead();
+
+    public abstract List<Competition> findByDateLieuNiveau(Calendar date, String lieu, String niveau);
 }

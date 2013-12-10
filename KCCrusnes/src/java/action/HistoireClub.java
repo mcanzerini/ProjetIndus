@@ -17,7 +17,7 @@ import model.Histoire;
 public class HistoireClub extends ActionSupport {
 
     private Histoire histoire;
-    public static final HistoireDao histoireDao = new HistoireDaoImpl();
+    public static final HistoireDao histoireDao = HistoireDaoImpl.getInstance();
 
     @Override
     public String execute() throws Exception {

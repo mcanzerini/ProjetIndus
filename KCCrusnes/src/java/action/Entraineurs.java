@@ -19,7 +19,7 @@ import model.Entraineur;
 public class Entraineurs extends ActionSupport {
 
     private List<Entraineur> entraineurs;
-    public static final EntraineurDao entraineurDao = new EntraineurDaoImpl();
+    public static final EntraineurDao entraineurDao = EntraineurDaoImpl.getInstance();
 
     @Override
     public String execute() throws Exception {

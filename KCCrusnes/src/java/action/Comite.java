@@ -20,7 +20,7 @@ import model.PosteComite;
 public class Comite extends ActionSupport {
 
     private List<Membre> comite;
-    public static final MembreDao membreDao = new MembreDaoImpl();
+    public static final MembreDao membreDao = MembreDaoImpl.getInstance();
 
     @Override
     public String execute() throws Exception {

@@ -18,7 +18,7 @@ import model.Dojo;
 public class DojoClub extends ActionSupport {
 
     private Dojo dojo;
-    public static final DojoDao dojoDao = new DojoDaoImpl();
+    public static final DojoDao dojoDao = DojoDaoImpl.getInstance();
 
     public String execute() throws Exception {
         dojo = dojoDao.find(1);

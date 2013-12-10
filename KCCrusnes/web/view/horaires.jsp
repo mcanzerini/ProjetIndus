@@ -48,7 +48,7 @@
                             <s:set name="minuteFin" value="heureFin.minute"/>
                             <tr>
                                 <td><s:property escape="false" value="groupe"/></td>
-                                <td><s:text name="message.comite.%{jour}"/></td>
+                                <td><s:text name="message.horaires.%{jour}"/></td>
                                 <td><s:property escape="false" value="heureDebut.heure"/>H<s:property escape="false" value="heureDebut.minute"/><s:if test="%{#minuteDebut==0}"><s:property escape="false" value="heureDebut.minute"/></s:if> - <s:property escape="false" value="heureFin.heure"/>H<s:property escape="false" value="heureFin.minute"/><s:if test="%{#minuteFin==0}"><s:property escape="false" value="heureFin.minute"/></s:if></td>
                                 </tr>
                         </s:iterator>

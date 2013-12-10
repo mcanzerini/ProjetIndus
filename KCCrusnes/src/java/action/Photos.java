@@ -22,7 +22,7 @@ public class Photos extends ActionSupport {
     private List<Album> albums;
     private Integer pageNumber;
     private Integer nbAlbums;
-    public static final AlbumDao albumDao = new AlbumDaoImpl();
+    public static final AlbumDao albumDao = AlbumDaoImpl.getInstance();
 
     public List<Album> getAlbums() {
         return albums;

@@ -16,6 +16,15 @@ import org.hibernate.Query;
  */
 public class MembreDaoImpl extends MembreDao {
 
+    public static MembreDao uniqueInstance;
+
+    public static MembreDao getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new MembreDaoImpl();
+        }
+        return uniqueInstance;
+    }
+
     @Override
     public void create(Membre obj) {
         super.saveOrUpdate(obj);

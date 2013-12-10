@@ -22,5 +22,10 @@ public abstract class ResultatDao extends Dao<Resultat> {
 
     public abstract List<Resultat> findByCompet(long idCompetition);
 
+    public abstract List<Resultat> findByCompetResultat(long idCompetition, Long resultat);
+
     public abstract List<Resultat> findByLicencie(String nomLicencie, String prenomLicencie, Long resultat);
+
+    public abstract List<Resultat> findByAnnee(Integer annee);
+
 }

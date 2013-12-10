@@ -21,6 +21,7 @@
                 <key column="id_evenement" not-null="true"/>
                 <many-to-many class="model.Licencie" column="id_personne"/>
             </bag>
+            <property column="niveau" name="niveau" type="model.NiveauCompetitionUserType"/>
         </joined-subclass>
     </class>
 </hibernate-mapping>
