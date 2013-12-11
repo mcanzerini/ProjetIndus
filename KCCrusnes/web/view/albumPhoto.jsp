@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +16,7 @@
 
     <body>
         <jsp:include page="includes/petitMenu.jsp"/>
-        <jsp:include page="includes/grosMenu.jsp"/>    
+        <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
 
             <jsp:include page="includes/logo.jsp"/>
@@ -23,7 +24,7 @@
             <div class="span2"></div>
             <div class="span7">
                 <div class="page-header">
-                    <h1>Album Photos</h1>
+                    <h1>Album Photos <s:property value="nomAlbum"/></h1>
                 </div>
 
                 <blockquote class="">
@@ -34,22 +35,39 @@
             </div>
             <div class="span11"></div>
             <div id="containeurPhotos" class="container">
-                <div class="row">
+                <s:iterator value="photos" status="photosStatus">
+                    <s:if test="#photosStatus.index % 3 == 0">
+                        <div class="row">
+                            <ul class="thumbnails">
+                            </s:if>
+                            <li class="span4">
+                                <a href='<s:url value="resources/img/albums/%{album.id}/%{lien}"/>' rel="group" class="fancybox thumbnail">
+                                    <img src='<s:url value="resources/img/albums/%{album.id}/%{lien}"/>' data-src="holder.js/300x200" alt="">
+                                </a>
+                            </li>
+                            <s:if test="#photosStatus.count % 3 == 0">
+                            </ul>
+                        </div>
+                    </s:if>
+
+                </s:iterator>
+
+                <!--<div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div.JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div.JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div.JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div.JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(2).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(2).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(2).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(2).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
 
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(3).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(3).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(3).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(3).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                     </ul>
@@ -57,131 +75,131 @@
                 <div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(4).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(4).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(4).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(4).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(5).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(5).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(5).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(5).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(6).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(6).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(6).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(6).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
-                        </li>  
+                        </li>
                     </ul>
                 </div>
 
                 <div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(7).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(7).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(7).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(7).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(8).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(8).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(8).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(8).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(9).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(9).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(9).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(9).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
-                        </li>  
+                        </li>
                     </ul>
                 </div>
 
                 <div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(10).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(10).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(10).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(10).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(11).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(11).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(11).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(11).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(12).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(12).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(12).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(12).JPG" data-src="holder.js/300x200" alt="">
                             </a>
-                        </li>  
+                        </li>
                     </ul>
                 </div>
 
                 <div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(13).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(13).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(13).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(13).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(14).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(14).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(14).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(14).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(15).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(15).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(15).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(15).JPG" data-src="holder.js/300x200" alt="">
                             </a>
-                        </li>  
+                        </li>
                     </ul>
                 </div>
 
                 <div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(16).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(16).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(16).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(16).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(17).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(17).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(17).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(17).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(18).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(18).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(18).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(18).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
-                        </li>  
+                        </li>
                     </ul>
                 </div>
 
                 <div class="row">
                     <ul class="thumbnails">
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(19).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(19).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(19).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(19).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(20).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(20).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(20).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(20).JPG" data-src="holder.js/300x200" alt="">
                             </a>
                         </li>
                         <li class="span4">
-                            <a href="resources/img/albums/albumDivers/div(21).JPG" rel="group" class="fancybox thumbnail">
-                                <img src="resources/img/albums/albumDivers/div(21).JPG" data-src="holder.js/300x200" alt="">
+                            <a href="resources/img/albums/1/div(21).JPG" rel="group" class="fancybox thumbnail">
+                                <img src="resources/img/albums/1/div(21).JPG" data-src="holder.js/300x200" alt="">
                             </a>
 
-                        </li>  
+                        </li>
                     </ul>
-                </div>
+                </div>-->
 
 
             </div>
@@ -210,4 +228,4 @@
                     });
         </script>
     </body>
-</html>  	
+</html>

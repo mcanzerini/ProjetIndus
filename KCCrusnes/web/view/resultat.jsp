@@ -294,7 +294,7 @@
                                                 }
                                                 function getNames() {
                                                     request = $.ajax({
-                                                        url: "Noms",
+                                                        url: "Photos",
                                                         type: "post",
                                                         data: {data: $('#inputPrenom').val()},
                                                         success: function(data) {

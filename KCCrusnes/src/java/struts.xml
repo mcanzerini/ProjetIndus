@@ -14,6 +14,9 @@
         </action>
     </package>
     <package name="view" namespace="/view" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
         <action name="Index" class="action.Index">
             <result name="success">/view/index.jsp</result>
         </action>
@@ -87,6 +90,12 @@
         </action>
         <action name="ResultatsGrade" class="action.ResultatsGrade">
             <result name="success">/view/resultatGrade.jsp</result>
+        </action>
+        <action name="AlbumPhoto" class="action.AlbumPhoto">
+            <result name="success">/view/albumPhoto.jsp</result>
+        </action>
+        <action name="Albums" class="action.Albums">
+            <result type="json"/>
         </action>
     </package>
 </struts>

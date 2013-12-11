@@ -5,11 +5,11 @@
         <id name="id" type="long" column="id_album">
             <generator class="increment"/>
         </id>
-        <list name="photos" inverse="true">
+        <property name="nom" column="nom"/>
+        <bag name="photos" inverse="true">
             <key column="id_album" not-null="true"/>
-            <list-index></list-index>
             <one-to-many class="model.Photo"/>
-        </list>
+        </bag>
         <one-to-one class="model.Evenement" name="evenement"/>
     </class>
 </hibernate-mapping>

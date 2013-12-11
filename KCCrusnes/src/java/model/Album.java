@@ -14,11 +14,20 @@ import java.util.List;
 public class Album {
 
     private long id;
+    private String nom;
     private List<Photo> photos;
     private Evenement evenement;
 
     public Album() {
 
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public long getId() {

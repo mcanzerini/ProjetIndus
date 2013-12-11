@@ -51,25 +51,18 @@ public class Photos extends ActionSupport {
     @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
-        if (request.getParameter("pageNumber") != null && !request.getParameter("pageNumber").equals("")) {
+        try {
             pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-        } else {
-            try {
-                pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
-            } catch (NumberFormatException e) {
-                pageNumber = 1;
-            }
+        } catch (NumberFormatException e) {
+            pageNumber = 1;
         }
 
-        if (request.getParameter("nbAlbums") != null && !request.getParameter("nbAlbums").equals("")) {
-            try {
-                nbAlbums = Integer.parseInt(request.getParameter("nbAlbums"));
-            } catch (NumberFormatException e) {
-                nbAlbums = 6;
-            }
-        } else {
+        try {
+            nbAlbums = Integer.parseInt(request.getParameter("nbAlbums"));
+        } catch (NumberFormatException e) {
             nbAlbums = 6;
         }
+
         albums = albumDao.findByRange(pageNumber, nbAlbums);
         return SUCCESS;
     }
