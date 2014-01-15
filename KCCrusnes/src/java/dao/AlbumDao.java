@@ -19,4 +19,5 @@ public abstract class AlbumDao extends Dao<Album> {
     public abstract void update(Album obj);
 
     public abstract List<Album> findByRange(Integer pageNumber, Integer length);
+
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Reference" table="Reference">
+        <id name="id" type="long" column="id_reference">
+            <generator class="increment"/>
+        </id>
+        <property name="lien" column="lien"/>
+        <property name="image" column="image"/>
+    </class>
+</hibernate-mapping>

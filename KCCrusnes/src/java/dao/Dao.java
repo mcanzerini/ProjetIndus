@@ -22,7 +22,7 @@ public abstract class Dao<T> {
 
     public Dao() {
         session = HibernateFactory.currentSession();
-        tx = session.beginTransaction();
+        //tx = session.beginTransaction();
     }
 
     /**
@@ -32,17 +32,42 @@ public abstract class Dao<T> {
      * @return
      */
     public abstract T find(long id);
-    
+
     public abstract List<T> findAll();
 
     protected void saveOrUpdate(T obj) {
         try {
+            tx = session.beginTransaction();
             session.saveOrUpdate(obj);
             tx.commit();
         } catch (HibernateException he) {
             System.out.println("saveOrUpdate Problem");
-        } finally {
-            HibernateFactory.closeSession();
+            he.printStackTrace();
+        }
+        /**
+         * finally { HibernateFactory.closeSession(); }*
+         */
+    }
+
+    public void merge(T obj) {
+        try {
+            tx = session.beginTransaction();
+            session.merge(obj);
+            tx.commit();
+        } catch (HibernateException he) {
+            System.out.println("merge Problem");
+            he.printStackTrace();
+        }
+    }
+
+    public void updateReally(T obj) {
+        try {
+            tx = session.beginTransaction();
+            session.update(obj);
+            tx.commit();
+        } catch (HibernateException he) {
+            System.out.println("update Problem");
+            he.printStackTrace();
         }
     }
 
@@ -51,15 +76,18 @@ public abstract class Dao<T> {
      *
      * @param obj
      */
-    protected void delete(T obj) {
+    public void delete(T obj) {
         try {
+            tx = session.beginTransaction();
             session.delete(obj);
             tx.commit();
         } catch (HibernateException he) {
             System.out.println("delete Problem");
-        } finally {
-            HibernateFactory.closeSession();
-        }
+            he.printStackTrace();
+        } /*finally {
+         HibernateFactory.closeSession();
+         }*/
+
     }
 
     public Session getSession() {
@@ -68,6 +96,10 @@ public abstract class Dao<T> {
 
     public Transaction getTransaction() {
         return tx;
+    }
+
+    public void openSession() {
+        session = HibernateFactory.currentSession();
     }
 
 }

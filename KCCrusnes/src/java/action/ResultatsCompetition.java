@@ -62,15 +62,17 @@ public class ResultatsCompetition extends ActionSupport {
             }
         }
         competitions = competitionDao.findByDateLieuNiveau(date, lieu, niveau);
-        if (competitions == null || competitions.size() > 1) {
-            return ERROR;
-        } else if (competitions.isEmpty()) {
+        if (competitions == null || competitions.isEmpty()) {
             return ActionUtils.NO_RESULT;
+        }
+        if (competitions.size() > 1) {
+            return ERROR;
         } else {
             competition = competitions.get(0);
             resultats = resultatDao.findByCompetResultat(competition.getId(), resultat);
             return SUCCESS;
         }
+
     }
 
     public String getDateString() {

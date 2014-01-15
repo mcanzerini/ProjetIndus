@@ -58,4 +58,6 @@ public abstract class LicencieDao extends Dao<Licencie> {
     public abstract List<String> selectDistinctFirstNamesFromNameAndResultats(String nom);
 
     public abstract List<Grade> selectAllExistingGrades();
+
+    public abstract String getNameFirstName();
 }

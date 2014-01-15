@@ -1,9 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 
     <head>
-        <title>Bootstrap 101 Template</title>
+        <title>Le site officiel du Karate Club de Crusnes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <meta charset="UTF-8">
@@ -14,7 +15,7 @@
 
     <body>
         <jsp:include page="includes/petitMenu.jsp"/>
-        <jsp:include page="includes/grosMenu.jsp"/>  
+        <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
 
             <jsp:include page="includes/logo.jsp"/>
@@ -32,38 +33,21 @@
             <div class="span11"></div>
             <div class="span4"></div>
             <div class="span4">
-                <div class="row">
-                    <ul class="thumbnails">
-                        <li>
-                            <a target="_blank" href="http://ffkarate.fr">
-                                <img src="resources/img/liens/ffkarate.png" data-src="holder.js/300x200" alt=""><br><br>
-                            </a>
+                <s:iterator value="references">
+                    <div class="row">
+                        <ul class="thumbnails">
+                            <li>
+                                <a target="_blank" href="<s:property value='lien'/>">
+                                    <img src="<s:url value='resources/img/liens/%{image}'/>" data-src="holder.js/300x200" alt=""><br><br>
+                                </a>
 
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="thumbnails">
-                        <li>
-                            <a target="_blank" href="http://ffkarate.fr/lorraine">
-                                <img src="resources/img/liens/ligue.png" data-src="holder.js/300x200" alt=""><br><br><br><br>
-                            </a>
-
-                        </li>
-                    </ul>
-                </div>
-                <div class="row">
-                    <ul class="thumbnails">
-                        <li>
-                            <a target="_blank" href="http://www.jt-difarma.net/">
-                                <img src="resources/img/liens/JTDIFARMA.png" data-src="holder.js/300x200" alt="">
-                            </a>
-
-                        </li>
-                    </ul>
-                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </s:iterator>
             </div>
         </div>
+
         <jsp:include page="includes/footer.jsp"/>
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -74,4 +58,4 @@
             });
         </script>
     </body>
-</html>  	
+</html>

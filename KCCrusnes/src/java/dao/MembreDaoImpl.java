@@ -57,4 +57,26 @@ public class MembreDaoImpl extends MembreDao {
         return membres.get(0);
     }
 
+    public Membre findByPoste(PosteComite poste) {
+        Query q = super.getSession().createQuery("from " + Membre.class.getName() + " as m "
+                + "where m.poste = :poste");
+        q.setString("poste", poste.name());
+        List<Membre> membres = q.list();
+        return membres.get(0);
+    }
+
+    @Override
+    public String getMdpByLogin(String login) {
+        Membre membre;
+        Query q = super.getSession().createQuery("from " + Membre.class.getName() + " as m "
+                + "where m.login = :login");
+        q.setString("login", login);
+        membre = (Membre) q.uniqueResult();
+        if (membre == null) {
+            return null;
+        } else {
+            return membre.getMdp();
+        }
+    }
+
 }

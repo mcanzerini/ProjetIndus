@@ -254,4 +254,35 @@ public class LicencieDaoImpl extends LicencieDao {
         }
         return resultats;
     }
+
+    @Override
+    public String getNameFirstName() {
+        StringBuilder result = new StringBuilder();
+        List<Licencie> licencies = findAll();
+        result.append("[");
+        boolean first = true;
+        for (Licencie licencie : licencies) {
+            if (first) {
+                first = false;
+            } else {
+                result.append(",");
+            }
+            result.append("{");
+            result.append("\"prenom\":");
+            result.append("\"");
+            result.append(licencie.getPrenom());
+            result.append("\",");
+            result.append("\"nom\":");
+            result.append("\"");
+            result.append(licencie.getNom());
+            result.append("\",");
+            result.append("\"id\":");
+            result.append("\"");
+            result.append(licencie.getId());
+            result.append("\"");
+            result.append("}");
+        }
+        result.append("]");
+        return result.toString();
+    }
 }

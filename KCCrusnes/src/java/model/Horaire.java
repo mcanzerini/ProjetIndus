@@ -77,14 +77,6 @@ public class Horaire {
         return hash;
     }
 
-    public Heure getHeure() {
-        return heureDebut;
-    }
-
-    public void setHeure(Heure heure) {
-        this.heureDebut = heure;
-    }
-
     public Jour getJour() {
         return jour;
     }

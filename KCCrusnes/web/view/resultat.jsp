@@ -4,7 +4,7 @@
 <html>
 
     <head>
-        <title>Bootstrap 101 Template</title>
+        <title>Le site officiel du Karate Club de Crusnes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <meta charset="UTF-8">
@@ -184,7 +184,7 @@
                         <div id="collapseFour" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <form id="formGrade" action="ResultatsGrade" class="form-horizontal">
-                                    <div class="control-group">
+                                    <!--<div class="control-group">
                                         <label class="control-label" for="inputNom">Nom</label>
                                         <div class="controls">
 
@@ -197,12 +197,11 @@
 
                                             <input type="text" placeholder="Raphael">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="control-group">
                                         <label class="control-label" for="inputGrade">Ceinture</label>
                                         <div class="controls">
                                             <select name="grade" form="formGrade">
-                                                <option value="" selected="">Indéfinie</option>
                                                 <s:iterator value="grades" status="status">
                                                     <option value="<s:property value="grades[#status.index]"/>"><s:text name="message.grade.%{grades[#status.index]}"/></option>
                                                 </s:iterator>
@@ -294,7 +293,7 @@
                                                 }
                                                 function getNames() {
                                                     request = $.ajax({
-                                                        url: "Photos",
+                                                        url: "Noms",
                                                         type: "post",
                                                         data: {data: $('#inputPrenom').val()},
                                                         success: function(data) {

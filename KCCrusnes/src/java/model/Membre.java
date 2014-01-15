@@ -16,8 +16,26 @@ public class Membre extends Licencie {
     private GregorianCalendar dateFinActivite;
     private PosteComite poste;
     private String profession;
+    private String login;
+    private String mdp;
 
     public Membre() {
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getMdp() {
+        return mdp;
+    }
+
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
 
     public String getProfession() {

@@ -8,6 +8,7 @@
         <many-to-one class="model.Adresse" fetch="select" name="adresse">
             <column name="id_adresse" not-null="true"/>
         </many-to-one>
+        <property column="mail" name="mail"/>
         <property column="photo1" name="photo1"/>
         <property column="photo2" name="photo2"/>
         <property column="photo3" name="photo3"/>

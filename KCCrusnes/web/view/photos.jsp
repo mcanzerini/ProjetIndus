@@ -4,7 +4,7 @@
 <html>
 
     <head>
-        <title>Bootstrap 101 Template</title>
+        <title>Le site officiel du Karate Club de Crusnes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <meta charset="UTF-8">
@@ -76,7 +76,7 @@
                                             <h3><s:property value="evenement.nom"/></h3>
                                         </s:else>
 
-                                        <a href="AlbumPhoto" class="btn btn-primary">Voir l'Album</a>
+                                        <a href="<s:url value='AlbumPhoto?idAlbum=%{id}&nomAlbum=%{nom}'/>" class="btn btn-primary">Voir l'Album</a>
                                     </div>
                                 </li>
                             </s:if>

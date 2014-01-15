@@ -36,17 +36,17 @@ public class ResultatsCompetiteur extends ActionSupport {
         nomLicencie = request.getParameter("nom");
         prenomLicencie = request.getParameter("prenom");
         licencies = licencieDao.findByNomPrenom(nomLicencie, prenomLicencie);
-        if (licencies == null || licencies.size() > 1) {
+        if (licencies == null || licencies.isEmpty()) {
+            return ActionUtils.NO_RESULT;
+        } else if (licencies.size() > 1) {
+            resultatString = request.getParameter("resultat");
             return ERROR;
         } else {
             resultatString = request.getParameter("resultat");
-            if (licencies.isEmpty()) {
-                return ActionUtils.NO_RESULT;
-            } else {
-                Long resultat = Long.valueOf(resultatString);
-                resultats = resultatDao.findByLicencie(nomLicencie, prenomLicencie, resultat);
-                return SUCCESS;
-            }
+            Long resultat = Long.valueOf(resultatString);
+            resultats = resultatDao.findByLicencie(nomLicencie, prenomLicencie, resultat);
+            return SUCCESS;
+
         }
     }
 

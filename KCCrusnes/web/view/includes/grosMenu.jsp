@@ -1,3 +1,4 @@
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <nav id="menuPC" class="visible-desktop navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
         <div id="barrePC" class="container">
@@ -18,21 +19,19 @@
                     <li class="multi dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">Multim&eacute;dia <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="Photos"><i class="icon-camera"></i> Photos</a></li>
-                            <li><a href="#"><i class="icon-facetime-video"></i> Vid&eacute;os</a></li>
+                            <li class="disabled"><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vid&eacute;os</a></li>
 
                         </ul>
                     </li>
                     <li class="divider-vertical"></li>
-                    <li class="contact"> <a href="contact.jsp">Contact</a> </li>
-                    <li class="lien"> <a href="liens.jsp">R&eacute;f&eacute;rences</a> </li>
-                    <!-- Button to trigger modal -->
-
-
-
                 </ul>
-
-
-
+                <ul class="nav pull-right">
+                    <li class="contact pull-right"> <a href="Contacts">Contact</a> </li>
+                    <li class="lien pull-right"> <a href="References">R&eacute;f&eacute;rences</a> </li>
+                    <s:if test="#session.logined == 'true'">
+                        <li class="deconnexion pull-right"> <a href="Deconnexion">Deconnexion</a> </li>
+                    </s:if>
+                </ul>
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
 <html>
 
     <head>
-        <title>Bootstrap 101 Template</title>
+        <title>Le site officiel du Karate Club de Crusnes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <meta charset="UTF-8">
@@ -18,19 +18,21 @@
         <jsp:include page="includes/petitMenu.jsp"/>
         <jsp:include page="includes/grosMenu.jsp"/>
         <div class="row-fluid">
-            <!-- Modal -->
             <jsp:include page="includes/logo.jsp"/>
             <div class="span2"></div>
             <div class="span8">
                 <s:set name="licencie" value="licencies[0]"/>
                 <div class="page-header">
                     <h1>R&eacute;sultats : <s:property value="#licencie.nom"/> <s:property value="#licencie.prenom"/> </h1>
+                    <h4><s:text name="message.grade.%{#licencie.grade}"/></h4>
                 </div>
                 <div class="span11"></div>
+                <div class="span3">
+                    <a href="<s:url value='resources/img/licencie/%{#licencie.photo}'/>" rel="group" class="thumbnail fancybox">
+                        <img class="" data-src="holder.js/300x200" src="<s:url value='resources/img/licencie/%{#licencie.photo}'/>" alt="Pas de Photo"/>
+                    </a>
+                </div>
                 <div class="span1"></div>
-                <a href="<s:url value='resources/img/licencie/%{#licencie.photo}'/>" rel="group" class="fancybox">
-                    <img class="span3" data-src="holder.js/300x200" src="<s:url value='resources/img/licencie/%{#licencie.photo}'/>" alt="Pas de Photo"/>
-                </a>
                 <div class="span6">
                     <table class="table table-bordered table-striped">
 

@@ -5,8 +5,6 @@
  */
 package model;
 
-import java.util.List;
-
 /**
  *
  * @author mathieu_canzerini
@@ -19,8 +17,17 @@ public class Dojo {
     private String photo2;
     private String photo3;
     private String photo4;
+    private String mail;
 
     public Dojo() {
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public long getId() {

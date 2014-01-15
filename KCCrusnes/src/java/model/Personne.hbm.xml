@@ -12,7 +12,7 @@
         <property column="sexe" name="sexe" type="model.SexeUserType"/>
         <property column="telephone" name="telephone"/>
         <many-to-one class="model.Adresse" fetch="select" name="adresse">
-            <column name="id_adresse" not-null="true"/>
+            <column name="id_adresse" not-null="false"/>
         </many-to-one>
         <joined-subclass name="model.Licencie" table="Licencie">
             <key column="id_personne"/>
@@ -31,10 +31,12 @@
             </list>
             <joined-subclass name="model.Membre" table="Membre">
                 <key column="id_personne"/>
-                <property column="date_debut_activite" name="dateDebutActivite" type="date"/>
-                <property column="date_fin_activite" name="dateFinActivite" type="date"/>
+                <property column="date_debut_activite" name="dateDebutActivite" type="calendar_date"/>
+                <property column="date_fin_activite" name="dateFinActivite" type="calendar_date"/>
                 <property column="poste" name="poste" type="model.PosteComiteUserType"/>
                 <property column="profession" name="profession"/>
+                <property column="login" name="login"/>
+                <property column="mdp" name="mdp"/>
                 <joined-subclass name="model.Entraineur" table="Entraineur">
                     <key column="id_personne"/>
                     <property column="adultes" name="adultes" type="boolean"/>

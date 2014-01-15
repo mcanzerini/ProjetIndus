@@ -4,7 +4,7 @@
 <html>
 
     <head>
-        <title>Bootstrap 101 Template</title>
+        <title>Le site officiel du Karate Club de Crusnes</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <meta charset="UTF-8">
@@ -28,6 +28,11 @@
 
                     <h1>Les Entraineurs</h1>
                 </div>
+
+                <blockquote class="span10">
+                    <p>« Le disciple n’est pas au-dessus de son maître, mais tout disciple bien formé sera comme son maître. »</p>
+                    <small>Luc 6,39-42</small>
+                </blockquote>
             </div>
             <div class="visible-desktop span11"></div>
             <div class="visible-desktop span11"></div>

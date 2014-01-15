@@ -37,7 +37,7 @@ public class AlbumDaoImpl extends AlbumDao {
     @Override
     public List<Album> findByRange(Integer pageNumber, Integer length) {
         Query query = super.getSession().createQuery(
-                "from  " + Album.class.getName() + " as a order by a.id desc");//" as a order by a.evenement.date desc");
+                "from  " + Album.class.getName() + " as a order by a.dateAjout desc, a.id desc");//" as a order by a.evenement.date desc");
         query.setFirstResult((pageNumber - 1) * length);
         query.setMaxResults(length + 1);
         List<Album> albums = query.list();

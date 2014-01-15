@@ -45,6 +45,7 @@ body {
 }
 #barrePC .nav{
     padding-left: 5%;
+    padding-right: 5%;
 }
 @media (min-width: 1200px){
     #containeurPhotos{

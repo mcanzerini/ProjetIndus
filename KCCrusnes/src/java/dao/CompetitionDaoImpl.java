@@ -88,9 +88,11 @@ public class CompetitionDaoImpl extends CompetitionDao {
     public List<Competition> findByDateLieuNiveau(Calendar date, String lieu, String niveau) {
         StringBuilder q = new StringBuilder("from " + Competition.class.getName() + " c ");
         boolean first = true;
+        boolean fromDate = false;
         if (date != null) {
             q.append(" where c.date = :date ");
             first = false;
+            fromDate = true;
         }
         if (lieu != null && !lieu.equals("")) {
             if (first) {
@@ -115,7 +117,9 @@ public class CompetitionDaoImpl extends CompetitionDao {
         }
 
         Query query = super.getSession().createQuery(q.toString());
-        query.setParameter("date", date);
+        if (fromDate) {
+            query.setParameter("date", date);
+        }
         List<Competition> competitions = query.list();
         return competitions;
     }

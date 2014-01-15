@@ -19,4 +19,6 @@ public abstract class MembreDao extends Dao<Membre> {
     public abstract void update(Membre obj);
 
     public abstract Membre findActifByPoste(PosteComite poste);
+
+    public abstract String getMdpByLogin(String login);
 }

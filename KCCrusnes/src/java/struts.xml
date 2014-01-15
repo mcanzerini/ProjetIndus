@@ -85,14 +85,71 @@
                 <param name="inputName">stream</param>
             </result>
         </action>
+        <action name="NomsPrenoms" class="action.NomsPrenoms">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">stream</param>
+            </result>
+        </action>
         <action name="ResultatsAnnee" class="action.ResultatsAnnee">
             <result name="success">/view/resultatAnnee.jsp</result>
+        </action>
+        <action name="Contacts" class="action.Contacts">
+            <result name="success">/view/contact.jsp</result>
+        </action>
+        <action name="References" class="action.References">
+            <result name="success">/view/liens.jsp</result>
         </action>
         <action name="ResultatsGrade" class="action.ResultatsGrade">
             <result name="success">/view/resultatGrade.jsp</result>
         </action>
         <action name="AlbumPhoto" class="action.AlbumPhoto">
             <result name="success">/view/albumPhoto.jsp</result>
+        </action>
+        <action name="NewInfo" class="action.NewInfo">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Index</param>
+            </result>
+        </action>
+        <action name="NewHoraire" class="action.NewHoraire">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Horaires</param>
+            </result>
+        </action>
+        <action name="DeleteInfo" class="action.DeleteInfo">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Index</param>
+            </result>
+        </action>
+        <action name="DeleteHoraire" class="action.DeleteHoraire">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Horaires</param>
+            </result>
+        </action>
+        <action name="ModifInfo" class="action.ModifInfo">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Index</param>
+            </result>
+        </action>
+        <action name="ModifHistoire" class="action.ModifHistoire">
+            <result name="success" type="redirectAction">
+                <param name="actionName">HistoireClub</param>
+            </result>
+        </action>
+        <action name="ModifMembre" class="action.ModifMembre">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Comite</param>
+            </result>
+        </action>
+        <action name="Connexion" class="action.Connexion">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Index</param>
+            </result>
+        </action>
+        <action name="Deconnexion" class="action.Deconnexion">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Index</param>
+            </result>
         </action>
         <action name="Albums" class="action.Albums">
             <result type="json"/>

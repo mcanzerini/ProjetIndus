@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -17,9 +18,18 @@ public class Album {
     private String nom;
     private List<Photo> photos;
     private Evenement evenement;
+    private Calendar dateAjout;
 
     public Album() {
 
+    }
+
+    public Calendar getDateAjout() {
+        return dateAjout;
+    }
+
+    public void setDateAjout(Calendar dateAjout) {
+        this.dateAjout = dateAjout;
     }
 
     public String getNom() {
