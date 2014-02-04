@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Membre" table="Membre">
+        <id column="id_membre" name="id">
+            <generator class="increment"/>
+        </id>
+        <property column="date_debut_activite" name="dateDebutActivite" type="calendar_date"/>
+        <property column="date_fin_activite" name="dateFinActivite" type="calendar_date"/>
+        <property column="poste" name="poste" type="model.PosteComiteUserType"/>
+        <property column="profession" name="profession"/>
+        <property column="login" name="login"/>
+        <property column="mdp" name="mdp"/>
+        <!--<one-to-one name="licencie" class="com.mkyong.stock.StockDetail"
+        cascade="save-update"></one-to-one>-->
+        <many-to-one class="model.Licencie" fetch="select" name="licencie">
+            <column name="id_licencie" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

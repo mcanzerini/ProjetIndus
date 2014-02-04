@@ -4,7 +4,7 @@
  */
 package model;
 
-import java.util.GregorianCalendar;
+import java.util.Calendar;
 
 /**
  *
@@ -14,7 +14,7 @@ public class Evenement {
 
     private long id;
     private String nom;
-    private GregorianCalendar date;
+    private Calendar date;
     private Adresse lieu;
     private Album album;
     private String photoPrincipale;
@@ -46,11 +46,11 @@ public class Evenement {
         this.id = id;
     }
 
-    public GregorianCalendar getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(GregorianCalendar date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 

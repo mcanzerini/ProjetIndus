@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="model.Entraineur" table="Entraineur">
+        <id name="id" column="id_entraineur">
+            <generator class="increment"/>
+        </id>
+        <property column="adultes" name="adultes" type="boolean"/>
+        <property column="enfants" name="enfants" type="boolean"/>
+        <property column="kata" name="kata" type="boolean"/>
+        <property column="kumite" name="kumite" type="boolean"/>
+        <property column="diplome" name="diplome"/>
+        <list name="entrainements" table="EntrainementEntraineur">
+            <key column="id_personne" not-null="true"/>
+            <list-index/>
+            <many-to-many class="model.Entrainement" column="id_entrainement"/>
+        </list>
+        <!--<bag name="disciplines" inverse="true" table="DisciplineEntraineur">
+            <key column="id_personne" not-null="true"/>
+            <many-to-many column="id_discipline" class="model.Discipline"/>
+        </bag>-->
+        <many-to-one class="model.Licencie" fetch="select" name="licencie">
+            <column name="id_licencie" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -9,7 +9,6 @@ import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
-import dao.HibernateFactory;
 import dao.LicencieDao;
 import dao.LicencieDaoImpl;
 import dao.MembreDao;
@@ -18,6 +17,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
+import model.Licencie;
 import model.Membre;
 import model.PosteComite;
 import org.apache.struts2.ServletActionContext;
@@ -34,39 +34,41 @@ public class ModifMembre extends ActionSupport {
     @Override
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
-        if (session.get("logined").equals("true")) {
+        if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
             String profession = request.getParameter("profession");
             //String noms = request.getParameter("nom");
             String poste = request.getParameter("poste");
             String idLicencie = request.getParameter("idLicencie");
-            //Licencie licencie = licencieDao.find(Integer.parseInt(idLicencie));
             Membre ancienMembre = membreDao.findActifByPoste(PosteComite.valueOf(poste));
             ancienMembre.setDateFinActivite((GregorianCalendar) Calendar.getInstance());
             membreDao.update(ancienMembre);
             Membre nouveauMembre;
             try {
                 int idLicencieInt = Integer.parseInt(idLicencie);
-                nouveauMembre = membreDao.find(idLicencieInt);
+                Licencie licencie = licencieDao.find(idLicencieInt);
+                nouveauMembre = membreDao.findByLicencie(licencie);
                 if (nouveauMembre == null) {
-                    HibernateFactory.currentSession().createSQLQuery("INSERT INTO Membre(id_personne,date_debut_activite	,poste,profession) "
-                            + "VALUES(:idLicencie,:date,:poste,:profession)").setParameter("idLicencie", idLicencieInt).setParameter("date", Calendar.getInstance()).setParameter("poste", poste).setParameter("profession", profession).executeUpdate();
-                    /*nouveauMembre.setId(idLicencieInt);
-                     nouveauMembre.setPoste(PosteComite.valueOf(poste));
-                     nouveauMembre.setDateDebutActivite((GregorianCalendar) Calendar.getInstance());
-                     nouveauMembre.setDateFinActivite(null);
-                     if (profession != null && !profession.equals("")) {
-                     nouveauMembre.setProfession(profession);
-                     }
-                     membreDao.updateReally(nouveauMembre);*/
-                } else {
-                    if (profession != null && !profession.equals("")) {
-                        nouveauMembre.setProfession(profession);
-                    }
+                    nouveauMembre = new Membre();
+                    nouveauMembre.setLicencie(licencie);
                     nouveauMembre.setPoste(PosteComite.valueOf(poste));
                     nouveauMembre.setDateDebutActivite((GregorianCalendar) Calendar.getInstance());
                     nouveauMembre.setDateFinActivite(null);
+                    if (profession != null && !profession.equals("")) {
+                        nouveauMembre.setProfession(profession);
+                    }
+                    membreDao.create(nouveauMembre);
+                } else if (nouveauMembre.getDateFinActivite() != null) {
+                    nouveauMembre.setPoste(PosteComite.valueOf(poste));
+                    nouveauMembre.setDateDebutActivite((GregorianCalendar) Calendar.getInstance());
+                    nouveauMembre.setDateFinActivite(null);
+                    if (profession != null && !profession.equals("")) {
+                        nouveauMembre.setProfession(profession);
+                    }
                     membreDao.update(nouveauMembre);
+                } else {
+                    // erreur le licencie a deja un autre poste
+                    return ERROR;
                 }
 
             } catch (NumberFormatException e) {

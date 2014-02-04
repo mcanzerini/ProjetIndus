@@ -18,5 +18,7 @@ public abstract class EvenementDao extends Dao<Evenement> {
 
     public abstract void update(Evenement obj);
 
-    public abstract List<Evenement> findByMonth(Integer month);
+    public abstract List<Evenement> findByMonthYear(Integer month, Integer year);
+
+    public abstract List<String> findAnnees();
 }

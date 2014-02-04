@@ -6,5 +6,9 @@
             <generator class="increment"/>
         </id>
         <property column="libelle_discipline" name="nom"/>
+        <bag name="entraineurs" inverse="true" table="DisciplineEntraineur">
+            <key column="id_discipline" not-null="true"/>
+            <many-to-many column="id_personne" class="model.Entraineur"/>
+        </bag>
     </class>
 </hibernate-mapping>

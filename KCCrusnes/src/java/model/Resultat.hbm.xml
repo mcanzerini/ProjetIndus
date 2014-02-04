@@ -12,6 +12,7 @@
             <column name="id_licencie" not-null="true"/>
         </many-to-one>
         <property column="place_resultat" name="place"/>
+        <property column="equipe" name="equipe"/>
         <property column="categorie_age" name="categorieAge" type="model.CategorieAgeUserType"/>
         <property column="categorie_poids" name="categoriePoids" type="model.CategoriePoidsUserType"/>
         <property column="individuel" type="boolean" name = "individuel" />

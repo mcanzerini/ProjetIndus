@@ -24,7 +24,7 @@ public class DeleteInfo extends ActionSupport {
 
     public String execute() {
         Map session = ActionContext.getContext().getSession();
-        if (session.get("logined").equals("true")) {
+        if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
             String idInfo = request.getParameter("id");
             int idInfoInt = Integer.parseInt(idInfo);

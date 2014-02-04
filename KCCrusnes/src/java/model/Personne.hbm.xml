@@ -29,30 +29,6 @@
                 <list-index/>
                 <many-to-many class="model.Competition" column="id_evenement"/>
             </list>
-            <joined-subclass name="model.Membre" table="Membre">
-                <key column="id_personne"/>
-                <property column="date_debut_activite" name="dateDebutActivite" type="calendar_date"/>
-                <property column="date_fin_activite" name="dateFinActivite" type="calendar_date"/>
-                <property column="poste" name="poste" type="model.PosteComiteUserType"/>
-                <property column="profession" name="profession"/>
-                <property column="login" name="login"/>
-                <property column="mdp" name="mdp"/>
-                <joined-subclass name="model.Entraineur" table="Entraineur">
-                    <key column="id_personne"/>
-                    <property column="adultes" name="adultes" type="boolean"/>
-                    <property column="enfants" name="enfants" type="boolean"/>
-                    <property column="diplome" name="diplome"/>
-                    <list name="entrainements" table="EntrainementEntraineur">
-                        <key column="id_personne" not-null="true"/>
-                        <list-index/>
-                        <many-to-many class="model.Entrainement" column="id_entrainement"/>
-                    </list>
-                    <bag name="disciplines" inverse="true" table="DisciplineEntraineur">
-                        <key column="id_personne" not-null="true"/>
-                        <many-to-many column="id_discipline" class="model.Discipline"/>
-                    </bag>
-                </joined-subclass>
-            </joined-subclass>
         </joined-subclass>
     </class>
 </hibernate-mapping>

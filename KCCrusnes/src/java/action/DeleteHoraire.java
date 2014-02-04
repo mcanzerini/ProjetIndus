@@ -26,7 +26,7 @@ public class DeleteHoraire extends ActionSupport {
 
     public String execute() {
         Map session = ActionContext.getContext().getSession();
-        if (session.get("logined").equals("true")) {
+        if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
             String idHoraire = request.getParameter("id");
             int idHoraireInt = Integer.parseInt(idHoraire);

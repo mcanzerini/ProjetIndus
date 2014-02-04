@@ -10,16 +10,26 @@ import java.util.GregorianCalendar;
  *
  * @author mathieu_canzerini
  */
-public class Membre extends Licencie {
+public class Membre {
 
+    private Long id;
     private GregorianCalendar dateDebutActivite;
     private GregorianCalendar dateFinActivite;
     private PosteComite poste;
     private String profession;
     private String login;
     private String mdp;
+    private Licencie licencie;
 
     public Membre() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getLogin() {
@@ -28,6 +38,14 @@ public class Membre extends Licencie {
 
     public void setLogin(String login) {
         this.login = login;
+    }
+
+    public Licencie getLicencie() {
+        return licencie;
+    }
+
+    public void setLicencie(Licencie licencie) {
+        this.licencie = licencie;
     }
 
     public String getMdp() {

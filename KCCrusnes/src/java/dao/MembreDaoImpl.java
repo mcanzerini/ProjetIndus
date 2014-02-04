@@ -6,6 +6,7 @@
 package dao;
 
 import java.util.List;
+import model.Licencie;
 import model.Membre;
 import model.PosteComite;
 import org.hibernate.Query;
@@ -77,6 +78,16 @@ public class MembreDaoImpl extends MembreDao {
         } else {
             return membre.getMdp();
         }
+    }
+
+    @Override
+    public Membre findByLicencie(Licencie licencie) {
+        Membre membre;
+        Query q = super.getSession().createQuery("from " + Membre.class.getName() + " as m "
+                + "where m.licencie.id = :id");
+        q.setString("id", "" + licencie.getId());
+        membre = (Membre) q.uniqueResult();
+        return membre;
     }
 
 }

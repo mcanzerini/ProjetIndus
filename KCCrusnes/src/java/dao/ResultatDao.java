@@ -28,4 +28,6 @@ public abstract class ResultatDao extends Dao<Resultat> {
 
     public abstract List<Resultat> findByAnnee(Integer annee);
 
+    public abstract List<Resultat> findByLicencieCompet(String nomLicencie, String prenomLicencie, long idCompetition);
+
 }

@@ -11,7 +11,7 @@ package model;
 public class Adresse {
 
     private long id;
-    private Integer numVoie;
+    private String numVoie;
     private String nomVoie;
     private String codePostal;
     private String ville;
@@ -21,7 +21,7 @@ public class Adresse {
 
     }
 
-    public Adresse(int numVoie, String nomVoie, String codePostal, String ville, String pays) {
+    public Adresse(String numVoie, String nomVoie, String codePostal, String ville, String pays) {
         this.numVoie = numVoie;
         this.nomVoie = nomVoie;
         this.codePostal = codePostal;
@@ -45,7 +45,7 @@ public class Adresse {
         return nomVoie;
     }
 
-    public Integer getNumVoie() {
+    public String getNumVoie() {
         return numVoie;
     }
 
@@ -65,7 +65,7 @@ public class Adresse {
         this.nomVoie = nomVoie;
     }
 
-    public void setNumVoie(Integer numVoie) {
+    public void setNumVoie(String numVoie) {
         this.numVoie = numVoie;
     }
 
@@ -107,7 +107,6 @@ public class Adresse {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 89 * hash + this.numVoie;
         hash = 89 * hash + (this.nomVoie != null ? this.nomVoie.hashCode() : 0);
         hash = 89 * hash + (this.codePostal != null ? this.codePostal.hashCode() : 0);
         hash = 89 * hash + (this.ville != null ? this.ville.hashCode() : 0);

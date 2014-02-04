@@ -29,7 +29,7 @@ public class NewHoraire extends ActionSupport {
     @Override
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
-        if (session.get("logined").equals("true")) {
+        if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
             String groupe = request.getParameter("groupe");
             String jour = request.getParameter("jour");

@@ -27,8 +27,8 @@ public class Contacts extends ActionSupport {
 
     public String execute() throws Exception {
         dojo = dojoDao.find(1);
-        telephonePresidente = membreDao.findActifByPoste(PosteComite.PRESIDENT).getTelephone();
-        telephoneSecretaire = membreDao.findActifByPoste(PosteComite.SECRETAIRE).getTelephone();
+        telephonePresidente = membreDao.findActifByPoste(PosteComite.PRESIDENT).getLicencie().getTelephone();
+        telephoneSecretaire = membreDao.findActifByPoste(PosteComite.SECRETAIRE).getLicencie().getTelephone();
         return SUCCESS;
     }
 

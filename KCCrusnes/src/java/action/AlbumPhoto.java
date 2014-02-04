@@ -29,7 +29,12 @@ public class AlbumPhoto extends ActionSupport {
         HttpServletRequest request = ServletActionContext.getRequest();
         idAlbum = request.getParameter("idAlbum");
         nomAlbum = request.getParameter("nomAlbum");
-        photos = photoDao.findByAlbum(Long.valueOf(idAlbum));
+        try {
+            photos = photoDao.findByAlbum(Long.valueOf(idAlbum));
+        } catch (NumberFormatException e) {
+            // erreur l'id n'est pas un int
+            return ERROR;
+        }
         return SUCCESS;
     }
 

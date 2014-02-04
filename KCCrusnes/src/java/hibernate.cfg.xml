@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-    <session-factory>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <!--<property name="hibernate.connection.url">jdbc:mysql://127.7.53.2:3306/karate</property>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <!--<property name="hibernate.connection.url">jdbc:mysql://127.7.53.2:3306/karate</property>
         <property name="hibernate.connection.username">adminbbCw66u</property>
         <property name="hibernate.connection.password">CC4KUlMkr_Mx</property>-->
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:8081/karate</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
-        <!--        <property name="hibernate.connection.url">jdbc:mysql://91.121.146.134:3306/karate</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:8081/karate</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <!--        <property name="hibernate.connection.url">jdbc:mysql://91.121.146.134:3306/karate</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">maiden2105</property>-->
-        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-        <property name="show_sql">true</property>
-
-        <!--        <property name="hibernate.c3p0.min_size">5</property>
+    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="show_sql">true</property>
+    <!--        <property name="hibernate.c3p0.min_size">5</property>
         <property name="hibernate.c3p0.max_size">20</property>
         <property name="hibernate.c3p0.timeout">1800</property>
         <property name="hibernate.c3p0.max_statements">50</property>
         <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>-->
-
-
-        <mapping resource="model/Information.hbm.xml"/>
-        <mapping resource="model/Histoire.hbm.xml"/>
-        <mapping resource="model/Adresse.hbm.xml"/>
-        <mapping resource="model/Personne.hbm.xml"/>
-        <mapping resource="model/Entrainement.hbm.xml"/>
-        <mapping resource="model/Horaire.hbm.xml"/>
-        <mapping resource="model/Heure.hbm.xml"/>
-        <mapping resource="model/Photo.hbm.xml"/>
-        <mapping resource="model/Album.hbm.xml"/>
-        <mapping resource="model/Evenement.hbm.xml"/>
-        <mapping resource="model/Discipline.hbm.xml"/>
-        <mapping resource="model/Dojo.hbm.xml"/>
-        <mapping resource="model/Resultat.hbm.xml"/>
-        <mapping resource="model/Reference.hbm.xml"/>
-
-    </session-factory>
+    <mapping resource="model/Information.hbm.xml"/>
+    <mapping resource="model/Histoire.hbm.xml"/>
+    <mapping resource="model/Adresse.hbm.xml"/>
+    <mapping resource="model/Personne.hbm.xml"/>
+    <mapping resource="model/Entrainement.hbm.xml"/>
+    <mapping resource="model/Horaire.hbm.xml"/>
+    <mapping resource="model/Heure.hbm.xml"/>
+    <mapping resource="model/Photo.hbm.xml"/>
+    <mapping resource="model/Album.hbm.xml"/>
+    <mapping resource="model/Evenement.hbm.xml"/>
+    <mapping resource="model/Discipline.hbm.xml"/>
+    <mapping resource="model/Dojo.hbm.xml"/>
+    <mapping resource="model/Resultat.hbm.xml"/>
+    <mapping resource="model/Reference.hbm.xml"/>
+    <mapping resource="model/Membre.hbm.xml"/>
+    <mapping resource="model/Entraineur.hbm.xml"/>
+  </session-factory>
 </hibernate-configuration>

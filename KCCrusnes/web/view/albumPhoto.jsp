@@ -35,6 +35,11 @@
             </div>
             <div class="span11"></div>
             <div id="containeurPhotos" class="container">
+                <s:form action="UploadPhotoAlbum" enctype="multipart/form-data" >
+                    <s:file name="files" multiple="multiple" />
+                    <s:hidden name="idAlbum" value="%{idAlbum}"/>
+                    <s:submit value="Upload files" />
+                </s:form>
                 <s:iterator value="photos" status="photosStatus">
                     <s:if test="#photosStatus.index % 3 == 0">
                         <div class="row">

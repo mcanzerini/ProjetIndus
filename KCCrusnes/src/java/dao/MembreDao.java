@@ -5,6 +5,7 @@
  */
 package dao;
 
+import model.Licencie;
 import model.Membre;
 import model.PosteComite;
 
@@ -21,4 +22,6 @@ public abstract class MembreDao extends Dao<Membre> {
     public abstract Membre findActifByPoste(PosteComite poste);
 
     public abstract String getMdpByLogin(String login);
+
+    public abstract Membre findByLicencie(Licencie licencie);
 }

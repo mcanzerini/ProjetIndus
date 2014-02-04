@@ -9,8 +9,11 @@ import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.EvenementDao;
 import dao.EvenementDaoImpl;
+import java.util.Calendar;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import model.Evenement;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -31,21 +34,37 @@ public class VoirCalendrier extends ActionSupport {
     private List<Evenement> evenementsJuillet;
     private List<Evenement> evenementsAout;
     public static EvenementDao evenementDao = EvenementDaoImpl.getInstance();
+    private Calendar aujourdhui;
+    private List<String> annees;
 
     @Override
     public String execute() throws Exception {
-        evenementsSeptembre = evenementDao.findByMonth(9);
-        evenementsOctobre = evenementDao.findByMonth(10);
-        evenementsNovembre = evenementDao.findByMonth(11);
-        evenementsDecembre = evenementDao.findByMonth(12);
-        evenementsJanvier = evenementDao.findByMonth(1);
-        evenementsFevrier = evenementDao.findByMonth(2);
-        evenementsMars = evenementDao.findByMonth(3);
-        evenementsAvril = evenementDao.findByMonth(4);
-        evenementsMai = evenementDao.findByMonth(5);
-        evenementsJuin = evenementDao.findByMonth(6);
-        evenementsJuillet = evenementDao.findByMonth(7);
-        evenementsAout = evenementDao.findByMonth(8);
+        annees = evenementDao.findAnnees();
+        aujourdhui = Calendar.getInstance();
+        HttpServletRequest request = ServletActionContext.getRequest();
+        String annee = request.getParameter("annee");
+        Integer anneeInt;
+        if (annee == null || annee.equals("")) {
+            anneeInt = aujourdhui.get(Calendar.YEAR);
+        } else {
+            try {
+                anneeInt = Integer.parseInt(annee);
+            } catch (NumberFormatException e) {
+                anneeInt = aujourdhui.get(Calendar.YEAR);
+            }
+        }
+        evenementsSeptembre = evenementDao.findByMonthYear(9, anneeInt);
+        evenementsOctobre = evenementDao.findByMonthYear(10, anneeInt);
+        evenementsNovembre = evenementDao.findByMonthYear(11, anneeInt);
+        evenementsDecembre = evenementDao.findByMonthYear(12, anneeInt);
+        evenementsJanvier = evenementDao.findByMonthYear(1, anneeInt);
+        evenementsFevrier = evenementDao.findByMonthYear(2, anneeInt);
+        evenementsMars = evenementDao.findByMonthYear(3, anneeInt);
+        evenementsAvril = evenementDao.findByMonthYear(4, anneeInt);
+        evenementsMai = evenementDao.findByMonthYear(5, anneeInt);
+        evenementsJuin = evenementDao.findByMonthYear(6, anneeInt);
+        evenementsJuillet = evenementDao.findByMonthYear(7, anneeInt);
+        evenementsAout = evenementDao.findByMonthYear(8, anneeInt);
         return SUCCESS;
     }
 
@@ -143,6 +162,22 @@ public class VoirCalendrier extends ActionSupport {
 
     public void setEvenementsAout(List<Evenement> evenementsAout) {
         this.evenementsAout = evenementsAout;
+    }
+
+    public Calendar getAujourdhui() {
+        return aujourdhui;
+    }
+
+    public void setAujourdhui(Calendar aujourdhui) {
+        this.aujourdhui = aujourdhui;
+    }
+
+    public List<String> getAnnees() {
+        return annees;
+    }
+
+    public void setAnnees(List<String> annees) {
+        this.annees = annees;
     }
 
 }

@@ -6,6 +6,7 @@
 package dao;
 
 import model.Entraineur;
+import model.Licencie;
 
 /**
  *
@@ -16,4 +17,6 @@ public abstract class EntraineurDao extends Dao<Entraineur> {
     public abstract void create(Entraineur obj);
 
     public abstract void update(Entraineur obj);
+
+    public abstract Entraineur findByLicencie(Licencie licencie);
 }

@@ -129,7 +129,7 @@
                     </div>
                     <form id="deleteInfoForm" action="DeleteInfo" method="POST" class="form-horizontal">
                         <div class="modal-body">
-                            <input type="hidden" name="id" id="idInfo" value="">
+                            <input type="hidden" name="id" id="idInfoDelete" value="">
                             <p>Vous êtes sur le point de supprimer définitivement une information</p>
                         </div>
                         <div class="modal-footer">
@@ -260,7 +260,7 @@
                                     <span class="badge badge-inverse"><s:date name="#object.date" format="dd/MM/yyyy" /></span>
                                     <h4><s:property value="#object.nom"/></h4>
                                     <p><s:property value="#object.commentaires"/></p>
-                                    <p><a href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='#objectid'/></s:param></s:url>" class="btn btn-primary">Voir les Résutats</a></p>
+                                    <p><a href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='#object.id'/></s:param></s:url>" class="btn btn-primary">Voir les Résutats</a></p>
                                         </div>
                                     </li>
                         </s:elseif>
@@ -277,7 +277,7 @@
                                     $(".index").addClass("active");
                                     $(".carousel-inner").children().first().addClass("active");
                                     function showDeleteInfo(index) {
-                                        $("#idInfo").attr("value", index);
+                                        $("#idInfoDelete").attr("value", index);
                                         $("#deleteInfo").modal();
                                     }
                                     function showModifInfo(index, indexStatus) {

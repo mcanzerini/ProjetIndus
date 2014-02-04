@@ -229,6 +229,7 @@
         <script src="bootstrap/js/bootstrap-datepicker.js"></script>
         <script src="resources/js/purl.js"></script>
         <script type="text/javascript">
+                                                $('#dp3').datepicker({weekStart: 1});
                                                 var errorSaison = false;
                                                 function checkSaisonFormat() {
                                                     var date = $('#inputSaison').val();

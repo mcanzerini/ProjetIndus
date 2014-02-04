@@ -133,4 +133,15 @@ public class ResultatDaoImpl extends ResultatDao {
         return resultats;
     }
 
+    @Override
+    public List<Resultat> findByLicencieCompet(String nomLicencie, String prenomLicencie, long idCompetition) {
+        Query query = super.getSession().createQuery("from " + Resultat.class.getName() + " r "
+                + " where r.competition.id = " + idCompetition + " "
+                + " and r.licencie.nom = '" + nomLicencie + "' "
+                + " and r.licencie.prenom = '" + prenomLicencie + "' "
+                + " order by r.place asc, r.licencie.nom asc, r.licencie.prenom asc");
+        List<Resultat> resultats = query.list();
+        return resultats;
+    }
+
 }

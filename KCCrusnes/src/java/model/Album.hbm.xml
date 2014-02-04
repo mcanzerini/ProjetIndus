@@ -10,7 +10,7 @@
             <key column="id_album" not-null="true"/>
             <one-to-many class="model.Photo"/>
         </bag>
-        <one-to-one class="model.Evenement" name="evenement"/>
+        <!--        <one-to-many cascade="all" class="model.Evenement" name="evenement"/>-->
         <property column="date_ajout" name="dateAjout" type="calendar_date"/>
     </class>
 </hibernate-mapping>

@@ -17,9 +17,18 @@ public class Resultat {
     private CategorieAge categorieAge;
     private Licencie licencie;
     private Boolean individuel;
+    private String equipe;
 
     public Resultat() {
 
+    }
+
+    public String getEquipe() {
+        return equipe;
+    }
+
+    public void setEquipe(String equipe) {
+        this.equipe = equipe;
     }
 
     public long getId() {

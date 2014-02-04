@@ -8,7 +8,9 @@
         <property column="nom_evenement" name="nom"/>
         <property column="photo_principale" name="photoPrincipale"/>
         <property column="date_evenement" name="date" type="calendar_date"/>
-        <one-to-one class="model.Album" name="album"/>
+        <many-to-one class="model.Album" name="album">
+            <column name="id_album_evenement" not-null="false"/>
+        </many-to-one>
         <many-to-one class="model.Adresse" fetch="select" name="lieu">
             <column name="id_adresse_evenement" not-null="true"/>
         </many-to-one>
@@ -18,7 +20,7 @@
             <property column="commentaires" name="commentaires"/>
             <property column="programme" name="lienProgramme"/>
             <bag name="inscrits" table="ParticipationCompetition">
-                <key column="id_evenement" not-null="true"/>
+                <key column="id_evenement" not-null="false"/>
                 <many-to-many class="model.Licencie" column="id_personne"/>
             </bag>
             <property column="niveau" name="niveau" type="model.NiveauCompetitionUserType"/>

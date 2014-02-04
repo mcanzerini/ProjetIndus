@@ -7,7 +7,7 @@
         </id>
         <property column="lien_photo" name="lien"/>
         <property column="libelle_photo" name="libelle"/>
-        <many-to-one class="model.Album" insert="false" update="false" fetch="select" name="album">
+        <many-to-one class="model.Album" name="album">
             <column name="id_album" not-null="true"/>
         </many-to-one>
     </class>

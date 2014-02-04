@@ -106,27 +106,27 @@
                                     <tr>
                                         <td><dl>
                                                 <dt>
-                                                <s:property escape="false" value="nom"/>
-                                                <s:property escape="false" value="prenom"/>
+                                                <s:property escape="false" value="licencie.nom"/>
+                                                <s:property escape="false" value="licencie.prenom"/>
                                                 </dt>
                                                 <dd>&nbsp;</dd>
                                                 <dt>N&eacute;e le</dt>
                                                 <dd>
-                                                    <s:date format="dd/MM/yyyy" name="dateNaissance"/>
-                                                    <s:set name="webVilleNaissance" value="villeNaissance"/>
+                                                    <s:date format="dd/MM/yyyy" name="licencie.dateNaissance"/>
+                                                    <s:set name="webVilleNaissance" value="licencie.villeNaissance"/>
                                                     <s:if test="%{#webVilleNaissance!=null && webVilleNaissance!=''}">
-                                                        &agrave; <s:property escape="false" value="villeNaissance"/>
+                                                        &agrave; <s:property escape="false" value="licencie.villeNaissance"/>
                                                     </s:if>
                                                 </dd>
                                                 <dt>Profession</dt>
                                                 <dd><s:property escape="false" value="profession"/></dd>
                                                 <dt>Adresse</dt>
                                                 <dd><address class="comite">
-                                                        <s:property escape="false" value="adresse.numVoie"/> <s:property escape="false" value="adresse.nomVoie"/><br>
-                                                        <s:property escape="false" value="adresse.codePostal"/> <s:property escape="false" value="adresse.ville"/>
+                                                        <s:property escape="false" value="licencie.adresse.numVoie"/> <s:property escape="false" value="licencie.adresse.nomVoie"/><br>
+                                                        <s:property escape="false" value="licencie.adresse.codePostal"/> <s:property escape="false" value="licencie.adresse.ville"/>
                                                     </address></dd>
                                                 <dt>T&eacute;l&eacute;phone</dt>
-                                                <dd><s:property escape="false" value="telephone"/></dd>
+                                                <dd><s:property escape="false" value="licencie.telephone"/></dd>
                                             </dl></td>
                                     </tr>
                                 </tbody>

@@ -10,16 +10,51 @@ import java.util.List;
  *
  * @author mathieu_canzerini
  */
-public class Entraineur extends Membre {
+public class Entraineur {
 
-    private List<Discipline> disciplines;
+    private Long id;
     private List<Entrainement> entrainements;
     private boolean enfants;
     private boolean adultes;
+    private boolean kata;
+    private boolean kumite;
     private String diplome;
+    private Licencie licencie;
 
     public Entraineur() {
 
+    }
+
+    public boolean getKata() {
+        return kata;
+    }
+
+    public void setKata(boolean kata) {
+        this.kata = kata;
+    }
+
+    public boolean getKumite() {
+        return kumite;
+    }
+
+    public void setKumite(boolean kumite) {
+        this.kumite = kumite;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Licencie getLicencie() {
+        return licencie;
+    }
+
+    public void setLicencie(Licencie licencie) {
+        this.licencie = licencie;
     }
 
     public String getDiplome() {
@@ -28,14 +63,6 @@ public class Entraineur extends Membre {
 
     public void setDiplome(String diplome) {
         this.diplome = diplome;
-    }
-
-    public List<Discipline> getDisciplines() {
-        return disciplines;
-    }
-
-    public void setDisciplines(List<Discipline> disciplines) {
-        this.disciplines = disciplines;
     }
 
     public boolean getEnfants() {

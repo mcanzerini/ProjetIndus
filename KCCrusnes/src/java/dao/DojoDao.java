@@ -6,7 +6,6 @@
 package dao;
 
 import model.Dojo;
-import model.Entraineur;
 
 /**
  *

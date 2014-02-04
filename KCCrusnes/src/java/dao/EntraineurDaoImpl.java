@@ -7,6 +7,7 @@ package dao;
 
 import java.util.List;
 import model.Entraineur;
+import model.Licencie;
 import org.hibernate.Query;
 
 /**
@@ -46,6 +47,16 @@ public class EntraineurDaoImpl extends EntraineurDao {
                 + " as e order by e.id");
         List<Entraineur> entraineurs = query.list();
         return entraineurs;
+    }
+
+    @Override
+    public Entraineur findByLicencie(Licencie licencie) {
+        Entraineur membre;
+        Query q = super.getSession().createQuery("from " + Entraineur.class.getName() + " as m "
+                + "where m.licencie.id = :id");
+        q.setString("id", "" + licencie.getId());
+        membre = (Entraineur) q.uniqueResult();
+        return membre;
     }
 
 }

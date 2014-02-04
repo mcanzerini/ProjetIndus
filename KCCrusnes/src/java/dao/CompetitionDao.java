@@ -26,4 +26,6 @@ public abstract class CompetitionDao extends Dao<Competition> {
     public abstract String getAllPlaceTypeHead();
 
     public abstract List<Competition> findByDateLieuNiveau(Calendar date, String lieu, String niveau);
+
+    //public abstract List<Competition> findByNomDateLieuNiveau(String nom, Calendar date, String lieu, String niveau);
 }

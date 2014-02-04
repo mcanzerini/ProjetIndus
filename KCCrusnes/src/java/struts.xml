@@ -3,6 +3,8 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
+    <constant name="struts.multipart.saveDir" value="web/view/resources/img/" />
+    <constant name="struts.multipart.maxSize" value="20000000" />
     <!-- Configuration for the default package. -->
     <package name="default" namespace="/" extends="struts-default">
         <default-action-ref name="index" />
@@ -79,6 +81,24 @@
                 <param name="inputName">stream</param>
             </result>
         </action>
+        <action name="NewResultat" class="action.NewResultat">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">stream</param>
+            </result>
+        </action>
+        <action name="DeleteResultat" class="action.DeleteResultat">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">stream</param>
+            </result>
+        </action>
+        <action name="ModifResultat" class="action.ModifResultat">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">stream</param>
+            </result>
+        </action>
         <action name="Prenoms" class="action.Prenoms">
             <result type="stream">
                 <param name="contentType">text/html</param>
@@ -86,6 +106,12 @@
             </result>
         </action>
         <action name="NomsPrenoms" class="action.NomsPrenoms">
+            <result type="stream">
+                <param name="contentType">text/html</param>
+                <param name="inputName">stream</param>
+            </result>
+        </action>
+        <action name="FindCompetition" class="action.FindCompetition">
             <result type="stream">
                 <param name="contentType">text/html</param>
                 <param name="inputName">stream</param>
@@ -111,6 +137,26 @@
                 <param name="actionName">Index</param>
             </result>
         </action>
+        <action name="NewAlbum" class="action.NewAlbum">
+            <result name="success" type="redirectAction">
+                <param name="actionName">AlbumPhoto</param>
+                <param name="idAlbum">${idAlbum}</param>
+                <param name="nomAlbum">${nomAlbum}</param>
+            </result>
+        </action>
+        <action name="NewEntraineur" class="action.NewEntraineur">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Entraineurs</param>
+            </result>
+        </action>
+        <action name="NewEvenement" class="action.NewEvenement">
+            <result name="success" type="redirectAction">
+                <param name="actionName">VoirCalendrier</param>
+            </result>
+        </action>
+        <action name="PhotosServeur" class="action.PhotosServeur">
+            <result name="success">/view/photosServeur.jsp</result>
+        </action>
         <action name="NewHoraire" class="action.NewHoraire">
             <result name="success" type="redirectAction">
                 <param name="actionName">Horaires</param>
@@ -121,14 +167,34 @@
                 <param name="actionName">Index</param>
             </result>
         </action>
+        <action name="DeleteAlbum" class="action.DeleteAlbum">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Photos</param>
+            </result>
+        </action>
         <action name="DeleteHoraire" class="action.DeleteHoraire">
             <result name="success" type="redirectAction">
                 <param name="actionName">Horaires</param>
             </result>
         </action>
+        <action name="DeleteEvenement" class="action.DeleteEvenement">
+            <result name="success" type="redirectAction">
+                <param name="actionName">VoirCalendrier</param>
+            </result>
+        </action>
         <action name="ModifInfo" class="action.ModifInfo">
             <result name="success" type="redirectAction">
                 <param name="actionName">Index</param>
+            </result>
+        </action>
+        <action name="ModifEntraineur" class="action.ModifEntraineur">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Entraineurs</param>
+            </result>
+        </action>
+        <action name="ModifEvenement" class="action.ModifEvenement">
+            <result name="success" type="redirectAction">
+                <param name="actionName">VoirCalendrier</param>
             </result>
         </action>
         <action name="ModifHistoire" class="action.ModifHistoire">
@@ -153,6 +219,56 @@
         </action>
         <action name="Albums" class="action.Albums">
             <result type="json"/>
+        </action>
+        <action name="uploadFile" class="action.FileUploadAction">
+            <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpeg,image/png</param>
+                <param name="maximumSize">102400</param>
+            </interceptor-ref>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+
+            <result name="success" type="redirectAction">
+                <param name="actionName">PhotosServeur</param>
+            </result>
+
+            <!--<result name="input">pages/fileupload.jsp</result>-->
+
+        </action>
+        <action name="UploadPhotoAlbum" class="action.UploadPhotoAlbum">
+            <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/jpeg,image/png</param>
+                <param name="maximumSize">10485760</param>
+            </interceptor-ref>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+
+            <result name="success" type="redirectAction">
+                <param name="actionName">AlbumPhoto</param>
+                <param name="idAlbum">${idAlbum}</param>
+                <param name="nomAlbum">${nomAlbum}</param>
+            </result>
+
+            <!--            <result name="success">result.jsp</result>-->
+
         </action>
     </package>
 </struts>
