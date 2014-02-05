@@ -25,14 +25,14 @@
             <div id="newInfo" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <s:if test="#session.logined != 'true'">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <a class="close" data-dismiss="modal" aria-hidden="true">×</a>
                         <h3 id="myModalLabel">Non Connecté(e)</h3>
                     </div>
                     <div class="modal-body"><p>Accès interdit, vous n'êtes pas connecté(e)</p></div>
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -60,7 +60,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                            <input type="submit" value="Valider" class="btn btn-primary">
+                            <input type="submit" form="newInfoForm" value="Valider" class="btn btn-primary">
                         </div>
                     </form>
                 </s:else>
@@ -75,7 +75,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -119,7 +119,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -167,7 +167,7 @@
                                         <s:else>
                                             <s:set name="src" value="'defaut_evenement.jpg'"/>
                                         </s:else>
-                                        <div class="item"> <img alt="" src="<s:url value='resources/img/%{src}'/>"/>
+                                        <div style="max-height:350px;overflow:hidden;" class="item"><img alt="" style="width:100%;" src="<s:url value='resources/img/%{src}'/>"/>
                                             <div class="carousel-caption">
                                                 <p> Album : <s:property value="#object.nom"/> </p>
                                             </div>
@@ -241,8 +241,8 @@
                                 <s:set name="src" value="'defaut_evenement.jpg'"/>
                             </s:else>
                             <li class="span4">
-                                <a href="<s:url value='AlbumPhoto?idAlbum=%{#object.id}&nomAlbum=%{#object.nom}'/>" class="thumbnail">
-                                    <img src="<s:url value='resources/img/%{src}'/>" data-src="holder.js/300x200" alt="">
+                                <a style="max-height:200px;overflow:hidden;" href="<s:url value='AlbumPhoto?idAlbum=%{#object.id}&nomAlbum=%{#object.nom}'/>" class="thumbnail">
+                                    <img style="width:100%;" src="<s:url value='resources/img/%{src}'/>" data-src="holder.js/300x200" alt="">
                                 </a>
                                 <div class="caption">
                                     <span class="badge badge-inverse"><s:date name="#object.dateAjout" format="dd/MM/yyyy" /></span>
@@ -253,8 +253,8 @@
                         </s:if>
                         <s:elseif test="%{ #object instanceof model.Competition }">
                             <li class="span4">
-                                <a href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='#object.id'/></s:param></s:url>" class="thumbnail">
-                                    <img src="<s:url value='resources/img/%{#object.photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
+                                <a style="max-height:350px;overflow:hidden;" href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='#object.id'/></s:param></s:url>" class="thumbnail">
+                                    <img style="width:100%;" src="<s:url value='resources/img/%{#object.photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
                                 </a>
                                 <div class="caption">
                                     <span class="badge badge-inverse"><s:date name="#object.date" format="dd/MM/yyyy" /></span>

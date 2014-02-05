@@ -11,14 +11,11 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.AlbumDao;
 import dao.AlbumDaoImpl;
-import dao.EvenementDao;
-import dao.EvenementDaoImpl;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import model.Album;
-import model.Evenement;
 import model.Photo;
 import org.apache.struts2.ServletActionContext;
 
@@ -26,10 +23,9 @@ import org.apache.struts2.ServletActionContext;
  *
  * @author mathieu_canzerini
  */
-public class NewAlbum extends ActionSupport {
+public class NewAlbumInde extends ActionSupport {
 
     public static final AlbumDao albumDao = AlbumDaoImpl.getInstance();
-    public static final EvenementDao evenementDao = EvenementDaoImpl.getInstance();
     private String idAlbum;
     private String nomAlbum;
 
@@ -38,26 +34,16 @@ public class NewAlbum extends ActionSupport {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
-            String idEvenementString = request.getParameter("id");
-            try {
-                Integer idEvenement = Integer.parseInt(idEvenementString);
-                Evenement evenement = evenementDao.find(idEvenement);
-                Album album = new Album();
-                //album.setEvenement(evenement);
-                album.setNom(evenement.getNom());
-                album.setDateAjout(Calendar.getInstance());
-                album.setPhotos(new ArrayList<Photo>());
+            nomAlbum = request.getParameter("nom");
+            Album album = new Album();
+            //album.setEvenement(evenement);
+            album.setNom(nomAlbum);
+            album.setDateAjout(Calendar.getInstance());
+            album.setPhotos(new ArrayList<Photo>());
 
-                albumDao.create(album);
-                evenement.setAlbum(album);
-                evenementDao.update(evenement);
-                idAlbum = "" + album.getId();
-                nomAlbum = album.getNom();
-                return SUCCESS;
-            } catch (NumberFormatException e) {
-                // l'id n'est pas un int
-                return ERROR;
-            }
+            albumDao.create(album);
+            idAlbum = "" + album.getId();
+            return SUCCESS;
 
         } else {
             // L'utilisateur n'est pas connecte

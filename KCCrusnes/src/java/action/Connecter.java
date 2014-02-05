@@ -18,7 +18,7 @@ import org.apache.struts2.ServletActionContext;
  *
  * @author mathieu_canzerini
  */
-public class Connexion extends ActionSupport {
+public class Connecter extends ActionSupport {
 
     private String mdpBase;
     public static final MembreDao membreDao = MembreDaoImpl.getInstance();

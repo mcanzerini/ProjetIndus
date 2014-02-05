@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.EvenementDao;
 import dao.EvenementDaoImpl;
+import dao.HibernateFactory;
 import dao.ResultatDao;
 import dao.ResultatDaoImpl;
 import java.util.List;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import model.Evenement;
 import model.Resultat;
 import org.apache.struts2.ServletActionContext;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -39,10 +41,15 @@ public class DeleteEvenement extends ActionSupport {
                 int idEvenementInt = Integer.parseInt(idEvenement);
                 Evenement evenement = evenementDao.find(idEvenementInt);
                 List<Resultat> resultats = resultatDao.findByCompet(idEvenementInt);
+                Transaction t = HibernateFactory.currentSession().beginTransaction();
+                //t.begin();
                 for (Resultat resultat : resultats) {
                     resultatDao.delete(resultat);
                 }
                 evenementDao.delete(evenement);
+                if (!t.wasCommitted()) {
+                    t.commit();
+                }
                 return SUCCESS;
             } else {
                 // L'utilisateur n'est pas connecte

@@ -3,55 +3,53 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.multipart.saveDir" value="web/view/resources/img/" />
-    <constant name="struts.multipart.maxSize" value="20000000" />
+    <!--    <constant name="struts.multipart.saveDir" value="web/view/resources/img/" />-->
+    <constant name="struts.multipart.maxSize" value="2000000000" />
     <!-- Configuration for the default package. -->
     <package name="default" namespace="/" extends="struts-default">
-        <default-action-ref name="index" />
-        <action name="index">
-            <result type="redirectAction">
-                <param name="actionName">Index</param>
-                <param name="namespace">/view</param>
-            </result>
-        </action>
-    </package>
-    <package name="view" namespace="/view" extends="struts-default">
+
         <result-types>
             <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
         </result-types>
+        <default-action-ref name="Index" />
+        <!--        <action name="index">
+            <result type="redirectAction">
+                <param name="actionName">Index</param>
+            </result>
+        </action>-->
         <action name="Index" class="action.Index">
-            <result name="success">/view/index.jsp</result>
+            <result name="success">/WEB-INF/view/index.jsp</result>
         </action>
         <action name="HistoireClub" class="action.HistoireClub">
-            <result name="success">/view/histoire.jsp</result>
+            <result name="success">/WEB-INF/view/histoire.jsp</result>
         </action>
         <action name="Comite" class="action.Comite">
-            <result name="success">/view/comite.jsp</result>
+            <result name="success">/WEB-INF/view/comite.jsp</result>
         </action>
         <action name="Entraineurs" class="action.Entraineurs">
-            <result name="success">/view/entraineurs.jsp</result>
+            <result name="success">/WEB-INF/view/entraineurs.jsp</result>
         </action>
         <action name="DojoClub" class="action.DojoClub">
-            <result name="success">/view/dojo.jsp</result>
+            <result name="success">/WEB-INF/view/dojo.jsp</result>
         </action>
         <action name="Horaires" class="action.Horaires">
-            <result name="success">/view/horaires.jsp</result>
+            <result name="success">/WEB-INF/view/horaires.jsp</result>
         </action>
         <action name="DerniersResultats" class="action.DerniersResultats">
-            <result name="success">/view/derniersResultats.jsp</result>
+            <result name="success">/WEB-INF/view/derniersResultats.jsp</result>
         </action>
         <action name="VoirCalendrier" class="action.VoirCalendrier">
-            <result name="success">/view/calendrier.jsp</result>
+            <result name="success">/WEB-INF/view/calendrier.jsp</result>
         </action>
         <action name="Photos" class="action.Photos">
-            <result name="success">/view/photos.jsp</result>
+            <result name="success">/WEB-INF/view/photos.jsp</result>
         </action>
         <action name="ResultatsCompetition" class="action.ResultatsCompetition">
-            <result name="success">/view/resultatCompetition.jsp</result>
+            <result name="success">/WEB-INF/view/resultatCompetition.jsp</result>
         </action>
         <action name="RechercheResultatsCompetition" class="action.ResultatsCompetition" method = "executeSearch">
-            <result name="success">/view/resultatCompetition.jsp</result>
-            <result name="error">/view/choixCompetitions.jsp</result>
+            <result name="success">/WEB-INF/view/resultatCompetition.jsp</result>
+            <result name="error">/WEB-INF/view/choixCompetitions.jsp</result>
             <result name="noresult" type="redirectAction">
                 <param name="actionName">Resultat</param>
                 <param name="problem">noCompetition</param>
@@ -62,8 +60,8 @@
             </result>
         </action>
         <action name="ResultatsCompetiteur" class="action.ResultatsCompetiteur">
-            <result name="success">/view/resultatCompetiteur.jsp</result>
-            <result name="error">/view/choixCompetiteurs.jsp</result>
+            <result name="success">/WEB-INF/view/resultatCompetiteur.jsp</result>
+            <result name="error">/WEB-INF/view/choixCompetiteurs.jsp</result>
             <result name="noresult" type="redirectAction">
                 <param name="actionName">Resultat</param>
                 <param name="problem">noCompetiteur</param>
@@ -73,7 +71,7 @@
             </result>
         </action>
         <action name="Resultat" class="action.Resultat">
-            <result name="success">/view/resultat.jsp</result>
+            <result name="success">/WEB-INF/view/resultat.jsp</result>
         </action>
         <action name="Noms" class="action.Noms">
             <result type="stream">
@@ -91,6 +89,12 @@
             <result type="stream">
                 <param name="contentType">text/html</param>
                 <param name="inputName">stream</param>
+            </result>
+        </action>
+        <action name="DeletePhotoAlbum" class="action.DeletePhotoAlbum">
+            <result name="success" type="redirectAction">
+                <param name="actionName">AlbumPhoto</param>
+                <param name="idAlbum">${idAlbum}</param>
             </result>
         </action>
         <action name="ModifResultat" class="action.ModifResultat">
@@ -118,19 +122,22 @@
             </result>
         </action>
         <action name="ResultatsAnnee" class="action.ResultatsAnnee">
-            <result name="success">/view/resultatAnnee.jsp</result>
+            <result name="success">/WEB-INF/view/resultatAnnee.jsp</result>
+        </action>
+        <action name="Connexion">
+            <result name="success">/WEB-INF/view/connexion.jsp</result>
         </action>
         <action name="Contacts" class="action.Contacts">
-            <result name="success">/view/contact.jsp</result>
+            <result name="success">/WEB-INF/view/contact.jsp</result>
         </action>
         <action name="References" class="action.References">
-            <result name="success">/view/liens.jsp</result>
+            <result name="success">/WEB-INF/view/liens.jsp</result>
         </action>
         <action name="ResultatsGrade" class="action.ResultatsGrade">
-            <result name="success">/view/resultatGrade.jsp</result>
+            <result name="success">/WEB-INF/view/resultatGrade.jsp</result>
         </action>
         <action name="AlbumPhoto" class="action.AlbumPhoto">
-            <result name="success">/view/albumPhoto.jsp</result>
+            <result name="success">/WEB-INF/view/albumPhoto.jsp</result>
         </action>
         <action name="NewInfo" class="action.NewInfo">
             <result name="success" type="redirectAction">
@@ -141,7 +148,22 @@
             <result name="success" type="redirectAction">
                 <param name="actionName">AlbumPhoto</param>
                 <param name="idAlbum">${idAlbum}</param>
-                <param name="nomAlbum">${nomAlbum}</param>
+            </result>
+        </action>
+        <action name="NewAlbumInde" class="action.NewAlbumInde">
+            <result name="success" type="redirectAction">
+                <param name="actionName">AlbumPhoto</param>
+                <param name="idAlbum">${idAlbum}</param>
+            </result>
+        </action>
+        <action name="DeleteAlbumInde" class="action.DeleteAlbumInde">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Photos</param>
+            </result>
+        </action>
+        <action name="ModifAlbum" class="action.ModifAlbum">
+            <result name="success" type="redirectAction">
+                <param name="actionName">Photos</param>
             </result>
         </action>
         <action name="NewEntraineur" class="action.NewEntraineur">
@@ -155,7 +177,7 @@
             </result>
         </action>
         <action name="PhotosServeur" class="action.PhotosServeur">
-            <result name="success">/view/photosServeur.jsp</result>
+            <result name="success">/WEB-INF/view/photosServeur.jsp</result>
         </action>
         <action name="NewHoraire" class="action.NewHoraire">
             <result name="success" type="redirectAction">
@@ -207,7 +229,7 @@
                 <param name="actionName">Comite</param>
             </result>
         </action>
-        <action name="Connexion" class="action.Connexion">
+        <action name="Connecter" class="action.Connecter">
             <result name="success" type="redirectAction">
                 <param name="actionName">Index</param>
             </result>
@@ -264,7 +286,6 @@
             <result name="success" type="redirectAction">
                 <param name="actionName">AlbumPhoto</param>
                 <param name="idAlbum">${idAlbum}</param>
-                <param name="nomAlbum">${nomAlbum}</param>
             </result>
 
             <!--            <result name="success">result.jsp</result>-->

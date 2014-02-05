@@ -32,7 +32,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -128,7 +128,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -225,7 +225,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -255,7 +255,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -367,7 +367,8 @@
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
                                     <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
-                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 10)' class="btn btn-primary">Modifier</button>
@@ -420,7 +421,8 @@
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
                                     <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
-                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 11)' class="btn btn-primary">Modifier</button>
@@ -461,7 +463,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                   <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 12)' class="btn btn-primary">Modifier</button>
@@ -506,7 +510,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 1)' class="btn btn-primary">Modifier</button>
@@ -546,7 +552,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 2)' class="btn btn-primary">Modifier</button>
@@ -586,7 +594,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 3)' class="btn btn-primary">Modifier</button>
@@ -627,7 +637,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 4)' class="btn btn-primary">Modifier</button>
@@ -667,7 +679,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 5)' class="btn btn-primary">Modifier</button>
@@ -707,7 +721,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 6)' class="btn btn-primary">Modifier</button>
@@ -747,7 +763,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 7)' class="btn btn-primary">Modifier</button>
@@ -787,7 +805,9 @@
                                 <td><s:text name="nom"/></td>
                                 <td><s:property escape="false" value="lieu.ville"/></td>
                                 <td><s:if test="#evenement.lienProgramme != null && #evenement.lienProgramme != ''"><a rel="tooltip" data-placement="left" data-original-title="Programme" title="Programme" href="<s:url value='%{#evenement.lienProgramme}'/>"><i class="icon-file"></i></a></s:if>
-                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if></td>
+                                    <s:if test="#session.logined == 'true' || (#type == 0 && #evenement.date < #aujourdhuiVar)"><a rel="tooltip" data-placement="bottom" data-original-title="Résultats" title="Résultats" href="<s:url value='ResultatsCompetition.action?idCompetition=%{#evenement.id}'/>"><i class="icon-star-empty"></i></a></s:if>
+                                    <s:if test="#evenement.album != null"><a rel="tooltip" data-placement="right" data-original-title="Photos" title="Photos" href="<s:url value='AlbumPhoto.action?idAlbum=%{album.id}&nomAlbum=%{album.nom}'/>"><i class="icon-camera"></i></a></s:if>
+                                    <s:elseif test="#session.logined == 'true'"><a rel="tooltip" data-placement="right" onclick="showNewAlbum(<s:property value='id'/>)" data-original-title="Photos" title="Photos" href="#"><i class="icon-camera"></i></a></s:elseif></td>
                                         <s:if test="#session.logined == 'true'">
                                     <td><button onclick="showDeleteEvenement(<s:property value='id'/>)" class="btn btn-danger">Supprimer</button>
                                         <button onclick='showModifEvenement(<s:property value='id'/>,<s:property value='#type'/>, 8)' class="btn btn-primary">Modifier</button>
@@ -872,7 +892,6 @@
                                                         type: "post",
                                                         data: {data: index},
                                                         success: function(data) {
-                                                            alert(data);
                                                             var obj = jQuery.parseJSON(data);
                                                             if (obj['codePostal'] != 'null')
                                                                 $("#inputModifCodePostalEvenement").val(obj['codePostal']);

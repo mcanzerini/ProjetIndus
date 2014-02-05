@@ -29,7 +29,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -87,7 +87,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>

@@ -6,10 +6,14 @@
 package action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import dao.AlbumDao;
+import dao.AlbumDaoImpl;
+import dao.HibernateFactory;
 import dao.PhotoDao;
 import dao.PhotoDaoImpl;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
+import model.Album;
 import model.Photo;
 import org.apache.struts2.ServletActionContext;
 
@@ -21,6 +25,7 @@ public class AlbumPhoto extends ActionSupport {
 
     private String idAlbum;
     private String nomAlbum;
+    public static final AlbumDao albumDao = AlbumDaoImpl.getInstance();
     public static final PhotoDao photoDao = PhotoDaoImpl.getInstance();
     private List<Photo> photos;
 
@@ -28,9 +33,17 @@ public class AlbumPhoto extends ActionSupport {
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         idAlbum = request.getParameter("idAlbum");
-        nomAlbum = request.getParameter("nomAlbum");
         try {
-            photos = photoDao.findByAlbum(Long.valueOf(idAlbum));
+            HibernateFactory.currentSession().clear();
+            Integer idAlbumInt = Integer.valueOf(idAlbum);
+            Album album = albumDao.find(idAlbumInt);
+            if (album != null) {
+                photos = photoDao.findByAlbum(idAlbumInt.longValue());
+                nomAlbum = album.getNom();
+            } else {
+                // erreur l'id ne coorespond a aucun album
+                return ERROR;
+            }
         } catch (NumberFormatException e) {
             // erreur l'id n'est pas un int
             return ERROR;

@@ -167,7 +167,7 @@
                                     </div>
                                     <div class="control-group">
                                         <div class="controls">
-                                            <button type="submit" id="submitSaison" class="btn btn-primary">Lancer la recherche</button>
+                                            <input type="submit" id="submitSaison" value="Lancer la recherche" class="btn btn-primary"/>
                                         </div>
                                     </div>
                                 </form>

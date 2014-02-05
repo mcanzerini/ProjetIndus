@@ -1,0 +1,28 @@
+TODO :
+- Ajuster la taille des photos dans les thumbnails (En suspend voir question 1)
+OK - Gérer l'exception de ne pas envoyer de fichier
+- Enter --> Submit le form (En suspend solution : submit avec jaavscript onKeyDown == 13 BIzarre : Marche pour la création d'album)
+- Ajouter des liens
+- Photo d'un événement
+OK - Action connexion plutot que jsp
+OK - les jsp dans WEB-INF
+- photo d'un licencié
+- CRUD licencié
+OK - dans calendrier : copier coller tous les mois par apport à Septembre
+OK - taille minimal pour le body (le footer doit être en bas)
+- éditer mieux l'histoire du club (pour le moment problème quand saut de ligne) ckeditor ?
+- utiliser le plus souvent possible document.onReady()
+- rendre compatible sur Firefox, Google Chrome, Safari, IE
+- Vérifier responsive
+- Gérer la taille des photos a envoyer
+- Gérer le type des photos a envoyer
+- Gérer les exceptions (faire un page toute belle pour la plupart des exception hihi)
+
+
+
+Questions :
+1- Forcer la même taille pour les photos dans les albums ? 
+	--> Si oui perte d'une partie de la photo. 
+	--> Si non Décalage bizarre
+2- Enlever les boutons bleus voir ?
+3- Rendre le carousel cliquable

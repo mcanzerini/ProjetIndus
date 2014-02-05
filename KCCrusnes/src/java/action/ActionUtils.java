@@ -5,6 +5,7 @@
  */
 package action;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,6 +22,9 @@ public class ActionUtils {
     public static final long ID_KATA_IN_DISCIPLINE = 0;
     public static final long ID_KUMITE_IN_DISCIPLINE = 1;
     public static final String DEFAULT_PHOTO_EVENEMENT = "defaut_evenement.jpg";
+    public static final String PATH_TO_ALBUM = File.separator
+            + "resources" + File.separator + "img" + File.separator
+            + "albums" + File.separator;
 
     public static String md5Java(String message) {
         String digest = null;

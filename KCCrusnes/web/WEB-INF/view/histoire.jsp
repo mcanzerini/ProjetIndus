@@ -29,7 +29,7 @@
 
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
-                        <a href="connexion.jsp" class="btn btn-primary">Connexion</a>
+                        <a href="Connexion" class="btn btn-primary">Connexion</a>
                     </div>
                 </s:if>
                 <s:else>
@@ -39,15 +39,6 @@
                     </div>
                     <form id="modifInfoForm" action="ModifHistoire" method="POST" class="form-inline">
                         <div class="modal-body">
-
-                            <!--                            <div class="control-group">
-                                                            <label class="control-label" for="inputPriorite">Priorite</label>
-                                                            <div class="controls">
-                                                                <input type="radio" value="1" name="priorite" form="modifInfoForm"/> Information<br>
-                                                                <input type="radio" value="2" name="priorite" form="modifInfoForm"/> Attention<br>
-                                                                <input type="radio" value="3" name="priorite" checked form="modifInfoForm"/> Défaut
-                                                            </div>
-                                                        </div>-->
                             <div class="control-group">
                                 <label class="control-label" for="inputContenu">Contenu</label>
                                 <div class="controls">
@@ -83,7 +74,7 @@
 
 
 
-                    <p><s:property escape="false" value="histoire.content"/></p>
+                    <p><s:property escape="true" value="histoire.content"/></p>
 
 
 
@@ -103,7 +94,8 @@
                         });
 
                         function showModifHistoire() {
-                            $("textarea").text('<s:property escape="false" value="histoire.content"/>');
+                            // TODO PROBLEME AVEC NOUVELLES LIGNES ETC --> UTILISER CKEDITOR
+                            $("textarea").text('<s:property escape="true" value="histoire.content"/>');
                             $("#modifHistoire").modal();
                         }
         </script>

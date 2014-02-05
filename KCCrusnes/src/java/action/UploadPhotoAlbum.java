@@ -46,9 +46,7 @@ public class UploadPhotoAlbum extends ActionSupport implements ServletContextAwa
                 System.out.print("; contentType: " + filesContentType.get(i));
                 System.out.print("; length: " + file.length());
                 System.out.println("; path: " + context.getRealPath(""));
-                String path = context.getRealPath("") + File.separator + "view" + File.separator
-                        + "resources" + File.separator + "img" + File.separator
-                        + "albums" + File.separator + idAlbum + File.separator;
+                String path = context.getRealPath("") + ActionUtils.PATH_TO_ALBUM + idAlbum + File.separator;
 
                 Photo photo = new Photo();
                 photo.setLibelle(fileName);

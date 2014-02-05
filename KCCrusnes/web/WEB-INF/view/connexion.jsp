@@ -32,7 +32,7 @@
                 <div class="modal-header">
                     <h3 id="myModalLabel">Connexion</h3>
                 </div>
-                <form id="connexion" action="Connexion" method="POST" class="form-horizontal">
+                <form id="connexion" action="Connecter" method="POST" class="form-horizontal">
                     <div class="modal-body">
 
                         <div class="control-group">
