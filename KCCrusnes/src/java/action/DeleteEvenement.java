@@ -14,8 +14,10 @@ import dao.EvenementDaoImpl;
 import dao.HibernateFactory;
 import dao.ResultatDao;
 import dao.ResultatDaoImpl;
+import java.io.File;
 import java.util.List;
 import java.util.Map;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import model.Evenement;
 import model.Resultat;
@@ -30,6 +32,7 @@ public class DeleteEvenement extends ActionSupport {
 
     public static final EvenementDao evenementDao = EvenementDaoImpl.getInstance();
     public static final ResultatDao resultatDao = ResultatDaoImpl.getInstance();
+    private ServletContext context;
 
     @Override
     public String execute() {
@@ -47,6 +50,12 @@ public class DeleteEvenement extends ActionSupport {
                     resultatDao.delete(resultat);
                 }
                 evenementDao.delete(evenement);
+
+                context = ServletActionContext.getServletContext();
+                String path = context.getRealPath("") + ActionUtils.PATH_TO_EVENEMENT + evenement.getPhotoPrincipale();
+                File photoFile = new File(path);
+                photoFile.delete();
+
                 if (!t.wasCommitted()) {
                     t.commit();
                 }
@@ -61,4 +70,13 @@ public class DeleteEvenement extends ActionSupport {
             return ERROR;
         }
     }
+
+    public ServletContext getContext() {
+        return context;
+    }
+
+    public void setContext(ServletContext context) {
+        this.context = context;
+    }
+
 }

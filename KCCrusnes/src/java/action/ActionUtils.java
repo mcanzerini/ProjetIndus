@@ -25,6 +25,12 @@ public class ActionUtils {
     public static final String PATH_TO_ALBUM = File.separator
             + "resources" + File.separator + "img" + File.separator
             + "albums" + File.separator;
+    public static final String PATH_TO_LIEN = File.separator
+            + "resources" + File.separator + "img" + File.separator
+            + "liens" + File.separator;
+    public static final String PATH_TO_EVENEMENT = File.separator
+            + "resources" + File.separator + "img" + File.separator
+            + "evenement" + File.separator;
 
     public static String md5Java(String message) {
         String digest = null;

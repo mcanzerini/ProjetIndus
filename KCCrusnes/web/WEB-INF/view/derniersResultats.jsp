@@ -43,7 +43,7 @@
                         </s:if>
                         <li class="span4">
                             <a href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='id'/></s:param></s:url>" class="thumbnail">
-                                <img src="<s:url value='resources/img/%{photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
+                                <img src="<s:url value='resources/img/evenement/%{photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
                             </a>
                             <div class="caption">
                                 <span class="badge badge-inverse"><s:date name="date" format="dd/MM/yyyy" /></span>

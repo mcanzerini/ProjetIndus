@@ -74,7 +74,7 @@
 
 
 
-                    <p><s:property escape="true" value="histoire.content"/></p>
+                    <pre id="contenu"><s:property escape="false" value="histoire.content"/></pre>
 
 
 
@@ -94,8 +94,8 @@
                         });
 
                         function showModifHistoire() {
-                            // TODO PROBLEME AVEC NOUVELLES LIGNES ETC --> UTILISER CKEDITOR
-                            $("textarea").text('<s:property escape="true" value="histoire.content"/>');
+                            var histoire = $('#contenu').text();
+                            $("textarea").text(histoire);
                             $("#modifHistoire").modal();
                         }
         </script>

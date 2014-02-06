@@ -15,30 +15,42 @@ import dao.CompetitionDao;
 import dao.CompetitionDaoImpl;
 import dao.EvenementDao;
 import dao.EvenementDaoImpl;
+import java.io.File;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Map;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import model.Adresse;
 import model.Competition;
 import model.Evenement;
 import model.NiveauCompetition;
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.util.ServletContextAware;
+import util.FilesUtil;
 
 /**
  *
  * @author mathieu_canzerini
  */
-public class NewEvenement extends ActionSupport {
+public class NewEvenement extends ActionSupport implements ServletContextAware {
 
     public static final EvenementDao evenementDao = EvenementDaoImpl.getInstance();
     public static final CompetitionDao competitionDao = CompetitionDaoImpl.getInstance();
     public static final AdresseDao adresseDao = AdresseDaoImpl.getInstance();
 
+    private File file;
+    private String fileContentType;
+    private String fileFileName;
+    private String filePath;
+    private ServletContext context;
+
     @Override
     public String execute() throws Exception {
+        System.out.println("1");
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
+            boolean photo = true;
             try {
                 HttpServletRequest request = ServletActionContext.getRequest();
                 String numeroRue = request.getParameter("numRue");
@@ -64,9 +76,11 @@ public class NewEvenement extends ActionSupport {
                     CP = null;
                 }
                 String type = request.getParameter("type");
-                String photoPrincipale = request.getParameter("photo");
-                if (photoPrincipale == null || photoPrincipale.equals("")) {
-                    photoPrincipale = ActionUtils.DEFAULT_PHOTO_EVENEMENT;
+                System.out.println("2");
+                if (fileFileName == null || fileFileName.equals("") || file == null) {
+                    fileFileName = ActionUtils.DEFAULT_PHOTO_EVENEMENT;
+                    photo = false;
+                    System.out.println("3");
                 }
                 Adresse adresse = adresseDao.findByLieu(numeroRue, nomRue, CP, ville, pays);
                 if (adresse == null) {
@@ -92,7 +106,7 @@ public class NewEvenement extends ActionSupport {
                     evenement.setNiveau(NiveauCompetition.valueOf(niveau));
                     evenement.setLieu(adresse);
                     evenement.setNom(nom);
-                    evenement.setPhotoPrincipale(photoPrincipale);
+                    evenement.setPhotoPrincipale(fileFileName);
                     Calendar date = null;
                     if (dateString != null && !dateString.equals("")) {
                         String[] strings = dateString.split("/");
@@ -111,7 +125,7 @@ public class NewEvenement extends ActionSupport {
                     Evenement evenement = new Evenement();
                     evenement.setLieu(adresse);
                     evenement.setNom(nom);
-                    evenement.setPhotoPrincipale(photoPrincipale);
+                    evenement.setPhotoPrincipale(fileFileName);
                     Calendar date = null;
                     if (dateString != null && !dateString.equals("")) {
                         String[] strings = dateString.split("/");
@@ -126,6 +140,19 @@ public class NewEvenement extends ActionSupport {
                     evenement.setDate(date);
                     evenementDao.update(evenement);
                 }
+                System.out.println("4");
+                if (photo) {
+                    System.out.println("5");
+                    context = ServletActionContext.getServletContext();
+                    String fileName = fileFileName;
+                    System.out.print("\nFile ");
+                    System.out.print("; name:" + fileName);
+                    System.out.print("; contentType: " + fileContentType);
+                    System.out.print("; length: " + file.length());
+                    System.out.println("; path: " + context.getRealPath(""));
+                    String path = context.getRealPath("") + ActionUtils.PATH_TO_EVENEMENT;
+                    FilesUtil.saveFile(file, fileFileName, path);
+                }
             } catch (NumberFormatException e) {
                 // donnees ne sont pas des int
                 return ERROR;
@@ -137,4 +164,49 @@ public class NewEvenement extends ActionSupport {
             return ERROR;
         }
     }
+
+    public void setServletContext(ServletContext sc) {
+        this.context = sc;
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
+
+    public String getFileContentType() {
+        return fileContentType;
+    }
+
+    public void setFileContentType(String fileContentType) {
+        this.fileContentType = fileContentType;
+    }
+
+    public String getFileFileName() {
+        return fileFileName;
+    }
+
+    public void setFileFileName(String fileFileName) {
+        this.fileFileName = fileFileName;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+    public ServletContext getContext() {
+        return context;
+    }
+
+    public void setContext(ServletContext context) {
+        this.context = context;
+    }
+
 }

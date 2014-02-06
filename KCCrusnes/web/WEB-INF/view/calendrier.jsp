@@ -40,7 +40,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h3 id="myModalLabel">Nouvel Evénement</h3>
                     </div>
-                    <form id="newEvenementForm" action="NewEvenement" method="POST" class="form-horizontal">
+                    <form id="newEvenementForm" action="NewEvenement" enctype="multipart/form-data" method="POST" class="form-horizontal">
                         <div class="modal-body">
 
                             <div class="control-group">
@@ -88,12 +88,12 @@
                                     <input type="text" name="pays" id="inputPaysEvenement"/>
                                 </div>
                             </div>
-                            <!--<div class="control-group">
-                                <label class="control-label" for="inputContenu">Photo</label>
+                            <div class="control-group">
+                                <label class="control-label" for="inputFile">Image</label>
                                 <div class="controls">
-                                    <input type="image" alt="Photo Principale" name="photo" id="inputPhotoEvenement"/>
+                                    <input type="file" id="inputFile" name="file" />
                                 </div>
-                            </div-->
+                            </div>
                             <div class="control-group">
                                 <label class="control-label" for="inputContenu">Lien Programme</label>
                                 <div class="controls">
@@ -185,12 +185,12 @@
                                     <input type="text" name="pays" id="inputModifPaysEvenement"/>
                                 </div>
                             </div>
-                            <!-- <div class="control-group">
-                                 <label class="control-label" for="inputContenu">Photo</label>
-                                 <div class="controls">
-                                     <input type="image" alt="Photo Principale" name="photo" id="inputModifPhotoEvenement"/>
-                                 </div>
-                             </div>-->
+                            <!--                            <div class="control-group">
+                                                            <label class="control-label" for="inputModifFile">Image</label>
+                                                            <div class="controls">
+                                                                <input type="file" id="inputModifFile" name="file" />
+                                                            </div>
+                                                        </div>-->
                             <div class="control-group">
                                 <label class="control-label" for="inputContenu">Lien Programme</label>
                                 <div class="controls">
@@ -908,7 +908,7 @@
                                                             if (obj['ville'] != 'null')
                                                                 $("#inputModifVilleEvenement").val(obj['ville']);
                                                             if (obj['photo'] != 'null')
-                                                                $("#inputModifPhotoEvenement").val(obj['photo']);
+                                                                $("#inputModifFile").val(obj['photo']);
                                                             if (obj['programme'] != 'null')
                                                                 $("#inputModifProgrammeEvenement").val(obj['programme']);
                                                             if (obj['date'] != 'null')
@@ -917,7 +917,7 @@
                                                     });
                                                     $("#modifEvenement").modal();
                                                 } else {
-                                                    alert('stage ou compettion pas encore fait');
+                                                    alert('stage ou sortie pas encore fait');
                                                 }
                                             }
         </script>

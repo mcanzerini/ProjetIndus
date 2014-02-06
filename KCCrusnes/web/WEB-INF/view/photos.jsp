@@ -167,7 +167,7 @@
                                     <s:set name="src" value="'albums/'+id+'/'+#photo1.lien"/>
                                 </s:if>
                                 <s:elseif test="#event != null">
-                                    <s:set name="src" value="evenement.photoPrincipale"/>
+                                    <s:set name="src" value="'evenement/'+evenement.photoPrincipale"/>
                                 </s:elseif>
                                 <s:else>
                                     <s:set name="src" value="'defaut_album.jpg'"/>
@@ -251,7 +251,7 @@
                                                                 if (i + 1 <= nbAlbums) {
                                                                     var image;
                                                                     if (typeof data.albums[i].evenement !== 'undefined' && data.albums[i].evenement !== null) {
-                                                                        image = data.albums[i].evenement.photoPrincipale;
+                                                                        image = "evenements/" + data.albums[i].evenement.photoPrincipale;
                                                                     } else if (typeof data.albums[i].photos[0] !== 'undefined' && data.albums[i].photos[0] !== null) {
                                                                         image = "albums/" + data.albums[i].id + "/" + data.albums[i].photos[0].lien;
                                                                     } else {
@@ -302,11 +302,11 @@
                                                                 if (i + 1 <= nbAlbums) {
                                                                     var image;
                                                                     if (typeof data.albums[i].evenement !== 'undefined' && data.albums[i].evenement !== null) {
-                                                                        image = data.albums[i].evenement.photoPrincipale;
+                                                                        image = "albums/" + data.albums[i].evenement.photoPrincipale;
                                                                     } else if (typeof data.albums[i].photos[0] !== 'undefined' && data.albums[i].photos[0] !== null) {
                                                                         image = "albums/" + data.albums[i].id + "/" + data.albums[i].photos[0].lien;
                                                                     } else {
-                                                                        image = "defaut_album.jpg";
+                                                                        image = "albums/defaut_album.jpg";
                                                                     }
                                                                     $('#id' + ligne).append("<li class = 'span4'><a href = \"AlbumPhoto?idAlbum=" + data.albums[i].id + "'\" class = 'thumbnail' ><img src = \"resources/img/" + image + "\" data - src = 'holder.js/300x200' alt = '' ></a><div class = 'caption' ><h3 class='nomAlbum'>" + data.albums[i].nom + "</h3><a href = 'AlbumPhoto?idAlbum=" + data.albums[i].id + "' class = 'btn btn-primary' > Voir l\'Album</a>" +
                                                                             "<s:if test="#session.logined == 'true'"><button onclick=\"deleteModal(" + data.albums[i].id + ")\" class=\"btn btn-danger\">Supprimer</button>" +

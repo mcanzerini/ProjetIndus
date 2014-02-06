@@ -159,13 +159,13 @@
                                         <s:set name="photo1" value="%{#object.photos[0]}"/>
                                         <s:set name="event" value="%{#object.evenement}"/>
                                         <s:if test="#event != null" >
-                                            <s:set name="src" value="evenement.photoPrincipale"/>
+                                            <s:set name="src" value="evenement/evenement.photoPrincipale"/>
                                         </s:if>
                                         <s:elseif test="#photo1.lien != null">
                                             <s:set name="src" value="'albums/'+id+'/'+#photo1.lien"/>
                                         </s:elseif>
                                         <s:else>
-                                            <s:set name="src" value="'defaut_evenement.jpg'"/>
+                                            <s:set name="src" value="'albums/defaut_album.jpg'"/>
                                         </s:else>
                                         <div style="max-height:350px;overflow:hidden;" class="item"><img alt="" style="width:100%;" src="<s:url value='resources/img/%{src}'/>"/>
                                             <div class="carousel-caption">
@@ -174,7 +174,7 @@
                                         </div>
                                     </s:if>
                                     <s:elseif test="%{ #object instanceof model.Competition }">
-                                        <div class="item"> <img alt="" src="<s:url value='resources/img/%{#object.photoPrincipale}'/>"/>
+                                        <div class="item"> <img alt="" src="<s:url value='resources/img/evenement/%{#object.photoPrincipale}'/>"/>
                                             <div class="carousel-caption">
                                                 <p> <s:property value="#object.nom"/> </p>
                                             </div>
@@ -232,13 +232,13 @@
                             <s:set name="photo1" value="%{#object.photos[0]}"/>
                             <s:set name="event" value="%{#object.evenement}"/>
                             <s:if test="#event != null" >
-                                <s:set name="src" value="evenement.photoPrincipale"/>
+                                <s:set name="src" value="evenement/evenement.photoPrincipale"/>
                             </s:if>
                             <s:elseif test="#photo1.lien != null">
                                 <s:set name="src" value="'albums/'+id+'/'+#photo1.lien"/>
                             </s:elseif>
                             <s:else>
-                                <s:set name="src" value="'defaut_evenement.jpg'"/>
+                                <s:set name="src" value="'albums/defaut_album.jpg'"/>
                             </s:else>
                             <li class="span4">
                                 <a style="max-height:200px;overflow:hidden;" href="<s:url value='AlbumPhoto?idAlbum=%{#object.id}&nomAlbum=%{#object.nom}'/>" class="thumbnail">
@@ -254,7 +254,7 @@
                         <s:elseif test="%{ #object instanceof model.Competition }">
                             <li class="span4">
                                 <a style="max-height:350px;overflow:hidden;" href="<s:url action='ResultatsCompetition.action'><s:param name='idCompetition'><s:property value='#object.id'/></s:param></s:url>" class="thumbnail">
-                                    <img style="width:100%;" src="<s:url value='resources/img/%{#object.photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
+                                    <img style="width:100%;" src="<s:url value='resources/img/evenement/%{#object.photoPrincipale}'/>" data-src="holder.js/300x200" alt="">
                                 </a>
                                 <div class="caption">
                                     <span class="badge badge-inverse"><s:date name="#object.date" format="dd/MM/yyyy" /></span>
