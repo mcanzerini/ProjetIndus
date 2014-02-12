@@ -55,7 +55,7 @@
                                 <div class="controls">
 
                                     <div class="input-append date" id="dp3" data-date="01/01/2013" data-date-format="dd/mm/yyyy">
-                                        <input class="span9" oninput="checkDateFormat()" id="inputDate" autocomplete="off" size="10" type="text" name="date" value="01/01/2013">
+                                        <input class="span9" oninput="checkDateFormat('inputDate')" id="inputDate" autocomplete="off" size="10" type="text" name="date" value="01/01/2013">
                                         <span class="add-on"><i class="icon-calendar"></i></span>
                                     </div>  </div></div>
                             <div class="control-group">
@@ -152,7 +152,7 @@
                                 <div class="controls">
 
                                     <div class="input-append date" id="dp4" data-date="01/01/2013" data-date-format="dd/mm/yyyy">
-                                        <input class="span9" oninput="checkDateFormat()" id="inputModifDate" autocomplete="off" size="10" type="text" name="date" value="01/01/2013">
+                                        <input class="span9" oninput="checkDateFormat('inputModifDate')" id="inputModifDate" autocomplete="off" size="10" type="text" name="date" value="01/01/2013">
                                         <span class="add-on"><i class="icon-calendar"></i></span>
                                     </div>  </div></div>
                             <div class="control-group">
@@ -290,7 +290,7 @@
 
                 <s:if test="#session.logined == 'true'"><button data-toggle="modal" data-target="#newEvenement" class="btn btn-primary">Ajouter un événement</button></s:if>
                 <br><br><br><div class="pull-right"><s:iterator value="annees" var="annee"><a href="<s:url value="VoirCalendrier.action?annee=%{annee}"/>"><b><s:property value="annee"/></b> </a></s:iterator></div>
-                    <table class="table table-hover table-striped">
+                    <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th><h3 class="grosMois">Septembre</h3>
@@ -500,11 +500,6 @@
                             <s:else>
                                 <s:set var="type" value="2"/>
                             </s:else>
-                            <s:hidden value="lieu.numVoie"/>
-                            <s:hidden value="lieu.nomVoie"/>
-                            <s:hidden value="lieu.codePostal"/>
-                            <s:hidden value="lieu.pays"/>
-                            <s:hidden value="lieu.ville"/>
                             <tr>
                                 <td><s:date name="date" format="dd" /> Janvier</td>
                                 <td><s:text name="nom"/></td>

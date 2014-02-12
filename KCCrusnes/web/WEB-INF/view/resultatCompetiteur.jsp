@@ -28,8 +28,8 @@
                 </div>
                 <div class="span11"></div>
                 <div class="span3">
-                    <a href="<s:url value='resources/img/licencie/%{#licencie.photo}'/>" rel="group" class="thumbnail fancybox">
-                        <img class="" data-src="holder.js/300x200" src="<s:url value='resources/img/licencie/%{#licencie.photo}'/>" alt="Pas de Photo"/>
+                    <a href="<s:url value='resources/img/licencies/%{#licencie.photo}'/>" rel="group" class="thumbnail fancybox">
+                        <img src="<s:url value='resources/img/licencies/%{#licencie.photo}'/>" alt="Pas de Photo"/>
                     </a>
                 </div>
                 <div class="span1"></div>
@@ -53,6 +53,14 @@
                             </s:iterator>
                         </tbody>
                     </table>
+                    <br>
+                    <div class="span9"></div>
+                    <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                        <a class="addthis_button_preferred_1"></a>
+                        <a class="addthis_button_preferred_2"></a>
+                        <!--<a class="addthis_counter addthis_bubble_style"></a>-->
+                    </div>
+                    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-52fbad8865e83048"></script>
                 </div>
             </div>
         </div>
@@ -62,6 +70,18 @@
         <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
         <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
         <script type="text/javascript">
+
+            var nom = "<s:property value='#licencie.nom'/>";
+            var prenom = "<s:property value='#licencie.prenom'/>";
+            var resultat = "<s:property value='resultatString'/>";
+            var url = "test.com/KCCrusnes/ResultatsCompetiteur?nom=" + nom + "&prenom=" + prenom + "&resultat=" + resultat;
+
+            var addthis_share =
+                    {
+                        url: url,
+                        title: "Karate Club de Crusnes. Palmarès de " + prenom + " " + nom
+                    };
+
             $(".res").addClass("active");
             $(function() {
                 $('a').tooltip();

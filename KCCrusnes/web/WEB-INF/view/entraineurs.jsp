@@ -10,6 +10,7 @@
         <meta charset="UTF-8">
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
         <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
 
         <link href="resources/css/feuille.css" rel="stylesheet" media="screen">
     </head>
@@ -185,8 +186,8 @@
                             <ul class="thumbnails">
                             </s:if>
                             <li class="span3">
-                                <a href="#" class="thumbnail">
-                                    <img src="<s:url value='resources/img/%{licencie.photo}'/>" data-src="holder.js/300x200" alt="">
+                                <a href="<s:url value='resources/img/licencies/%{licencie.photo}'/>" rel="group" class="thumbnail fancybox">
+                                    <img src="<s:url value='resources/img/licencies/%{licencie.photo}'/>" alt="">
                                 </a>
                                 <div class="caption">
                                     <h3><s:property value="licencie.nom"/> <s:property value="licencie.prenom"/></h3>
@@ -224,6 +225,8 @@
 
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+    <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
     <script type="text/javascript">
                                             $(".club").addClass("active");
@@ -232,6 +235,16 @@
                                                 $('#navbar').affix();
                                             });
 
+                                            $(".fancybox")
+                                                    .attr('rel', 'gallery')
+                                                    .fancybox({
+                                                        beforeShow: function() {
+                                                            /* Disable right click */
+                                                            $.fancybox.wrap.bind("contextmenu", function(e) {
+                                                                return false;
+                                                            });
+                                                        }
+                                                    });
                                             function showDeleteEntraineur(index) {
                                                 $("#idEntraineur").attr("value", index);
                                                 $("#deleteEntraineur").modal();
@@ -295,6 +308,7 @@
                                                 });
                                                 $('#idLicencie').val(tab[idIndex]);
                                             }
+
     </script>
 </body>
 </html>

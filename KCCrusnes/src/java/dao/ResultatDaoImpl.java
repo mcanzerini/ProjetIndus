@@ -144,4 +144,12 @@ public class ResultatDaoImpl extends ResultatDao {
         return resultats;
     }
 
+    @Override
+    public List<Resultat> findByIdLicencie(Long idLicencie) {
+        Query query = super.getSession().createQuery("from " + Resultat.class.getName() + " r "
+                + " where r.licencie.id = " + idLicencie);
+        List<Resultat> resultats = query.list();
+        return resultats;
+    }
+
 }

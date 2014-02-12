@@ -10,6 +10,7 @@ import model.CategorieAge;
 import model.CategoriePoids;
 import model.Grade;
 import model.Licencie;
+import model.Sexe;
 
 /**
  *
@@ -60,4 +61,7 @@ public abstract class LicencieDao extends Dao<Licencie> {
     public abstract List<Grade> selectAllExistingGrades();
 
     public abstract String getNameFirstName();
+
+    public abstract List<Licencie> findForAdmin(Integer page, Grade grade, Sexe sexe, Boolean isActif, Boolean isEtudiant,
+            CategorieAge categorieAge);
 }

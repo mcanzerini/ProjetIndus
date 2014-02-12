@@ -1,18 +1,18 @@
 TODO :
-- Ajuster la taille des photos dans les thumbnails (En suspend voir question 1)
+KO - Ajuster la taille des photos dans les thumbnails (En suspend voir question 1)
 OK - Gérer l'exception de ne pas envoyer de fichier
-- Enter --> Submit le form (En suspend solution : submit avec jaavscript onKeyDown == 13 BIzarre : Marche pour la création d'album)
+KO - Enter --> Submit le form (En suspend solution : submit avec javascript onKeyDown == 13 Bizarre : Marche pour la création d'album)
 OK - Ajouter des liens
-OK Photo d'un événement à L'ajout et suppression
+OK - Photo d'un événement à L'ajout et suppression
 OK - Action connexion plutot que jsp
 OK - les jsp dans WEB-INF
-- photo d'un licencié
-- CRUD licencié
+OK - photo d'un licencié
+OK - CRUD licencié
 OK - dans calendrier : copier coller tous les mois par apport à Septembre
 OK - taille minimal pour le body (le footer doit être en bas)
 OK - éditer mieux l'histoire du club (pour le moment problème quand saut de ligne)
 - utiliser le plus souvent possible document.onReady()
-- rendre compatible sur Firefox, Google Chrome, Safari, IE
+KO - rendre compatible sur Firefox, Google Chrome, Safari, IE (En suspend voir question 5)
 - Vérifier responsive
 - Gérer la taille des photos a envoyer
 - Gérer le type des photos a envoyer
@@ -22,16 +22,22 @@ OK - éditer mieux l'histoire du club (pour le moment problème quand saut de li
 - Ajouter un system de log (voir cour spring)
 - Mettre les nom des photos event et liens sur le serveur du type : event${id}.jpg et lien${id}.jpg
 - Ajouter les type d'événement Sorties et Stages
-- Dans calendrier rajouter un lien vers l'année courante aussi
-- Metre les mêmes styles de tableaux dans le calendrier pour tous les mois (stripped, hover, ...)
-- Mettre Redirection vers la même page dans le calendrier (quand on supprimer on est d'office renvoyer à l'année courante)
+OK - Dans calendrier rajouter un lien vers l'année courante aussi
+OK - Mettre les mêmes styles de tableaux dans le calendrier pour tous les mois (stripped, hover, ...)
+OK - Mettre Redirection vers la même page dans le calendrier (quand on supprimer on est d'office renvoyer à l'année courante)
 - Modification d'événement : préremplir la date ET faire un autre bouton modifier photo
 - Mettre au point un system de back up de la base (toutes les semaines ?)
 - Rajouter des stats
 - Permettre de changer le mot passe
 - Taille minimale body dans resultats compétitions
 OK - Ajouter un lien aussi en non connecté
-
+- Faire plus de vérifications javascript dans les formulaires (disable submit si pas bien rempli)
+- Ajouter le partage sur les réseaux sociaux
+- Reflechir sur les catégorie de poids et age
+- Supprimer au max les warnings et erreurs HTML CSS JS
+- Tester W3C
+- Disable le boutton de recherche si la date n'est pas bonne dans la recherche de resultat
+- Rajouter dans tous les formulaires le type de l'input number
 
 
 Questions :
@@ -39,5 +45,7 @@ Questions :
 	--> Si oui perte d'une partie de la photo. 
 	--> Si non Décalage bizarre
 2- Enlever les boutons bleus voir ?
-3- Rendre le carousel cliquable
+3- Rendre le carousel cliquable ?
 4- Utiliser ckeditor pour l'histoire ?
+5- Télécharger IE 11 ?
+6- quels critères recherche licencié ?

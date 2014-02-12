@@ -1,6 +1,7 @@
 package action;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.AlbumDao;
 import dao.AlbumDaoImpl;
@@ -8,6 +9,7 @@ import dao.PhotoDao;
 import dao.PhotoDaoImpl;
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import model.Album;
@@ -31,38 +33,44 @@ public class UploadPhotoAlbum extends ActionSupport implements ServletContextAwa
 
     @Override
     public String execute() throws Exception {
-        System.out.print("\n\n---------------------------------------");
-        int i = 0;
-        HttpServletRequest request = ServletActionContext.getRequest();
-        idAlbum = request.getParameter("idAlbum");
-        context = ServletActionContext.getServletContext();
-        try {
-            Album album = albumDao.find(Long.valueOf(idAlbum));
-            nomAlbum = album.getNom();
-            for (File file : files) {
-                String fileName = filesFileName.get(i);
-                System.out.print("\nFile [" + i + "] ");
-                System.out.print("; name:" + fileName);
-                System.out.print("; contentType: " + filesContentType.get(i));
-                System.out.print("; length: " + file.length());
-                System.out.println("; path: " + context.getRealPath(""));
-                String path = context.getRealPath("") + ActionUtils.PATH_TO_ALBUM + idAlbum + File.separator;
+        Map session = ActionContext.getContext().getSession();
+        if (session.get("logined") != null && session.get("logined").equals("true")) {
+            System.out.print("\n\n---------------------------------------");
+            int i = 0;
+            HttpServletRequest request = ServletActionContext.getRequest();
+            idAlbum = request.getParameter("idAlbum");
+            context = ServletActionContext.getServletContext();
+            try {
+                Album album = albumDao.find(Long.valueOf(idAlbum));
+                nomAlbum = album.getNom();
+                for (File file : files) {
+                    String fileName = filesFileName.get(i);
+                    System.out.print("\nFile [" + i + "] ");
+                    System.out.print("; name:" + fileName);
+                    System.out.print("; contentType: " + filesContentType.get(i));
+                    System.out.print("; length: " + file.length());
+                    System.out.println("; path: " + context.getRealPath(""));
+                    String path = context.getRealPath("") + ActionUtils.PATH_TO_ALBUM + idAlbum + File.separator;
 
-                Photo photo = new Photo();
-                photo.setLibelle(fileName);
-                photo.setAlbum(album);
-                photo.setLien(fileName);
-                photoDao.create(photo);
-                FilesUtil.saveFile(file, filesFileName.get(i), path);
+                    Photo photo = new Photo();
+                    photo.setLibelle(fileName);
+                    photo.setAlbum(album);
+                    photo.setLien(fileName);
+                    photoDao.create(photo);
+                    FilesUtil.saveFile(file, filesFileName.get(i), path);
 
-                i++;
+                    i++;
+                }
+            } catch (NumberFormatException e) {
+                // l'id album n'est pas un int
+                return ERROR;
             }
-        } catch (NumberFormatException e) {
-            // l'id album n'est pas un int
+            System.out.println("\n---------------------------------------\n");
+            return SUCCESS;
+        } else {
+            // non connecté
             return ERROR;
         }
-        System.out.println("\n---------------------------------------\n");
-        return SUCCESS;
     }
 
     public List<File> getFiles() {

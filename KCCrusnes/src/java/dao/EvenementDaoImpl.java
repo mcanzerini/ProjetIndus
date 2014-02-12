@@ -92,7 +92,12 @@ public class EvenementDaoImpl extends EvenementDao {
         List<Calendar> calendars = query.list();
         List<String> annees = new ArrayList<String>();
         for (Calendar calendar : calendars) {
-            String annee = "" + calendar.get(Calendar.YEAR);
+            Integer anneeInt = calendar.get(Calendar.YEAR);
+            Integer mois = calendar.get(Calendar.MONTH) + 1;
+            if (mois >= 9) {
+                anneeInt++;
+            }
+            String annee = "" + anneeInt;
             if (!annees.contains(annee)) {
                 annees.add(annee);
             }

@@ -44,6 +44,7 @@ public class NewEvenement extends ActionSupport implements ServletContextAware {
     private String fileFileName;
     private String filePath;
     private ServletContext context;
+    private String annee;
 
     @Override
     public String execute() throws Exception {
@@ -113,6 +114,12 @@ public class NewEvenement extends ActionSupport implements ServletContextAware {
                         if (strings.length == 3) {
                             try {
                                 date = new GregorianCalendar(Integer.parseInt(strings[2]), Integer.parseInt(strings[1]) - 1, Integer.parseInt(strings[0]));
+                                Integer anneeInt = date.get(Calendar.YEAR);
+                                Integer month = date.get(Calendar.MONTH) + 1;
+                                if (month >= 9) {
+                                    anneeInt++;
+                                }
+                                annee = "" + anneeInt;
                             } catch (NumberFormatException e) {
                                 date = null;
                             }
@@ -132,6 +139,12 @@ public class NewEvenement extends ActionSupport implements ServletContextAware {
                         if (strings.length == 3) {
                             try {
                                 date = new GregorianCalendar(Integer.parseInt(strings[2]), Integer.parseInt(strings[1]) - 1, Integer.parseInt(strings[0]));
+                                Integer anneeInt = date.get(Calendar.YEAR);
+                                Integer month = date.get(Calendar.MONTH) + 1;
+                                if (month >= 9) {
+                                    anneeInt++;
+                                }
+                                annee = "" + anneeInt;
                             } catch (NumberFormatException e) {
                                 date = null;
                             }
@@ -207,6 +220,14 @@ public class NewEvenement extends ActionSupport implements ServletContextAware {
 
     public void setContext(ServletContext context) {
         this.context = context;
+    }
+
+    public String getAnnee() {
+        return annee;
+    }
+
+    public void setAnnee(String annee) {
+        this.annee = annee;
     }
 
 }

@@ -13,6 +13,7 @@ import model.CategoriePoids;
 import model.Grade;
 import model.Licencie;
 import model.Resultat;
+import model.Sexe;
 import org.hibernate.Query;
 
 /**
@@ -284,5 +285,74 @@ public class LicencieDaoImpl extends LicencieDao {
         }
         result.append("]");
         return result.toString();
+    }
+
+    @Override
+    public List<Licencie> findForAdmin(Integer page, Grade grade, Sexe sexe, Boolean isActif, Boolean isEtudiant, CategorieAge categorieAge) {
+        List<Licencie> licencies;
+        StringBuilder queryString = new StringBuilder();
+        queryString.append("from ");
+        queryString.append(Licencie.class.getName());
+        queryString.append(" l ");
+        Boolean first = true;
+        if (grade != null) {
+            first = false;
+            queryString.append(" where ");
+            queryString.append(" grade = '");
+            queryString.append(grade.name());
+            queryString.append("' ");
+
+        }
+        if (sexe != null) {
+            if (first) {
+                first = false;
+                queryString.append(" where ");
+            } else {
+                queryString.append(" and ");
+            }
+            queryString.append(" sexe = '");
+            queryString.append(sexe.name());
+            queryString.append("' ");
+        }
+        if (isActif != null) {
+            if (first) {
+                first = false;
+                queryString.append(" where ");
+            } else {
+                queryString.append(" and ");
+            }
+            queryString.append(" actif = ");
+            queryString.append(isActif);
+        }
+        if (isEtudiant != null) {
+            if (first) {
+                first = false;
+                queryString.append(" where ");
+            } else {
+                queryString.append(" and ");
+            }
+            queryString.append(" etudiant = ");
+            queryString.append(isEtudiant);
+        }
+        if (categorieAge != null) {
+            if (first) {
+                queryString.append(" where ");
+            } else {
+                queryString.append(" and ");
+            }
+            queryString.append(" categorieAge = '");
+            queryString.append(categorieAge.name());
+            queryString.append("'");
+        }
+        queryString.append(" order by l.nom, l.prenom");
+        Query query = super.getSession().createQuery(queryString.toString());
+        if (page == null || page == 0) {
+            query.setFirstResult(0);
+        } else {
+            query.setFirstResult((page - 1) * 10);
+        }
+        query.setMaxResults(11);
+        licencies = query.list();
+        return licencies;
     }
 }

@@ -35,6 +35,8 @@ public class ModifEvenement extends ActionSupport {
     public static final CompetitionDao competitionDao = CompetitionDaoImpl.getInstance();
     public static final AdresseDao adresseDao = AdresseDaoImpl.getInstance();
 
+    private String annee;
+
     @Override
     public String execute() throws Exception {
         Map session = ActionContext.getContext().getSession();
@@ -101,6 +103,12 @@ public class ModifEvenement extends ActionSupport {
                         if (strings.length == 3) {
                             try {
                                 date = new GregorianCalendar(Integer.parseInt(strings[2]), Integer.parseInt(strings[1]) - 1, Integer.parseInt(strings[0]));
+                                Integer anneeInt = date.get(Calendar.YEAR);
+                                Integer month = date.get(Calendar.MONTH) + 1;
+                                if (month >= 9) {
+                                    anneeInt++;
+                                }
+                                annee = "" + anneeInt;
                             } catch (NumberFormatException e) {
                                 date = null;
                             }
@@ -139,4 +147,13 @@ public class ModifEvenement extends ActionSupport {
             return ERROR;
         }
     }
+
+    public String getAnnee() {
+        return annee;
+    }
+
+    public void setAnnee(String annee) {
+        this.annee = annee;
+    }
+
 }
