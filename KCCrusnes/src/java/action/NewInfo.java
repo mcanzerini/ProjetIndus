@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.InformationDao;
 import dao.InformationDaoImpl;
+import exception.NotLoggedException;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import model.Information;
@@ -23,7 +24,7 @@ public class NewInfo extends ActionSupport {
     public static final InformationDao informationDao = InformationDaoImpl.getInstance();
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -46,7 +47,7 @@ public class NewInfo extends ActionSupport {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 }

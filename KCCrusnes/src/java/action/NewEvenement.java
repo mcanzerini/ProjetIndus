@@ -15,7 +15,9 @@ import dao.CompetitionDao;
 import dao.CompetitionDaoImpl;
 import dao.EvenementDao;
 import dao.EvenementDaoImpl;
+import exception.NotLoggedException;
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Map;
@@ -47,7 +49,7 @@ public class NewEvenement extends ActionSupport implements ServletContextAware {
     private String annee;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException, IOException {
         System.out.println("1");
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
@@ -174,7 +176,7 @@ public class NewEvenement extends ActionSupport implements ServletContextAware {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 

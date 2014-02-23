@@ -24,6 +24,7 @@ public class DerniersResultats extends ActionSupport {
     public static final CompetitionDao competitionDao = CompetitionDaoImpl.getInstance();
     public static final ResultatDao resultatDao = ResultatDaoImpl.getInstance();
 
+    @Override
     public String execute() throws Exception {
         competitions = competitionDao.findLastCompetitions(6);
 

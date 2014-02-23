@@ -36,7 +36,7 @@
                 <s:else>
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="myModalLabel">Nouvel Entraineur</h3>
+                        <h3 id="newEntraineurLabel">Nouvel Entraineur</h3>
                     </div>
                     <form id="newEntraineurForm" action="NewEntraineur" method="POST" class="form-horizontal">
                         <div class="modal-body">
@@ -229,7 +229,19 @@
     <script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
     <script type="text/javascript">
-                                            $(".club").addClass("active");
+
+                                            $(document).ready(function() {
+                                                $(".club").addClass("active");
+                                                var errorMessage = "<s:property value="#session.errorMessage"/>";
+                                                var action = "<s:property value="#session.action"/>";
+                                                if (errorMessage != "") {
+                                                    if (action == "new") {
+                                                        $('#newEntraineurLabel').append("<div class='span11 alert alert-block alert-error fade in'><button type='button' class='close' data-dismiss='alert'>×</button><strong>" + errorMessage + "</strong</div>");
+                                                        $("#newEntraineur").modal();
+                                                    }
+                                                }
+                                            });
+
                                             $(function() {
                                                 $('a').tooltip();
                                                 $('#navbar').affix();

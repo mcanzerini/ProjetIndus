@@ -213,8 +213,13 @@ body > .container{
     margin-bottom:0px;
 }
 
+@media (min-width: 979px){
+    #Desc{
+        padding:28px;
+    }
+}
+
 #Desc{
-    padding:28px;
     background: none;
 }
 

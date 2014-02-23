@@ -35,7 +35,7 @@
                         <ul>
                             <s:iterator value="myErrors" var="error">
                                 <li><strong><s:property value="error"/></strong><br></li>
-                                </s:iterator>
+                                    </s:iterator>
                         </ul>
                     </div>
                 </s:if>
@@ -194,9 +194,11 @@
         <script src="bootstrap/js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
 
-            $('#inputDate').datepicker({
-                weekStart: 1,
-                language: "fr"
+            $(document).ready(function() {
+                $('#inputDate').datepicker({
+                    weekStart: 1,
+                    language: "fr"
+                });
             });
 
             var error = false;

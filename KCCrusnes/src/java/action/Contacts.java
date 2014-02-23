@@ -25,7 +25,8 @@ public class Contacts extends ActionSupport {
     public static final DojoDao dojoDao = DojoDaoImpl.getInstance();
     public static final MembreDao membreDao = MembreDaoImpl.getInstance();
 
-    public String execute() throws Exception {
+    @Override
+    public String execute() {
         dojo = dojoDao.find(1);
         telephonePresidente = membreDao.findActifByPoste(PosteComite.PRESIDENT).getLicencie().getTelephone();
         telephoneSecretaire = membreDao.findActifByPoste(PosteComite.SECRETAIRE).getLicencie().getTelephone();

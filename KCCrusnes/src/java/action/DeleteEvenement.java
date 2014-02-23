@@ -14,6 +14,7 @@ import dao.EvenementDaoImpl;
 import dao.HibernateFactory;
 import dao.ResultatDao;
 import dao.ResultatDaoImpl;
+import exception.NotLoggedException;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,7 @@ public class DeleteEvenement extends ActionSupport {
     private ServletContext context;
 
     @Override
-    public String execute() {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         try {
             if (session.get("logined") != null && session.get("logined").equals("true")) {
@@ -63,7 +64,7 @@ public class DeleteEvenement extends ActionSupport {
             } else {
                 // L'utilisateur n'est pas connecte
                 // Gerer les erreurs
-                return ERROR;
+                throw new NotLoggedException();
             }
         } catch (NumberFormatException e) {
             // Id fourni pas de type int

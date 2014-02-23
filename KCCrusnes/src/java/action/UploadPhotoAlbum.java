@@ -7,7 +7,9 @@ import dao.AlbumDao;
 import dao.AlbumDaoImpl;
 import dao.PhotoDao;
 import dao.PhotoDaoImpl;
+import exception.NotLoggedException;
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.ServletContext;
@@ -32,7 +34,7 @@ public class UploadPhotoAlbum extends ActionSupport implements ServletContextAwa
     public static final AlbumDao albumDao = AlbumDaoImpl.getInstance();
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException, IOException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             System.out.print("\n\n---------------------------------------");
@@ -69,7 +71,7 @@ public class UploadPhotoAlbum extends ActionSupport implements ServletContextAwa
             return SUCCESS;
         } else {
             // non connecté
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 

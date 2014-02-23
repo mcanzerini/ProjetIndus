@@ -9,6 +9,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.MembreDao;
 import dao.MembreDaoImpl;
+import exception.NotLoggedException;
 import java.util.Calendar;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +25,7 @@ public class Connecter extends ActionSupport {
     public static final MembreDao membreDao = MembreDaoImpl.getInstance();
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException {
         HttpServletRequest request = ServletActionContext.getRequest();
         String mdpEntre = request.getParameter("password");
         String loginEntre = request.getParameter("login");
@@ -36,7 +37,7 @@ public class Connecter extends ActionSupport {
             session.put("context", Calendar.getInstance());
             return SUCCESS;
         } else {
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 

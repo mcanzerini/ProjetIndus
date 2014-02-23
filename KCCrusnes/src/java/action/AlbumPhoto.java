@@ -30,24 +30,24 @@ public class AlbumPhoto extends ActionSupport {
     private List<Photo> photos;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() {
         HttpServletRequest request = ServletActionContext.getRequest();
         idAlbum = request.getParameter("idAlbum");
-        try {
-            HibernateFactory.currentSession().clear();
-            Integer idAlbumInt = Integer.valueOf(idAlbum);
-            Album album = albumDao.find(idAlbumInt);
-            if (album != null) {
-                photos = photoDao.findByAlbum(idAlbumInt.longValue());
-                nomAlbum = album.getNom();
-            } else {
-                // erreur l'id ne coorespond a aucun album
-                return ERROR;
-            }
-        } catch (NumberFormatException e) {
-            // erreur l'id n'est pas un int
+        //try {
+        HibernateFactory.currentSession().clear();
+        Integer idAlbumInt = Integer.valueOf(idAlbum);
+        Album album = albumDao.find(idAlbumInt);
+        if (album != null) {
+            photos = photoDao.findByAlbum(idAlbumInt.longValue());
+            nomAlbum = album.getNom();
+        } else {
+            // erreur l'id ne coorespond a aucun album
             return ERROR;
         }
+        // } catch (NumberFormatException e) {
+        // erreur l'id n'est pas un int
+        //   return ERROR;
+        // }
         return SUCCESS;
     }
 

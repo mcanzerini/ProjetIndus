@@ -34,9 +34,9 @@
                         </ul>
                     <li class="contact"> <a href="Contact">Contact</a> </li>
                     <li class="lien"> <a href="References">R&eacute;f&eacute;rences</a> </li>
-                    <s:if test="#session.logined == 'true'">
+                        <s:if test="#session.logined == 'true'">
                         <li class="deconnexion pull-right"> <a href="Deconnexion">Deconnexion</a> </li>
-                    </s:if>
+                        </s:if>
                 </ul>
             </div>
         </div>

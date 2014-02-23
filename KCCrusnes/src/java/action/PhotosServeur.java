@@ -7,6 +7,7 @@ package action;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import exception.NotLoggedException;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class PhotosServeur extends ActionSupport {
     private List<String> files;
 
     @Override
-    public String execute() {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -63,8 +64,7 @@ public class PhotosServeur extends ActionSupport {
             }
             return SUCCESS;
         } else {
-            return ERROR;
-            //non connecté
+            throw new NotLoggedException();
         }
     }
 

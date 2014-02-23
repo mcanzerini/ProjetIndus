@@ -10,6 +10,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.LicencieDao;
 import dao.LicencieDaoImpl;
+import exception.NotLoggedException;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -27,7 +28,7 @@ public class PreModifLicencie extends ActionSupport {
     private Licencie licencie;
 
     @Override
-    public String execute() {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             myErrors = (List<String>) session.get("myErrors");
@@ -45,7 +46,7 @@ public class PreModifLicencie extends ActionSupport {
             return SUCCESS;
         } else {
             // non connecté
-            return ERROR;
+            throw new NotLoggedException();
         }
 
     }

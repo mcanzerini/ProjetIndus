@@ -50,7 +50,7 @@
                                     <input type="hidden" value="competition" name="type"/>
                                 </div>
                             </div>
-                            <div class="control-group" id="controlDate">
+                            <div class="control-group" id="controlinputDate">
                                 <label class="control-label" for="inputDate">Date</label>
                                 <div class="controls">
 
@@ -147,7 +147,7 @@
                                     <input type="hidden" id="idEvenementModif" name="idEvenement"/>
                                 </div>
                             </div>
-                            <div class="control-group" id="controlDate">
+                            <div class="control-group" id="controlinputModifDate">
                                 <label class="control-label" for="inputDate">Date</label>
                                 <div class="controls">
 
@@ -821,33 +821,49 @@
         <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="bootstrap/js/bootstrap-datepicker.js"></script>
         <script type="text/javascript">
-                                            var mois = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
 
-                                            $('#dp3').datepicker({
-                                                weekStart: 1,
-                                                language: "fr"
+                                            $(document).ready(function() {
+                                                $('#dp3').datepicker().on('changeDate', function(ev) {
+                                                    checkDateFormat('inputDate');
+                                                    $('#dp3').datepicker('hide');
+                                                });
+                                                $('#dp4').datepicker().on('changeDate', function(ev) {
+                                                    checkDateFormat('inputModifDate');
+                                                    $('#dp4').datepicker('hide');
+                                                });
+
+                                                $('#dp3').datepicker({
+                                                    weekStart: 1,
+                                                    language: "fr"
+                                                });
+                                                $('#dp4').datepicker({
+                                                    weekStart: 1,
+                                                    language: "fr"
+                                                });
+                                                $(".cal").addClass("active");
+                                                $(function() {
+                                                    $('a').tooltip();
+                                                });
                                             });
-                                            $('#dp4').datepicker({
-                                                weekStart: 1,
-                                                language: "fr"
-                                            });
-                                            $(".cal").addClass("active");
-                                            $(function() {
-                                                $('a').tooltip();
-                                            });
+
+                                            var mois = ['janvier', 'fevrier', 'mars', 'avril', 'mai', 'juin', 'juillet', 'aout', 'septembre', 'octobre', 'novembre', 'decembre'];
 
                                             var error = false;
                                             function checkDateFormat(id) {
-                                                var date = $('#inputDate').val();
-                                                if (!date.match(/^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)[0-9][0-9]/)) {
-                                                    $('#controlDate').addClass('error');
+                                                var date = $("#" + id).val();
+                                                if (!date.match(/^(0?[1-9]|[12][0-9]|3[01])[/](0?[1-9]|1[012])[/](19|20)[0-9][0-9]/)) {
+                                                    $('#control' + id).addClass('error');
                                                     //$('#formCompet').removeClass('span6');
                                                     //$('#formCompet').addClass('span10');
                                                     if (!error) {
                                                         $(id).after("<span id='helpDateFormat' class='help-inline'>Attention ! La doit doit être de type jj/mm/aaaa </span>");
                                                         error = true;
                                                     }
-                                                    $('#submitNewEvenement').addClass('disabled');
+                                                    if (id == "inputDate") {
+                                                        $('#submitNewEvenement').attr('disabled', true);
+                                                    } else {
+                                                        $('#submitModifEvenement').attr('disabled', true);
+                                                    }
                                                 } else {
                                                     if (error) {
                                                         $('#controlDate').removeClass('error');
@@ -856,18 +872,13 @@
                                                         //$('#formCompet').addClass('span6');
                                                     }
                                                     error = false;
-                                                    $('#submitNewEvenement').removeClass('disabled');
+                                                    if (id == "inputDate") {
+                                                        $('#submitNewEvenement').removeAttr('disabled');
+                                                    } else {
+                                                        $('#submitModifEvenement').removeAttr('disabled');
+                                                    }
                                                 }
                                             }
-
-                                            $('#dp3').datepicker().on('changeDate', function(ev) {
-                                                checkDateFormat('#dp3');
-                                                $('#dp3').datepicker('hide');
-                                            });
-                                            $('#dp4').datepicker().on('changeDate', function(ev) {
-                                                checkDateFormat('#dp4');
-                                                $('#dp4').datepicker('hide');
-                                            });
 
                                             function showDeleteEvenement(index) {
                                                 $("#idEvenement").attr("value", index);

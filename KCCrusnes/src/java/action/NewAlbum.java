@@ -13,6 +13,7 @@ import dao.AlbumDao;
 import dao.AlbumDaoImpl;
 import dao.EvenementDao;
 import dao.EvenementDaoImpl;
+import exception.NotLoggedException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
@@ -34,7 +35,7 @@ public class NewAlbum extends ActionSupport {
     private String nomAlbum;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -62,7 +63,7 @@ public class NewAlbum extends ActionSupport {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 

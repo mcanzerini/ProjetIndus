@@ -5,12 +5,12 @@
  */
 package action;
 
-import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.AlbumDao;
 import dao.AlbumDaoImpl;
+import exception.NotLoggedException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
@@ -30,7 +30,7 @@ public class NewAlbumInde extends ActionSupport {
     private String nomAlbum;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -48,7 +48,7 @@ public class NewAlbumInde extends ActionSupport {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 

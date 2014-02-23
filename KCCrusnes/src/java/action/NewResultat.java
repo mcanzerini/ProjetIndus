@@ -15,6 +15,7 @@ import dao.LicencieDao;
 import dao.LicencieDaoImpl;
 import dao.ResultatDao;
 import dao.ResultatDaoImpl;
+import exception.NotLoggedException;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.List;
@@ -38,7 +39,7 @@ public class NewResultat extends ActionSupport {
     private List<Resultat> resultats;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -125,7 +126,7 @@ public class NewResultat extends ActionSupport {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 

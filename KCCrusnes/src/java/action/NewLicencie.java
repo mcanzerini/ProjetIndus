@@ -14,6 +14,7 @@ import dao.AdresseDaoImpl;
 import dao.HibernateFactory;
 import dao.LicencieDao;
 import dao.LicencieDaoImpl;
+import exception.NotLoggedException;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -37,7 +38,7 @@ public class NewLicencie extends ActionSupport {
     private Long idLicencie;
 
     @Override
-    public String execute() {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -136,7 +137,7 @@ public class NewLicencie extends ActionSupport {
             }
         } else {
             // non connecté
-            return ERROR;
+            throw new NotLoggedException();
         }
 
     }

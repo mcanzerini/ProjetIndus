@@ -20,6 +20,7 @@ public class References extends ActionSupport {
     private List<Reference> references;
     public static final ReferenceDao referenceDao = ReferenceDaoImpl.getInstance();
 
+    @Override
     public String execute() throws Exception {
         references = referenceDao.findAll();
         return SUCCESS;

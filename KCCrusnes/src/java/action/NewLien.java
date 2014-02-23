@@ -1,11 +1,15 @@
 package action;
 
 import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.HibernateFactory;
 import dao.ReferenceDao;
 import dao.ReferenceDaoImpl;
+import exception.NotLoggedException;
 import java.io.File;
+import java.io.IOException;
+import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import model.Reference;
@@ -25,32 +29,37 @@ public class NewLien extends ActionSupport implements ServletContextAware {
     public static final ReferenceDao referenceDao = ReferenceDaoImpl.getInstance();
 
     @Override
-    public String execute() throws Exception {
-        System.out.print("\n\n---------------------------------------");
-        HttpServletRequest request = ServletActionContext.getRequest();
-        String lien = request.getParameter("lien");
-        context = ServletActionContext.getServletContext();
+    public String execute() throws NotLoggedException, IOException {
+        Map session = ActionContext.getContext().getSession();
+        if (session.get("logined") != null && session.get("logined").equals("true")) {
+            System.out.print("\n\n---------------------------------------");
+            HttpServletRequest request = ServletActionContext.getRequest();
+            String lien = request.getParameter("lien");
+            context = ServletActionContext.getServletContext();
 
-        String fileName = fileFileName;
-        System.out.print("\nFile ");
-        System.out.print("; name:" + fileName);
-        System.out.print("; contentType: " + fileContentType);
-        System.out.print("; length: " + file.length());
-        System.out.println("; path: " + context.getRealPath(""));
-        String path = context.getRealPath("") + ActionUtils.PATH_TO_LIEN;
+            String fileName = fileFileName;
+            System.out.print("\nFile ");
+            System.out.print("; name:" + fileName);
+            System.out.print("; contentType: " + fileContentType);
+            System.out.print("; length: " + file.length());
+            System.out.println("; path: " + context.getRealPath(""));
+            String path = context.getRealPath("") + ActionUtils.PATH_TO_LIEN;
 
-        Reference ref = new Reference();
-        ref.setImage(fileName);
-        ref.setLien(lien);
-        Transaction t = HibernateFactory.currentSession().beginTransaction();
-        referenceDao.create(ref);
-        FilesUtil.saveFile(file, fileFileName, path);
-        if (!t.wasCommitted()) {
-            t.commit();
+            Reference ref = new Reference();
+            ref.setImage(fileName);
+            ref.setLien(lien);
+            Transaction t = HibernateFactory.currentSession().beginTransaction();
+            referenceDao.create(ref);
+            FilesUtil.saveFile(file, fileFileName, path);
+            if (!t.wasCommitted()) {
+                t.commit();
+            }
+
+            System.out.println("\n---------------------------------------\n");
+            return SUCCESS;
+        } else {
+            throw new NotLoggedException();
         }
-
-        System.out.println("\n---------------------------------------\n");
-        return SUCCESS;
     }
 
     public File getFile() {

@@ -225,7 +225,7 @@
 
         <jsp:include page="includes/footer.jsp"/>
         <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="bootstrap/js/bootstrap.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
         <script src="bootstrap/js/bootstrap-datepicker.js"></script>
         <script src="resources/js/purl.js"></script>
         <script type="text/javascript">
@@ -241,7 +241,7 @@
                                                             $('#inputSaison').after("<span id='helpSaisonFormat' class='help-inline'>Attention ! La date doit être de type année/année+1 </span>");
                                                             errorSaison = true;
                                                         }
-                                                        $('#submitSaison').addClass('disabled');
+                                                        $('#submitSaison').attr('disabled', true);
                                                     } else {
                                                         if (errorSaison) {
                                                             $('#controlSaison').removeClass('error');
@@ -250,7 +250,7 @@
                                                             //$('#formCompet').addClass('span6');
                                                         }
                                                         errorSaison = false;
-                                                        $('#submitSaison').removeClass('disabled');
+                                                        $('#submitSaison').removeAttr('disabled');
                                                     }
                                                 }
 
@@ -265,7 +265,7 @@
                                                             $('#dp3').after("<span id='helpDateFormat' class='help-inline'>Attention ! La doit doit être de type jj/mm/aaaa </span>");
                                                             error = true;
                                                         }
-                                                        $('#submitCompetition').addClass('disabled');
+                                                        $('#submitCompetition').attr('disabled', true);
                                                     } else {
                                                         if (error) {
                                                             $('#controlDate').removeClass('error');
@@ -274,7 +274,7 @@
                                                             //$('#formCompet').addClass('span6');
                                                         }
                                                         error = false;
-                                                        $('#submitCompetition').removeClass('disabled');
+                                                        $('#submitCompetition').removeAttr('disabled');
                                                     }
                                                 }
 

@@ -24,6 +24,7 @@ public class ResultatsGrade extends ActionSupport {
     private List<Licencie> licencies;
     private String grade;
 
+    @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         grade = request.getParameter("grade");

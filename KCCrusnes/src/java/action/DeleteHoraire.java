@@ -5,12 +5,12 @@
  */
 package action;
 
-import static com.opensymphony.xwork2.Action.ERROR;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.HoraireDao;
 import dao.HoraireDaoImpl;
+import exception.NotLoggedException;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import model.Horaire;
@@ -24,7 +24,8 @@ public class DeleteHoraire extends ActionSupport {
 
     public static final HoraireDao horaireDao = HoraireDaoImpl.getInstance();
 
-    public String execute() {
+    @Override
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -36,7 +37,7 @@ public class DeleteHoraire extends ActionSupport {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 }

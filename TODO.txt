@@ -14,30 +14,35 @@ OK - éditer mieux l'histoire du club (pour le moment problème quand saut de li
 - utiliser le plus souvent possible document.onReady()
 KO - rendre compatible sur Firefox, Google Chrome, Safari, IE (En suspend voir question 5)
 - Vérifier responsive
-- Gérer la taille des photos a envoyer
-- Gérer le type des photos a envoyer
-- Gérer les exceptions (faire un page toute belle pour la plupart des exception hihi)
+OK - Gérer la taille des photos a envoyer
+OK - Gérer le type des photos a envoyer
+OK - Gérer les exceptions (faire un page toute belle pour la plupart des exception hihi)
 - Refactoring de code
-- Supprimer les packages example de NetBeans
+OK - Supprimer les packages example de NetBeans
 - Ajouter un system de log (voir cour spring)
 - Mettre les nom des photos event et liens sur le serveur du type : event${id}.jpg et lien${id}.jpg
 - Ajouter les type d'événement Sorties et Stages
 OK - Dans calendrier rajouter un lien vers l'année courante aussi
 OK - Mettre les mêmes styles de tableaux dans le calendrier pour tous les mois (stripped, hover, ...)
 OK - Mettre Redirection vers la même page dans le calendrier (quand on supprimer on est d'office renvoyer à l'année courante)
-- Modification d'événement : préremplir la date ET faire un autre bouton modifier photo
+OK - Modification d'événement : préremplir la date 
+- Modification d'événement : faire un autre bouton modifier photo
 - Mettre au point un system de back up de la base (toutes les semaines ?)
 - Rajouter des stats
 - Permettre de changer le mot passe
 - Taille minimale body dans resultats compétitions
 OK - Ajouter un lien aussi en non connecté
-- Faire plus de vérifications javascript dans les formulaires (disable submit si pas bien rempli)
-- Ajouter le partage sur les réseaux sociaux
+OK - Faire plus de vérifications javascript dans les formulaires (disable submit si pas bien rempli)
+KO - Ajouter le partage sur les réseaux sociaux (En suspend voir question 8)
 - Reflechir sur les catégorie de poids et age
 - Supprimer au max les warnings et erreurs HTML CSS JS
 - Tester W3C
-- Disable le boutton de recherche si la date n'est pas bonne dans la recherche de resultat
-- Rajouter dans tous les formulaires le type de l'input number
+OK - Disable le boutton de recherche si la date n'est pas bonne dans la recherche de resultat
+OK - Rajouter dans tous les formulaires le type de l'input number
+KO - Listing PDF (en suspend : voir questions 7)
+- Encodage paiements cotisations
+OK - Le menu en mode tablette de marche pas pour les sous-items
+- CRUD Résultat par équipe
 
 
 Questions :
@@ -48,4 +53,6 @@ Questions :
 3- Rendre le carousel cliquable ?
 4- Utiliser ckeditor pour l'histoire ?
 5- Télécharger IE 11 ?
-6- quels critères recherche licencié ?
+6- Quels critères recherche licencié ?
+7- Quels listings ?
+8- Partage réseaux sociaux ?

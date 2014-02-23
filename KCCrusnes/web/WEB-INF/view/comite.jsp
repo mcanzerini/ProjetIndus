@@ -34,7 +34,7 @@
                 <s:else>
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="myModalLabel">Modification</h3>
+                        <h3 id="modifMembreLabel">Modification</h3>
                     </div>
                     <form id="modifMembreForm" action="ModifMembre" method="POST" class="form-horizontal">
                         <div class="modal-body">
@@ -146,7 +146,18 @@
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
-                                                    $(".club").addClass("active");
+
+                                                    $(document).ready(function() {
+                                                        $(".club").addClass("active");
+                                                        var errorMessage = "<s:property value="#session.errorMessage"/>";
+        <s:set var="errorMessage" scope="session" value=""/>
+                                                        if (errorMessage != "") {
+                                                            //alert(errorMessage);
+                                                            $('#modifMembreLabel').append("<div class='span11 alert alert-block alert-error fade in'><button type='button' class='close' data-dismiss='alert'>×</button><strong>" + errorMessage + "</strong</div>");
+                                                            $("#modifMembre").modal();
+                                                        }
+                                                    });
+
                                                     $(function() {
                                                         $('a').tooltip();
                                                         $('#navbar').affix();

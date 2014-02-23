@@ -5,7 +5,9 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.LicencieDao;
 import dao.LicencieDaoImpl;
+import exception.NotLoggedException;
 import java.io.File;
+import java.io.IOException;
 import java.util.Map;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +28,7 @@ public class UploadPhotoLicencie extends ActionSupport implements ServletContext
     public static final LicencieDao licencieDao = LicencieDaoImpl.getInstance();
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException, IOException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             System.out.print("\n\n---------------------------------------");
@@ -66,7 +68,7 @@ public class UploadPhotoLicencie extends ActionSupport implements ServletContext
             System.out.println("\n---------------------------------------\n");
             return SUCCESS;
         } else {
-            return ERROR;
+            throw new NotLoggedException();
             //non connecté
         }
     }

@@ -13,6 +13,7 @@ import dao.EntraineurDao;
 import dao.EntraineurDaoImpl;
 import dao.LicencieDao;
 import dao.LicencieDaoImpl;
+import exception.NotLoggedException;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import model.Entraineur;
@@ -29,7 +30,7 @@ public class NewEntraineur extends ActionSupport {
     public static final LicencieDao licencieDao = LicencieDaoImpl.getInstance();
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -57,11 +58,14 @@ public class NewEntraineur extends ActionSupport {
                     entraineurDao.create(nouvelEntraineur);
                 } else {
                     // erreur le licencie a deja un poste d'entraineur
+                    session.put("errorMessage", "Le licencié a déjà un poste d'entraineur");
+                    session.put("action", "new");
                     return ERROR;
                 }
 
             } catch (NumberFormatException e) {
                 // Rajouter un message d'erreur propre
+                session.put("action", "new");
                 return ERROR;
             }
 
@@ -69,7 +73,7 @@ public class NewEntraineur extends ActionSupport {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 }

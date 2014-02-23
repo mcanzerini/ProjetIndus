@@ -8,6 +8,7 @@ package action;
 import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import exception.NotLoggedException;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class AjoutLicencie extends ActionSupport {
     private List<String> myErrors;
 
     @Override
-    public String execute() {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             myErrors = (List<String>) session.get("myErrors");
@@ -29,8 +30,7 @@ public class AjoutLicencie extends ActionSupport {
             }
             return SUCCESS;
         } else {
-            // non connecté
-            return ERROR;
+            throw new NotLoggedException();
         }
 
     }

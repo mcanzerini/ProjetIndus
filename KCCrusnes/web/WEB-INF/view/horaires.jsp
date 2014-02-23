@@ -40,8 +40,8 @@
                     <form id="newHoraireForm" action="NewHoraire" method="POST" class="form-horizontal">
                         <div class="modal-body">
 
-                            <div class="control-group">
-                                <label class="control-label" for="inputPriorite">Groupe</label>
+                            <div class="control-group" id="controlGroupe">
+                                <label id="labelGroupe" class="control-label" for="inputPriorite">Groupe</label>
                                 <div class="controls">
                                     <input type="text" id="groupeId" autocomplete="off" data-provide="typeahead" name="groupe" form="newHoraireForm"/>
                                 </div>
@@ -161,9 +161,10 @@
                                         });
                                         var jours = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
                                         var joursMaj = ['LUNDI', 'MARDI', 'MERCREDI', 'JEUDI', 'VENDREDI', 'SAMEDI', 'DIMANCHE'];
+                                        var groupesString = new Array();
                                         function showNewHoraire() {
                                             var groupes = $('.groupe').toArray();
-                                            var groupesString = new Array();
+                                            groupesString = new Array();
                                             for (i = 0; i < groupes.length; i++)
                                             {
                                                 var groupe = $('.groupe').eq(i).text();
@@ -203,10 +204,19 @@
 
                                         function validerHoraire() {
                                             var jourMaj = $('#jourId').val().toUpperCase();
+                                            var groupe = $('#groupId').val();
+                                            var error = false;
                                             if ($.inArray(jourMaj, joursMaj) === -1) {
+                                                error = true;
                                                 $('#controlJour').addClass('error');
                                                 $('#labelJour').text("Jour invalide");
-                                            } else {
+                                            }
+                                            if ($.inArray(groupe, groupesString) === -1) {
+                                                error = true;
+                                                $('#controlGroupe').addClass('error');
+                                                $('#labelGroupe').text("Groupe invalide");
+                                            }
+                                            if (!error) {
                                                 $('#newHoraireForm').submit();
                                             }
                                         }

@@ -20,6 +20,7 @@ public class DojoClub extends ActionSupport {
     private Dojo dojo;
     public static final DojoDao dojoDao = DojoDaoImpl.getInstance();
 
+    @Override
     public String execute() throws Exception {
         dojo = dojoDao.find(1);
         return SUCCESS;

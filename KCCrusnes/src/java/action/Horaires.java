@@ -21,6 +21,7 @@ public class Horaires extends ActionSupport {
     private List<Horaire> horaires;
     private static final HoraireDao horaireDao = HoraireDaoImpl.getInstance();
 
+    @Override
     public String execute() throws Exception {
         horaires = horaireDao.findAll();
         return SUCCESS;

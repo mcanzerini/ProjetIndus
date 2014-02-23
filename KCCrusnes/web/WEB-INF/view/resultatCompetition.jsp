@@ -17,7 +17,7 @@
         <jsp:include page="includes/petitMenu.jsp"/>
         <jsp:include page="includes/grosMenu.jsp"/>
         <jsp:include page="includes/loading.jsp"/>
-        <div class="row-fluid">
+        <div class="row-fluid" id="minimum">
             <!-- Modal -->
             <div id="deleteResultat" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <s:if test="#session.logined != 'true'">
@@ -100,7 +100,7 @@
                                         function nouvelleLigneIndividuelle(idCompetition) {
                                             if (!ligne) {
                                                 ligne = true;
-                                                $('tbody').append("<tr><td><input id='individuel' type='hidden' value='true'/><input onBlur='getFirstNames()' autocomplete='off' data-provide='typeahead' data-source='' id='inputNom' type='text'/></td><td><input onBlur='getNames()' autocomplete='off' data-provide='typeahead' data-source='' id='inputPrenom' type='text'/></td><td><input id='place' type='text'/><button onclick='submit(" + idCompetition + ")' class='btn btn-primary pull-right'>Valider</button><button onclick='annulerNouvelleLigne()' class='btn btn-primary pull-right'>Annuler</button></td></tr>");
+                                                $('tbody').append("<tr><td><input id='individuel' type='hidden' value='true'/><input oninput='checkAdd()' onBlur='getFirstNames()' autocomplete='off' data-provide='typeahead' data-source='' id='inputNom' type='text'/></td><td><input onBlur='getNames()' autocomplete='off' data-provide='typeahead' data-source='' id='inputPrenom' oninput='checkAdd()'  type='text'/></td><td><input id='place' oninput='checkAdd()' type='number'/><button id='add' disabled onclick='submit(" + idCompetition + ")' class='btn btn-primary pull-right'>Valider</button><button onclick='annulerNouvelleLigne()' class='btn btn-primary pull-right'>Annuler</button></td></tr>");
                                                 getNamesFirstNames();
                                             }
                                         }
@@ -178,6 +178,7 @@
                                         }
                                         var noms = new Array();
                                         var prenoms = new Array();
+                                        var nomsPrenoms = new Array();
                                         function getNamesFirstNames() {
                                             request = $.ajax({
                                                 url: "NomsPrenoms",
@@ -191,12 +192,14 @@
                                                     var i = 0;
                                                     noms = [];
                                                     prenoms = [];
+                                                    nomsPrenoms = [];
                                                     $.each(obj, function() {
                                                         //if ($.inArray(this['prenom'], prenoms) === -1) {
                                                         prenoms[i] = this['prenom'];
                                                         //}
                                                         //if ($.inArray(this['nom'], noms) === -1) {
                                                         noms[i] = this['nom'];
+                                                        nomsPrenoms[i] = this['prenom'] + " " + this['nom'];
                                                         //}
                                                         i++;
                                                     });
@@ -241,7 +244,29 @@
 
                                         function modifierResultat(id, index, place) {
                                             $('tbody tr').eq(index).children().eq(2).empty();
-                                            $('tbody tr').eq(index).children().eq(2).append("<input id='place' value='" + place + "' type='text'/> <button class='btn btn-primary pull-right' onclick='modifier(" + id + ")'>Valider</button><button class='btn btn-primary pull-right' onclick='annuler(" + id + " , " + place + ")'>Annuler</button>");
+                                            $('tbody tr').eq(index).children().eq(2).append("<input id='place" + id + "' oninput='checkModif(" + id + ")' value='" + place + "' type='number'/> <button id='modif" + id + "' class='btn btn-primary pull-right' onclick='modifier(" + id + ")'>Valider</button><button class='btn btn-primary pull-right' onclick='annuler(" + id + " , " + place + ")'>Annuler</button>");
+                                        }
+
+                                        function checkModif(id) {
+                                            var val = $('#place' + id).val();
+                                            if (!val.match(/^[0-9]+/)) {
+                                                $('#modif' + id).attr('disabled', true);
+                                                //$('#modif' + id).click();
+                                            } else {
+                                                $('#modif' + id).removeAttr('disabled');
+                                            }
+                                        }
+
+                                        function checkAdd() {
+                                            var val = $('#place').val();
+                                            var nom = $('#inputNom').val();
+                                            var prenom = $('#inputPrenom').val();
+                                            if (!val.match(/^[0-9]+/) || -1 == $.inArray(prenom + " " + nom, nomsPrenoms)) {
+                                                $('#add').attr('disabled', true);
+                                                //$('#modif' + id).click();
+                                            } else {
+                                                $('#add').removeAttr('disabled');
+                                            }
                                         }
 
                                         function annuler(id, place) {
@@ -265,7 +290,7 @@
                                                     //fin chargement
                                                     ligne = false;
                                                     $('#loadModal').modal('hide');
-                                                }
+                                                },
                                             });
                                         }
 

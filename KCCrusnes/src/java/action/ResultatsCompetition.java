@@ -34,6 +34,7 @@ public class ResultatsCompetition extends ActionSupport {
     private String niveau;
     private String resultatString;
 
+    @Override
     public String execute() throws Exception {
         HttpServletRequest request = ServletActionContext.getRequest();
         String idCompetitionString = request.getParameter("idCompetition");

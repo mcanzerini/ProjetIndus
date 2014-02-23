@@ -17,6 +17,26 @@
                 <param name="actionName">Index</param>
             </result>
         </action>-->
+        <global-results>
+            <result name="exception">/error.jsp</result>
+            <result name="sql_exception">/sql_exception.jsp</result>
+            <result name="io_exception">/io_exception.jsp</result>
+            <result name="runtime_exception">/error.jsp</result>
+            <result name="error">/error.jsp</result>
+            <result name="not_logged_exception" type="redirectAction">
+                <param name="actionName">Connexion</param>
+            </result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping exception="java.sql.*" result="sql_exception"></exception-mapping>
+            <exception-mapping exception="java.lang.Exception" result="exception"></exception-mapping>
+            <exception-mapping exception="java.lang.IOException" result="io_exception"></exception-mapping>
+            <exception-mapping exception="java.lang.Error" result="error"></exception-mapping>
+            <exception-mapping exception="java.lang.RuntimeException" result="runtime_exception"></exception-mapping>
+            <exception-mapping exception="exception.NotLoggedException" result="not_logged_exception"></exception-mapping>
+        </global-exception-mappings>
+
         <action name="AjoutLicencie" class="action.AjoutLicencie">
             <result name="success">/WEB-INF/view/ajoutLicencie.jsp</result>
         </action>
@@ -202,6 +222,9 @@
             <result name="success" type="redirectAction">
                 <param name="actionName">Entraineurs</param>
             </result>
+            <result name="error" type="redirectAction">
+                <param name="actionName">Entraineurs</param>
+            </result>
         </action>
         <action name="NewEvenement" class="action.NewEvenement">
             <interceptor-ref name="exception"/>
@@ -279,6 +302,9 @@
         </action>
         <action name="ModifMembre" class="action.ModifMembre">
             <result name="success" type="redirectAction">
+                <param name="actionName">Comite</param>
+            </result>
+            <result name="error" type="redirectAction">
                 <param name="actionName">Comite</param>
             </result>
         </action>

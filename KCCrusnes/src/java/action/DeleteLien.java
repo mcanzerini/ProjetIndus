@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.HibernateFactory;
 import dao.ReferenceDao;
 import dao.ReferenceDaoImpl;
+import exception.NotLoggedException;
 import java.io.File;
 import java.util.Map;
 import javax.servlet.ServletContext;
@@ -31,7 +32,7 @@ public class DeleteLien extends ActionSupport {
     private ServletContext context;
 
     @Override
-    public String execute() throws Exception {
+    public String execute() throws NotLoggedException {
         Map session = ActionContext.getContext().getSession();
         if (session.get("logined") != null && session.get("logined").equals("true")) {
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -62,7 +63,7 @@ public class DeleteLien extends ActionSupport {
         } else {
             // L'utilisateur n'est pas connecte
             // Gerer les erreurs
-            return ERROR;
+            throw new NotLoggedException();
         }
     }
 
